@@ -1,0 +1,83 @@
+/* 划词翻译 */
+
+/* 背景大小 */
+#query-result {
+	position: absolute;
+	right: 5%;
+	top: 10%;
+	z-index: 800;
+	padding: 10px;
+	width: 220px;
+	min-width: 290px;
+	min-height: 60px;
+	background-color: #d0dfe6;
+	color: #776e65;
+	font-size: 8px;
+}
+
+#query-result p {
+	display: block;
+	margin-block-start: 0.45em;
+	margin-block-end: 0.45em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+}
+
+a,
+audio {
+	color: #252525;
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	color: #0d40e8d9;
+	text-decoration: none;
+}
+
+a:active {
+	color: #0d40e8d9;
+}
+
+/* 结果页-查询单词 */
+#word-query {
+	font-size: 16px;
+	font-weight: bold;
+	color: #be061a;
+}
+
+/* 错误提示 */
+#word-error {
+	color: red;
+	font-weight: bold;
+}
+
+#word-error>p:last-child {
+	text-align: right;
+}
+
+/* 单词基本 */
+/* #word-basic {} */
+
+#word-basic i {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#word-basic a {
+	cursor: pointer;
+}
+
+/* 词释 */
+/* #word-explains {} */
+
+#word-explains>p>span:first-child {
+	color: black;
+	text-align: center;
+	background-color: #5ea9df;
+	min-width: 30px;
+	display: inline-block;
+}

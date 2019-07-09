@@ -1,0 +1,126 @@
+/* 英文请求API,正确的英文 */
+{
+	"basic": {
+		"explains": [" adj. 好的；优良的；愉快的；虔诚的",
+			"n. 好处；善行；慷慨的行为",
+			"adv. 好",
+			"n. (Good)人名；(英)古德；(瑞典)戈德"
+		],
+		"phonetic": "gʊd",
+		"uk-phonetic": "gʊd",
+		"uk-speech": "http://openapi.youdao.com/ttsapi?q=good&langType=en&sign=CB88D9D209BBAE4EA6CD284860F58D31&salt=1562246692759&voice=5&format=mp3&appKey=1666f504b10dfd2c",
+		"us-phonetic": "ɡʊd",
+		"us-speech": "http://openapi.youdao.com/ttsapi?q=good&langType=en&sign=CB88D9D209BBAE4EA6CD284860F58D31&salt=1562246692759&voice=6&format=mp3&appKey=1666f504b10dfd2c",
+		"wfs": [{
+			"wf": {
+				"name": "比较级",
+				"value": "better"
+			}
+		}, {
+			"wf": {
+				"name": "最高级",
+				"value": "best"
+			}
+		}]
+	},
+	"dict": {
+		"url": "yddict://m.youdao.com/dict?le=eng&q=good"
+	},
+	"errorCode": "0",
+	"l": "en2zh-CHS",
+	"query": "good",
+	"returnPhrase": [
+		"good"
+	],
+	"speakUrl": "http://openapi.youdao.com/ttsapi?q=good&langType=en&sign=CB88D9D209BBAE4EA6CD284860F58D31&salt=1562246692759&voice=4&format=mp3&appKey=1666f504b10dfd2c",
+	"tSpeakUrl": "http://openapi.youdao.com/ttsapi?q=%E5%A5%BD&langType=zh-CHS&sign=923F329AEFA7E2BBCFA37D01F83BEB0D&salt=1562246692759&voice=4&format=mp3&appKey=1666f504b10dfd2c",
+	"translation": [
+		"好"
+	],
+	"web": [{
+		"key": "good",
+		"value": ["好的", "善", "良好"]
+	}, {
+		"key": "Good Friday",
+		"value": ["耶稣受难节", "耶稣受难日", "受难节", "受难日"]
+	}, {
+		"key": "Giffen Good",
+		"value": ["吉芬商品", "吉芬物品", "吉芬品"]
+	}],
+	"webdict": {
+		"url": "http://m.youdao.com/dict?le=eng&q=good"
+	}
+}
+
+
+/* 英文翻译,错误的英文 */
+{
+	"dict": {
+		"url": "yddict://m.youdao.com/dict?le=eng&q=+goed"
+	},
+	"errorCode": "0",
+	"l": "en2zh-CHS",
+	"query": "goed",
+	"speakUrl": "http://openapi.youdao.com/ttsapi?q=+goed&langType=en&sign=59C2D06E15DC28272978FE4269D2926C&salt=1562575449608&voice=4&format=mp3&appKey=1666f504b10dfd2c",
+	"tSpeakUrl": "http://openapi.youdao.com/ttsapi?q=%E5%8E%BB&langType=zh-CHS&sign=7041E526F93B3B747B01329EE88A736D&salt=1562575449608&voice=4&format=mp3&appKey=1666f504b10dfd2c",
+	"translation": [
+		"去"
+	],
+	"web": [{
+		"key": "GOED",
+		"value": [
+			"州长经济发展办公室",
+			"经济发展办公室"
+		]
+	}, {
+		"key": "Yeogo goed",
+		"value": [
+			"女高怪谈"
+		]
+	}, {
+		"key": "keurt goed",
+		"value": [
+			"批准"
+		]
+	}]
+	"webdict": {
+		"url": "http://m.youdao.com/dict?le=eng&q=+goed"
+	}
+}
+
+
+/* 英文翻译,大段英文 */
+{
+	"dict": {
+		"url": "yddict://m.youdao.com/dict?le=eng&q=hello%2C+this+is+good%21"
+	},
+	"errorCode": "0",
+	"l": "en2zh-CHS",
+	"query": "hello, this is good!",
+	"speakUrl": "http://openapi.youdao.com/ttsapi?q=hello%2C+this+is+good%21&langType=en&sign=1B37143DA11D89075A17B48B9BA534E4&salt=1562579485638&voice=4&format=mp3&appKey=1666f504b10dfd2c",
+	"tSpeakUrl": "http://openapi.youdao.com/ttsapi?q=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E8%BF%99%E5%BE%88%E5%A5%BD%21&langType=zh-CHS&sign=F3F0BE6C209A0EB83FAAF0A8346792C6&salt=1562579485638&voice=4&format=mp3&appKey=1666f504b10dfd2c",
+	"translation": [
+		"你好，这很好!"
+	],
+	"webdict": {
+		"url": "http://m.youdao.com/dict?le=eng&q=hello%2C+this+is+good%21"
+	}
+}
+
+/* 英文翻译,大段英文错误 */
+{
+	"dict": {
+		"url": "yddict://m.youdao.com/dict?le=pt&q=sdo%2C+dkoc+savgcfbada+sdsa%21"
+	}
+	"errorCode": "0",
+	"l": "pt2zh-CHS",
+	"query": "sdo, dkoc savgcfbada sdsa!",
+	"speakUrl": "http://openapi.youdao.com/ttsapi?q=sdo%2C+dkoc+savgcfbada+sdsa%21&langType=pt&sign=A7F8B48855B50AD3522ADF9B3E988237&salt=1562579685982&voice=4&format=mp3&appKey=1666f504b10dfd2c",
+	"tSpeakUrl": "http://openapi.youdao.com/ttsapi?q=sdo%2C+dkoc+savgcfbada+sdsa%21&langType=zh-CHS&sign=A7F8B48855B50AD3522ADF9B3E988237&salt=1562579685982&voice=4&format=mp3&appKey=1666f504b10dfd2c",
+	"translation": [
+		"sdo, dkoc savgcfbada sdsa!"
+	],
+	"webdict": {
+		"url": "http://m.youdao.com/dict?le=pt&q=sdo%2C+dkoc+savgcfbada+sdsa%21"
+	}
+}

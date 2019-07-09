@@ -1,0 +1,82 @@
+/* 中文翻译 */
+{
+	"basic": {
+		"explains": [
+			"well",
+			"good",
+			"fine",
+			"ok"
+		],
+		"phonetic": "hào,hǎo"
+	},
+	"dict": {
+		"url": "yddict://m.youdao.com/dict?le=eng&q=%E5%A5%BD"
+	},
+	"errorCode": "0",
+	"l": "zh-CHS2zh-CHS",
+	"query": "好",
+	"returnPhrase": [
+		"好"
+	],
+	"speakUrl": "http://openapi.youdao.com/ttsapi?q=%E5%A5%BD&langType=zh-CHS&sign=33A938E3803E6CE0A2C8DA571110EC3D&salt=1562577901043&voice=4&format=mp3&appKey=1666f504b10dfd2c",
+	"tSpeakUrl": "http://openapi.youdao.com/ttsapi?q=%E5%A5%BD&langType=zh-CHS&sign=33A938E3803E6CE0A2C8DA571110EC3D&salt=1562577901043&voice=4&format=mp3&appKey=1666f504b10dfd2c",
+	"translation": [
+		"好"
+	],
+	"web": [{
+		"key": "好",
+		"value": [
+			"Good",
+			"Well",
+			"right"
+		]
+	}, {
+		"key": "准备好",
+		"value": [
+			"READY",
+			"Be prepared",
+			"get ready",
+			"to be ready for"
+		]
+	}, {
+		"key": "很好",
+		"value": ["very good",
+			"Fine",
+			"very well",
+			"it good"
+		]
+	}],
+	"webdict": {
+		"url": "http://m.youdao.com/dict?le=eng&q=%E5%A5%BD"
+	}
+}
+
+
+/* 中文翻译,错误的,返回仍然为中文 */
+{
+	"dict": {
+		"url": "yddict://m.youdao.com/dict?le=eng&q=%E5%A5%BD%E8%9A%9D"
+	},
+	"errorCode": "0",
+	"l": "zh-CHS2zh-CHS",
+	"query": "好蚝",
+	"speakUrl": "http://openapi.youdao.com/ttsapi?q=%E5%A5%BD%E8%9A%9D&langType=zh-CHS&sign=D7D34BEA38D9F83A1E85957C1EB41A75&salt=1562579192832&voice=4&format=mp3&appKey=1666f504b10dfd2c"
+	"tSpeakUrl": "http://openapi.youdao.com/ttsapi?q=%E5%A5%BD%E8%9A%9D&langType=zh-CHS&sign=D7D34BEA38D9F83A1E85957C1EB41A75&salt=1562579192832&voice=4&format=mp3&appKey=1666f504b10dfd2c"
+	"translation": [
+		"好蚝"
+	],
+	"web": [{
+		"key": "好蚝",
+		"value": [
+			"Nice Oysters"
+		]
+	}, {
+		"key": "好蠔",
+		"value": [
+			"Nice Oysters"
+		]
+	}],
+	"webdict": {
+		"url": "http://m.youdao.com/dict?le=eng&q=%E5%A5%BDX"
+	}
+}
