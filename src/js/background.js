@@ -76,7 +76,6 @@ const postDataFormat = (obj) => {
 
 /* 根据来源,选择不同的渲染函数.如果失败,返回失败情况 */
 const htmlbuilderFactory = (message, responseJson) => {
-	debugger;
 	console.log(responseJson);
 	let source = message.source || '';
 	let errorCode = responseJson.errorCode || "0";
@@ -102,7 +101,6 @@ const errorHtmlBuilder = (obj) => {
 
 /** 在popup页面中正确的查询结果 */
 const popupHtmlBuilder = (obj) => {
-	debugger;
 	// 渲染
 	let popupHtml = '';
 
@@ -140,7 +138,6 @@ const popupHtmlBuilder = (obj) => {
 
 /** 在selection页面中正确的查询结果 */
 const selectionHtmlBuilder = (obj) => {
-	debugger;
 	// 渲染
 	let popupHtml = '';
 

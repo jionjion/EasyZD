@@ -138,7 +138,6 @@ const AppTemplate = {
 	},
 	// 翻译,数组字符串
 	getWordTranslation: (args) => {
-		debugger;
 		let temp =
 			`<div id="word-translation">`;
 		for (let i in args) {
@@ -238,7 +237,6 @@ const DrawTemplate = {
 	},
 	// 翻译,数组字符串
 	getWordTranslation: (args) => {
-		debugger;
 		let temp =
 			`<div id="ZD-Ext-word-translation">`;
 		for (let i in args) {

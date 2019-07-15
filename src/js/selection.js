@@ -35,7 +35,6 @@
 		if (selectText === "" || !(/^[^\u4e00-\u9fa5]+$/.test(selectText))) {
 			return;
 		}
-		debugger;
 		// 发送消息,并执行回调
 		chrome.extension.sendMessage({
 			source: "selection",
