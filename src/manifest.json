@@ -30,7 +30,7 @@
 	"content_scripts": [{
 		"all_frames": true,
 		"css": ["css/selection.css"],
-		"js": ["js/utility.js", "js/selection.js"],
+		"js": ["js/selection.js"],
 		"matches": ["<all_urls>"]
 	}],
 

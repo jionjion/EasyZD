@@ -31,15 +31,3 @@ iss问题反馈
 
 ### 查询英语 good
 
-
-## POJO数据体
-### popup => background
-#### message
-```
-
-```
-#### sendResponse
-```
-
-```
-

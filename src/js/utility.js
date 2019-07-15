@@ -1,4 +1,4 @@
-/* 工具方法 */
+/* 工具方法,仅在调用 */
 
 /* App信息 */
 const App = {
@@ -179,6 +179,73 @@ const AppTemplate = {
 		}
 		temp += `</div>`;
 		return temp
+	}
+}
+
+/* 模板对象,划词时使用 Draw */
+const DrawTemplate = {
+	// 错误页面提示
+	getWordError: (args) => {
+		let temp = 
+			`<div id="ZD-Ext-word-error">
+				<p>
+					震惊,程序执行出现错误 X﹏X
+				</p>
+				<p id="ZD-Ext-word-error-value">${args.wordErrorValue}</p>
+			</div>`;
+		return temp;
+	},
+	// 单词
+	getWordQuery: (args) => `<div id="ZD-Ext-word-query">${args.query}</div>`,
+	// 音标 
+	getWordPhonetic: (args) => {
+		let temp =
+			`<div id="ZD-Ext-word-basic">
+			<p>
+				<span>英</span>
+				<span id="ZD-Ext-word-uk-phonetic">[${args.wordUkPhonetic}]</span>
+				<span id="ZD-Ext-word-uk-speech" data-src="${args.wordUkSpeech}">
+					<a class="ZD-Ext-a">
+						<i class="icon-volume-medium"></i>
+					</a>
+				</span>
+				<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span>美</span>
+				<span id="ZD-Ext-word-us-phonetic">[${args.wordUsPhonetic}]</span>
+				<span id="ZD-Ext-word-us-speech" data-src="${args.wordUsSpeech}">
+					<a class="ZD-Ext-a">
+						<i class="icon-volume-medium"></i>
+					</a>
+				</span>
+			</p>
+		</div>`;
+		return temp;
+	},
+	// 词释,数组字符串
+	getWordExplains: (args) => {
+		let temp =
+			`<div id="ZD-Ext-word-explains">`;
+		for (let arg of args) {
+			// 不一定会有词性前缀,如 n. adj. adv.
+			if (arg.indexOf('.') >= 0){
+				temp += `<p><span>`+ arg.split('.')[0] + '.' + `</span>&nbsp;<span>`+ arg.split('.')[1] +`</span></p>`
+			}else{
+				temp += `<p>` + arg +`</p>`
+			}
+		}
+		temp += `</div>`;
+		return temp;
+	},
+	// 翻译,数组字符串
+	getWordTranslation: (args) => {
+		debugger;
+		let temp =
+			`<div id="ZD-Ext-word-translation">`;
+		for (let i in args) {
+			temp += `<p>${args[i]}</p>`;
+		}
+		temp += `</div>`;
+		return temp;
 	}
 }
 

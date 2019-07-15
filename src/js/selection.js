@@ -35,7 +35,7 @@
 		if (selectText === "" || !(/^[^\u4e00-\u9fa5]+$/.test(selectText))) {
 			return;
 		}
-		
+		debugger;
 		// 发送消息,并执行回调
 		chrome.extension.sendMessage({
 			source: "selection",
@@ -46,18 +46,85 @@
 
 	/* 查询结果的回调函数 */
 	const buildResult = (response) => {
-		debugger;
-		console.log(response);
+		// 之前存在,则删除   @TODO  改为工具方法
+		let queryResultElementOld = document.getElementById("ZD-Ext-query-result");
+		if(Ext.isNotEmpty(queryResultElementOld)){
+			// 删除
+			document.documentElement.removeChild(queryResultElementOld);
+		}
 		
 		let queryResultElement = document.createElement("div");
-		queryResultElement.setAttribute("id","query-result");
+		queryResultElement.setAttribute("id","ZD-Ext-query-result");
 		queryResultElement.innerHTML = response;
 		
 		document.documentElement.appendChild(queryResultElement);
+		
+		// 5S后消失
+		timeoutFn = setTimeout(()=>{
+			// 重新获取,并删除
+			let queryResultElementOld = document.getElementById("ZD-Ext-query-result");
+			if(Ext.isNotEmpty(queryResultElementOld)){
+				// 删除
+				document.documentElement.removeChild(queryResultElementOld);
+			}
+		},5000);
+
+		
+		// 绑定发音
+		$wordUkSpeech = document.querySelector("#ZD-Ext-word-uk-speech");
+		if(Ext.isNotEmpty($wordUkSpeech)){
+			
+			let src = $wordUkSpeech.getAttribute("data-src");
+			let audioElement = document.createElement("audio");
+			audioElement.setAttribute("id", "ZD-Ext-word-uk-speech-audio");
+			audioElement.setAttribute("class","ZD-Ext-audio")
+			audioElement.setAttribute("src", src);	
+			$wordUkSpeech.appendChild(audioElement);
+			audioElement.addEventListener("ended", function (event) {
+				document.querySelector("#ZD-Ext-word-uk-speech-audio").load();
+			});
+			$wordUkSpeech.addEventListener("click",(e)=>{
+				document.querySelector("#ZD-Ext-word-uk-speech-audio").play();
+			});
+		}
+		
+		$wordUsSpeech = document.querySelector("#ZD-Ext-word-us-speech");
+		if(Ext.isNotEmpty($wordUsSpeech)){
+			let src = $wordUsSpeech.getAttribute("data-src");
+			let audioElement = document.createElement("audio");
+			audioElement.setAttribute("id", "ZD-Ext-word-us-speech-audio");
+			audioElement.setAttribute("src", src);	
+			$wordUsSpeech.appendChild(audioElement);		
+			audioElement.addEventListener("ended", function (event) {
+				document.querySelector("#ZD-Ext-word-us-speech-audio").load();
+			});	
+			$wordUsSpeech.addEventListener("click",(e)=>{
+				document.querySelector("#ZD-Ext-word-us-speech-audio").play();
+			})
+		}		
 	}
 
 
 	/* 事件绑定,鼠标左键松下 */
 	document.documentElement.addEventListener("mouseup", queryAtSelection);
-
+	
+	
+	/* 工具方法部分功能,拷贝 */
+	const Ext={
+		isEmpty: (obj) => {
+			for (let name in obj) {
+				return false;
+			}
+			return true;
+		},
+		// 
+		isNotEmpty: (obj) => {
+			return !(Ext.isEmpty(obj));
+		},
+		// 去除两端空格
+		trim: (str) => {
+			return str.replace(/(^\s*)|(\s*$)/g, "");
+		}
+	}
+	
 })()

@@ -146,11 +146,11 @@ const selectionHtmlBuilder = (obj) => {
 
 	// 单词
 	if(Ext.isNotEmpty(obj.query)){
-		popupHtml += AppTemplate.getWordQuery({query: obj.query});
+		popupHtml += DrawTemplate.getWordQuery({query: obj.query});
 	}
 	// 音标, 在大段翻译时,不会有音标,但是有发音
 	if(Ext.isNotEmpty(obj.basic) && Ext.isNotEmpty(obj.basic['uk-phonetic']) && Ext.isNotEmpty(obj.basic['us-phonetic'])){
-		popupHtml += AppTemplate.getWordPhonetic(
+		popupHtml += DrawTemplate.getWordPhonetic(
 		{wordUkPhonetic: obj.basic['uk-phonetic'],
 		 wordUkSpeech: obj.basic['uk-speech'],
 		 wordUsPhonetic: obj.basic['us-phonetic'],
@@ -159,11 +159,11 @@ const selectionHtmlBuilder = (obj) => {
 	}
 	// 大段翻译,优先级低于词释
 	if(Ext.isNotEmpty(obj.translation) && Ext.isEmpty(obj.basic)){
-		popupHtml += AppTemplate.getWordTranslation({translation: obj.translation});
+		popupHtml += DrawTemplate.getWordTranslation({translation: obj.translation});
 	}
 	// 词释
 	if(Ext.isNotEmpty(obj.basic) && Ext.isNotEmpty(obj.basic.explains)){
-		popupHtml += AppTemplate.getWordExplains(obj.basic.explains);
+		popupHtml += DrawTemplate.getWordExplains(obj.basic.explains);
 	}
 	return popupHtml;
 }

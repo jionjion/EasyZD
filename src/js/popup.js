@@ -48,8 +48,6 @@ const buildResult = (response) => {
 	// 绑定html
 	$queryResult.innerHTML = response;
 	// 绑定音频
-	debugger;
-	
 	$wordUkSpeech = document.querySelector("#word-uk-speech");
 	if(Ext.isNotEmpty($wordUkSpeech)){
 		
@@ -68,7 +66,6 @@ const buildResult = (response) => {
 	
 	$wordUsSpeech = document.querySelector("#word-us-speech");
 	if(Ext.isNotEmpty($wordUsSpeech)){
-debugger;
 		let src = $wordUsSpeech.getAttribute("data-src");
 		let audioElement = document.createElement("audio");
 		audioElement.setAttribute("id", "word-us-speech-audio");
@@ -78,7 +75,6 @@ debugger;
 			document.querySelector("#word-us-speech-audio").load();
 		});	
 		$wordUsSpeech.addEventListener("click",(e)=>{
-			debugger;
 			document.querySelector("#word-us-speech-audio").play();
 		})
 	}
