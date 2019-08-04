@@ -1,9 +1,8 @@
-/* App info */
 {
 	"manifest_version": 2,
 
 	"name": "ZD_Chrome_Ext",
-	"version": "0.0.002",
+	"version": "0.0.003",
 	"description": "简单的查字典功能....",
 
 	"permissions": [
