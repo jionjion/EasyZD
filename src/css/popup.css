@@ -2,121 +2,121 @@
 
 /* 背景大小 */
 body {
-	margin: 0 auto;
-	padding: 10px;
-	width: 300px;
-	min-width: 320px;
-	min-height: 60px;
-	background-color: #d0dfe6;
-	color: #776e65;
-	font-size: 14px;
+    margin: 0 auto;
+    padding: 10px;
+    width: 300px;
+    min-width: 320px;
+    min-height: 60px;
+    background-color: #d0dfe6;
+    color: #776e65;
+    font-size: 14px;
 }
 
 p {
-	display: block;
-	margin-block-start: 0.75em;
-	margin-block-end: 0.75em;
-	margin-inline-start: 0px;
-	margin-inline-end: 0px;
+    display: block;
+    margin-block-start: 0.75em;
+    margin-block-end: 0.75em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }
 
 a,
 audio {
-	color: #252525;
-	text-decoration: none;
+    color: #252525;
+    text-decoration: none;
 }
 
 a:visited {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 a:hover {
-	color: #0d40e8d9;
-	text-decoration: none;
+    color: #0d40e8d9;
+    text-decoration: none;
 }
 
 a:active {
-	color: #0d40e8d9;
+    color: #0d40e8d9;
 }
 
 .query-form {
-	position: relative;
-	margin: 0;
-	border: none;
-	border-radius: 3px;
+    position: relative;
+    margin: 0;
+    border: none;
+    border-radius: 3px;
 }
 
 #query-txt {
-	width: 98%;
-	height: 30px;
-	margin: 0px 0px;
-	padding-left: 0.35rem;
-	border-radius: 5px;
-	border: none;
+    width: 98%;
+    height: 30px;
+    margin: 0px 0px;
+    padding-left: 0.35rem;
+    border-radius: 5px;
+    border: none;
 }
 
 #query-txt:focus {
-	outline: none;
+    outline: none;
 }
 
 
 #query-btn {
-	display: block;
-	height: 100%;
-	position: absolute;
-	top: 2px;
-	right: 8px;
-	border: none;
-	margin: 0;
-	padding: 0px 5px;
-	background-color: transparent;
-	color: rgba(0, 0, 0, 0.3);
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 2px;
+    right: 8px;
+    border: none;
+    margin: 0;
+    padding: 0px 5px;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.3);
 }
 
 #query-btn:focus {
-	outline-color: transparent;
+    outline-color: transparent;
 }
 
 #query-btn:hover {
-	color: rgba(0, 0, 0, 1);
+    color: rgba(0, 0, 0, 1);
 }
 
 #query-btn:active {
-	color: rgba(235, 0, 0, 1);
+    color: rgba(235, 0, 0, 1);
 }
 
 
 #query-result {
-	margin: 20px 10px;
+    margin: 20px 10px;
 }
 
 /* 结果页-查询单词 */
 #word-query {
-	font-size: 20px;
-	font-weight: bold;
-	color: #be061a;
+    font-size: 20px;
+    font-weight: bold;
+    color: #be061a;
 }
 
 /* 错误提示 */
 #word-error {
-	color: red;
-	font-weight: bold;
+    color: red;
+    font-weight: bold;
 }
 
-#word-error>p:last-child {
-	text-align: right;
+#word-error > p:last-child {
+    text-align: right;
 }
 
 /* 单词基本 */
 /* #word-basic {} */
 
 #word-basic i {
-	display: inline-block;
-	vertical-align: middle;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 #word-basic a {
-	cursor: pointer
+    cursor: pointer
 }
 
 /* 大段翻译 */
@@ -125,16 +125,16 @@ a:active {
 /* 词释 */
 /* #word-explains {} */
 
-#word-explains>p>span:first-child,
-#word-wfs>p:first-child>span:first-child {
-	color: black;
-	text-align: center;
-	background-color: #5ea9df;
-	min-width: 48px;
-	display: inline-block;
+#word-explains > p > span:first-child,
+#word-wfs > p:first-child > span:first-child {
+    color: black;
+    text-align: center;
+    background-color: #5ea9df;
+    min-width: 48px;
+    display: inline-block;
 }
 
 /* 扩展 */
-#word-wfs>p:nth-child(n+2) {
-	display: inline;
+#word-wfs > p:nth-child(n+2) {
+    display: inline;
 }

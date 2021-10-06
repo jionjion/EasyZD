@@ -2,96 +2,96 @@
 
 /* 背景大小 */
 #ZD-Ext-query-result {
-	position: fixed;
-	right: 5%;
-	top: 10%;
-	border-radius: 8px;
-	z-index: 800;
-	padding: 10px;
-	width: 220px;
-	min-width: 290px;
-	min-height: 60px;
-	background-color: #d0dfe6;
-	color: #776e65;
-	font-size: 8px;
+    position: fixed;
+    right: 5%;
+    top: 10%;
+    border-radius: 8px;
+    z-index: 800;
+    padding: 10px;
+    width: 220px;
+    min-width: 290px;
+    min-height: 60px;
+    background-color: #d0dfe6;
+    color: #776e65;
+    font-size: 8px;
 }
 
 #ZD-Ext-query-result p {
-	display: block;
-	margin-block-start: 0.45em;
-	margin-block-end: 0.45em;
-	margin-inline-start: 0px;
-	margin-inline-end: 0px;
+    display: block;
+    margin-block-start: 0.45em;
+    margin-block-end: 0.45em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }
 
-.icon-volume-medium{
-	min-width: 15px;
+.icon-volume-medium {
+    min-width: 15px;
     min-height: 15px;
     zoom: 0.8;
-	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcUlEQVQ4y2P4//8/AyUYQhAH3gNxA7IAIQPmo/H3g/QA8XkgFiBkwHyoYnRQABVfj88AmGZcTuuHyjlgMwBZM7IE3NlQGhQe65EN+I8Dw8MLGgYoFpFqADK/YUAMwOsFigORatFIlYRElaRMWmaiBAMAp0n+3U0kqkAAAAAASUVORK5CYII=");
-	background-position: bottom center;
-	background-repeat: no-repeat;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcUlEQVQ4y2P4//8/AyUYQhAH3gNxA7IAIQPmo/H3g/QA8XkgFiBkwHyoYnRQABVfj88AmGZcTuuHyjlgMwBZM7IE3NlQGhQe65EN+I8Dw8MLGgYoFpFqADK/YUAMwOsFigORatFIlYRElaRMWmaiBAMAp0n+3U0kqkAAAAAASUVORK5CYII=");
+    background-position: bottom center;
+    background-repeat: no-repeat;
 }
 
-.ZD-Ext-a{
-	color: #252525;
-	text-decoration: none;
+.ZD-Ext-a {
+    color: #252525;
+    text-decoration: none;
 }
 
 .ZD-Ext-audio {
-	color: #252525;
-	text-decoration: none;
+    color: #252525;
+    text-decoration: none;
 }
 
 .ZD-Ext-a:visited {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 .ZD-Ext-a:hover {
-	color: #0d40e8d9;
-	text-decoration: none;
+    color: #0d40e8d9;
+    text-decoration: none;
 }
 
 .ZD-Ext-a:active {
-	color: #0d40e8d9;
+    color: #0d40e8d9;
 }
 
 /* 结果页-查询单词 */
 #ZD-Ext-word-query {
-	font-size: 16px;
-	font-weight: bold;
-	color: #be061a;
+    font-size: 16px;
+    font-weight: bold;
+    color: #be061a;
 }
 
 /* 错误提示 */
 #ZD-Ext-word-error {
-	color: red;
-	font-weight: bold;
+    color: red;
+    font-weight: bold;
 }
 
-#ZD-Ext-word-error>p:last-child {
-	text-align: right;
+#ZD-Ext-word-error > p:last-child {
+    text-align: right;
 }
 
 /* 单词基本 */
 /* #word-basic {} */
 
 #ZD-Ext-word-basic i {
-	display: inline-block;
-	vertical-align: middle;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 #ZD-Ext-word-basic a {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 /* 词释 */
 /* #word-explains {} */
 
-#ZD-Ext-word-explains>p>span:first-child {
-	color: black;
-	text-align: center;
-	background-color: #5ea9df;
-	min-width: 30px;
-	display: inline-block;
+#ZD-Ext-word-explains > p > span:first-child {
+    color: black;
+    text-align: center;
+    background-color: #5ea9df;
+    min-width: 30px;
+    display: inline-block;
 }
