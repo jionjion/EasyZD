@@ -1,60 +1,59 @@
 {
-	"manifest_version": 2,
-
-	"name": "ZD_Chrome_Ext",
-	"version": "0.0.003",
-	"description": "简单的查字典功能....",
-
-	"permissions": [
-		"https://openapi.youdao.com/*",
-		"http://openapi.youdao.com/*",
-
-		"https://dict.youdao.com/*",
-		"https://fanyi.youdao.com/*",
-		"http://dict.youdao.com/*",
-		"http://fanyi.youdao.com/*",
-		"contextMenus",
-		"tabs",
-		"storage",
-		"notifications"
-	],
-
-	"options_page": "html/options.html",
-
-	"background": {
-		"persistent": true,
-		"scripts": ["js/sha256.min.js", "js/utility.js", "js/background.js"]
-	},
-
-	"content_scripts": [{
-		"all_frames": true,
-		"css": ["css/selection.css"],
-		"js": ["js/selection.js"],
-		"matches": ["<all_urls>"]
-	}],
-
-	"browser_action": {
-		"default_popup": "html/popup.html",
-		"default_icon": {
-			"16": "icon/icon16.png",
-			"48": "icon/icon48.png"
-		}
-	},
-
-	"icons": {
-		"16": "icon/icon16.png",
-		"48": "icon/icon48.png",
-		"128": "icon/icon128.png"
-	},
-
-	"commands": {
-		"_execute_browser_action": {
-			"suggested_key": {
-				"default": "Ctrl+Shift+T",
-				"mac": "MacCtrl+Shift+T"
-			}
-		}
-	},
-
-	"homepage_url": "https://github.com/jionjion/ZD_Chrome_Ext"
+  "manifest_version": 3,
+  "name": "ZD_Chrome_Ext",
+  "version": "0.0.004",
+  "description": "简单的查询功能,将中文或者英文进行翻译,并支持划词操作哦 (*￣ω￣)!...",
+  "permissions": [
+    "https://openapi.youdao.com/*",
+    "https://dict.youdao.com/*",
+    "https://fanyi.youdao.com/*",
+    "contextMenus",
+    "tabs",
+    "storage",
+    "notifications"
+  ],
+  "options_page": "html/options.html",
+  "background": {
+    "persistent": true,
+    "scripts": [
+      "js/sha256.min.js",
+      "js/utility.js",
+      "js/background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "css": [
+        "css/selection.css"
+      ],
+      "js": [
+        "js/selection.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "browser_action": {
+    "default_popup": "html/popup.html",
+    "default_icon": {
+      "16": "icon/icon16.png",
+      "48": "icon/icon48.png"
+    }
+  },
+  "icons": {
+    "16": "icon/icon16.png",
+    "48": "icon/icon48.png",
+    "128": "icon/icon128.png"
+  },
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+T",
+        "mac": "MacCtrl+Shift+T"
+      }
+    }
+  },
+  "homepage_url": "https://github.com/jionjion/ZD_Chrome_Ext"
 }
