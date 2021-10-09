@@ -36,9 +36,10 @@ url: https://jionjion.github.io/
 baseurl: /ZD_Chrome_Ext/
 
 # Build settings
-theme: minima
+theme: jekyll-theme-cayman
 plugins:
   - jekyll-feed
+  - jekyll-spaceship
 
 
 
