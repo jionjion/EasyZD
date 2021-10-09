@@ -37,14 +37,13 @@ url: https://jionjion.github.io/
 baseurl: /ZD_Chrome_Ext/
 
 # Build settings
-# theme: minima
+theme: cayman
+# remote_theme: pages-themes/cayman
+
 plugins:
   - jekyll-feed
   - jekyll-spaceship
-  - jekyll-remote-theme
-
-remote_theme: pages-themes/cayman
-
+#  - jekyll-remote-theme
 
 
 # Exclude from processing.
