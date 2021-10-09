@@ -2,3 +2,10 @@
 .idea/
 build/
 node_modules/
+
+# docs 文档
+docs/_site
+docs/.sass-cache
+docs/.jekyll-cache
+docs/.jekyll-metadata
+docs/vendor
