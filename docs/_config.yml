@@ -42,6 +42,9 @@ plugins:
   - jekyll-feed
   - jekyll-spaceship
 
+# 主页显示
+header_pages:
+  - index.markdown
 
 # Exclude from processing.
 # The following items will not be processed, by default.
