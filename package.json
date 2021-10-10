@@ -1,0 +1,34 @@
+{
+  "name": "zd_chrome_ext",
+  "version": "1.0.0",
+  "description": "简单的查字典功能...",
+  "main": "",
+  "scripts": {
+    "build": "grunt",
+    "check": "grunt check",
+    "debug": "grunt debug"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jionjion/ZD_Chrome_Ext.git"
+  },
+  "keywords": [
+    "chrome",
+    "extension"
+  ],
+  "author": "Jion",
+  "license": "ISC",
+  "homepage": "https://github.com/ververcpp/ChaZD/page",
+  "devDependencies": {
+    "grunt": "^1.4.1",
+    "grunt-cli": "^1.4.3",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^4.0.0",
+    "grunt-contrib-jshint": "^3.1.1",
+    "grunt-contrib-uglify": "^5.0.1",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-text-replace": "^0.4.0",
+    "load-grunt-tasks": "^5.1.0",
+    "uglify-js": "^3.14.2"
+  }
+}
