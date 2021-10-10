@@ -1,5 +1,4 @@
 ---
-layout: home
 title: 简单的字典
 ---
 
