@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: post
 title: 简单的字典
 ---
 
