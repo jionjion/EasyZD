@@ -45,7 +45,6 @@ plugins:
 
 # minima home page
 header_pages:
-  - index.markdown
 
 # minima date
 minima:
