@@ -9,4 +9,4 @@ title: 简单的字典
 
 
 
-![photo](.\assets\photo-1.jpg)
+![photo](./assets/photo-1.jpg)
