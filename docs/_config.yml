@@ -49,6 +49,8 @@ header_pages:
 # minima date
 minima:
   date_format: "%b %-d, %Y"
+page:
+  list_title: 更多..
 
 # Exclude from processing.
 # The following items will not be processed, by default.
