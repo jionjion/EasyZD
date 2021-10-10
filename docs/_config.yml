@@ -24,7 +24,8 @@ repository: jionjion/jionjion.github.io
 description: >- # this means to ignore newlines until "baseurl:"
   一款简单的 Chrome 扩展插件，可以进行简单的中、英文翻译，支持屏幕划词翻译哦~(๑¯◡¯๑)
 
-github_username:  jionjion
+github_username: jionjion
+rss: rss
 
 
 # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
@@ -42,9 +43,13 @@ plugins:
   - jekyll-feed
   - jekyll-spaceship
 
-# 主页显示
+# minima home page
 header_pages:
   - index.markdown
+
+# minima date
+minima:
+  date_format: "%b %-d, %Y"
 
 # Exclude from processing.
 # The following items will not be processed, by default.
