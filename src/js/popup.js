@@ -1,6 +1,10 @@
-/* 弹窗 */
+/**
+ *  弹窗页面,点击浏览器插件图标显示
+ *
+ *  @author Jion
+ */
 
-/* 
+/*
  *	各种Dom元素对象
  */
 let $queryForm = document.querySelector("#query-form");
@@ -50,11 +54,11 @@ const buildResult = (response) => {
 	// 绑定音频
 	$wordUkSpeech = document.querySelector("#word-uk-speech");
 	if(Ext.isNotEmpty($wordUkSpeech)){
-		
+
 		let src = $wordUkSpeech.getAttribute("data-src");
 		let audioElement = document.createElement("audio");
 		audioElement.setAttribute("id", "word-uk-speech-audio");
-		audioElement.setAttribute("src", src);	
+		audioElement.setAttribute("src", src);
 		$wordUkSpeech.appendChild(audioElement);
 		audioElement.addEventListener("ended", function (event) {
 			document.querySelector("#word-uk-speech-audio").load();
@@ -63,20 +67,20 @@ const buildResult = (response) => {
 			document.querySelector("#word-uk-speech-audio").play();
 		});
 	}
-	
+
 	$wordUsSpeech = document.querySelector("#word-us-speech");
 	if(Ext.isNotEmpty($wordUsSpeech)){
 		let src = $wordUsSpeech.getAttribute("data-src");
 		let audioElement = document.createElement("audio");
 		audioElement.setAttribute("id", "word-us-speech-audio");
-		audioElement.setAttribute("src", src);	
-		$wordUsSpeech.appendChild(audioElement);		
+		audioElement.setAttribute("src", src);
+		$wordUsSpeech.appendChild(audioElement);
 		audioElement.addEventListener("ended", function (event) {
 			document.querySelector("#word-us-speech-audio").load();
-		});	
+		});
 		$wordUsSpeech.addEventListener("click",(e)=>{
 			document.querySelector("#word-us-speech-audio").play();
 		})
 	}
-	
+
 }

@@ -1,4 +1,9 @@
-/* 工具方法,仅在调用 */
+/**
+ *  工具方法,仅在调用时使用.
+ *
+ *  @author Jion
+ */
+
 
 /* App信息 */
 const App = {
@@ -90,11 +95,9 @@ const App = {
 
 /* 模板对象,提供字符串模板 */
 const AppTemplate = {
-	// 测试方法
-	getHello: (args) => `<h1>你好${args.name},这是一个${args.way}方法</h1>`,
 	// 错误页面提示
 	getWordError: (args) => {
-		let temp = 
+		let temp =
 			`<div id="word-error">
 				<p>
 					震惊,程序执行出现错误 X﹏X
@@ -105,7 +108,7 @@ const AppTemplate = {
 	},
 	// 单词
 	getWordQuery: (args) => `<div id="word-query">${args.query}</div>`,
-	// 音标 
+	// 音标
 	getWordPhonetic: (args) => {
 		let temp =
 			`<div id="word-basic">
@@ -171,7 +174,7 @@ const AppTemplate = {
 			<p>网络词义</p>`;
 		for (let i in args) {
 			temp +=
-				`<p>` + 
+				`<p>` +
 				`<span>${parseInt(i) + 1}.</span>` +
 				`<span>${args[i].key}</span>` +
 				`<span>${args[i].value.toString()}</span>` +
@@ -186,7 +189,7 @@ const AppTemplate = {
 const DrawTemplate = {
 	// 错误页面提示
 	getWordError: (args) => {
-		let temp = 
+		let temp =
 			`<div id="ZD-Ext-word-error">
 				<p>
 					震惊,程序执行出现错误 X﹏X
@@ -197,7 +200,7 @@ const DrawTemplate = {
 	},
 	// 单词
 	getWordQuery: (args) => `<div id="ZD-Ext-word-query">${args.query}</div>`,
-	// 音标 
+	// 音标
 	getWordPhonetic: (args) => {
 		let temp =
 			`<div id="ZD-Ext-word-basic">
@@ -259,7 +262,7 @@ const Ext = {
 		}
 		return true;
 	},
-	// 
+	//
 	isNotEmpty: (obj) => {
 		return !(Ext.isEmpty(obj));
 	},
