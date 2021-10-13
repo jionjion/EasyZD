@@ -45,7 +45,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: 'src/css',
-                    src: ['*.css', '!*.min.css'],
+                    src: ['*.css'],
                     dest: 'build/css',
                     ext: '.min.css'
                 }]
@@ -56,8 +56,6 @@ module.exports = function (grunt) {
         copy: {
             main: {
                 files: [
-                    // css 拷贝
-                    {expand: true, cwd: "src/css/", src: ["**"], dest: "build/css"},
                     // fonts 拷贝
                     {expand: true, cwd: "src/fonts/", src: ["**"], dest: "build/fonts"},
                     // html 拷贝

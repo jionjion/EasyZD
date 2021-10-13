@@ -8,7 +8,6 @@
     "https://dict.youdao.com/*",
     "https://fanyi.youdao.com/*",
     "contextMenus",
-    "tabs",
     "storage",
     "notifications"
   ],
