@@ -12,7 +12,7 @@ const App = {
 	// 应用秘钥
 	appSecretKey: "gKzoqWsuGtU3efU4qUlWoR2knV1Q4LST",
 	// 应用名称
-	appName: "ZD_Chrome_Ext",
+	appName: "EasyZD",
 	// 错误信息
 	appErrorInfo: [{
 		code: "0",
@@ -97,21 +97,18 @@ const App = {
 const AppTemplate = {
 	// 错误页面提示
 	getWordError: (args) => {
-		let temp =
-			`<div id="word-error">
+		return `<div id="word-error">
 				<p>
 					震惊,程序执行出现错误 X﹏X
 				</p>
 				<p id="word-error-value">${args.wordErrorValue}</p>
 			</div>`;
-		return temp;
 	},
 	// 单词
 	getWordQuery: (args) => `<div id="word-query">${args.query}</div>`,
 	// 音标
 	getWordPhonetic: (args) => {
-		let temp =
-			`<div id="word-basic">
+		return `<div id="word-basic">
 			<p>
 				<span>英</span>
 				<span id="word-uk-phonetic">[${args.wordUkPhonetic}]</span>
@@ -122,7 +119,6 @@ const AppTemplate = {
 				<span id="word-us-speech" data-src="${args.wordUsSpeech}"><a><i class="icon-volume-medium"></i></a></span>
 			</p>
 		</div>`;
-		return temp;
 	},
 	// 词释,数组字符串
 	getWordExplains: (args) => {
@@ -241,7 +237,6 @@ const DrawTemplate = {
 	},
 	// 翻译,数组字符串
 	getWordTranslation: (args) => {
-		debugger;
 		let temp =
 			`<div id="ZD-Ext-word-translation">`;
 		for (let i in args) {

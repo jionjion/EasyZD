@@ -1,5 +1,5 @@
 {
-  "name": "zd_chrome_ext",
+  "name": "easy_zd",
   "version": "1.0.0",
   "description": "简单的查字典功能...",
   "main": "",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jionjion/ZD_Chrome_Ext.git"
+    "url": "https://github.com/jionjion/EasyZD.git"
   },
   "keywords": [
     "chrome",
@@ -18,7 +18,7 @@
   ],
   "author": "Jion",
   "license": "ISC",
-  "homepage": "https://github.com/ververcpp/ChaZD/page",
+  "homepage": "https://jionjion.github.io/EasyZD",
   "devDependencies": {
     "grunt": "^1.4.1",
     "grunt-cli": "^1.4.3",
