@@ -1,3 +1,4 @@
+/* 图标CSS样式 */
 @font-face {
     font-family: 'icon';
     src: url('../fonts/icon.eot?6r2zh');
@@ -11,7 +12,7 @@
 
 [class^="icon-"], [class*=" icon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'icon' !important;
+    font-family: 'icon', serif !important;
     speak: none;
     font-style: normal;
     font-weight: normal;
@@ -60,9 +61,9 @@
     content: "\e9e5";
 }
 
-.icon-volume-medium:before {
-    content: "\ea27";
-}
+/*.icon-volume-medium:before {*/
+/*    content: "\ea27";*/
+/*}*/
 
 .icon-github:before {
     content: "\eab0";

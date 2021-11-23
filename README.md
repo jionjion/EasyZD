@@ -26,5 +26,4 @@ github链接
 iss问题反馈
 
 更换配色
-https://peiseka.com/index-index-peise-id-26.html
 https://peiseka.com/index-index-peise-id-764.html

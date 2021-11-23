@@ -20,8 +20,8 @@
     display: block;
     margin-block-start: 0.45em;
     margin-block-end: 0.45em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
 }
 
 .icon-volume-medium {

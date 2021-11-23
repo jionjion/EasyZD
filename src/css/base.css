@@ -1,0 +1,29 @@
+/* 基础样式定义 */
+:root {
+    /* 白色 */
+    --base-color-white: #FFFAFC;
+    /* 灰色,浅灰色 */
+    --base-color-gray: #f2f0e7;
+    /* 黑色 */
+    --base-color-black: #2A2A36;
+    /* 字体,浅黑 */
+    --base-color-font: #797979;
+    /* 红色 */
+    --base-color-red: #fa4659;
+    /* 黄色 */
+    --base-color-yello: #efcb5e;
+    /* 灰蓝,图标色 */
+    --base-color-gray-blue: #9BB5C2;
+    /* 浅色,天蓝 */
+    --base-color-sky-blue: #3eb8c7;
+    /* 深蓝,海蓝 */
+    --base-color-sea-blue: #229c9d;
+    /* 棕色 */
+    --base-color-brown: #6e4850;
+
+    /* 字体大小 */
+    --base-size-font-size-big: 20px;
+    --base-size-font-size-mid: 14px;
+
+
+}
