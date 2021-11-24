@@ -1,7 +1,9 @@
 /* 划词翻译,注意CSS的作用范围 */
 
+@import './base.css';
+
 /* 背景大小 */
-#ZD-Ext-query-result {
+#Easy-ZD-query-result {
     position: fixed;
     right: 5%;
     top: 10%;
@@ -11,12 +13,13 @@
     width: 220px;
     min-width: 290px;
     min-height: 60px;
-    background-color: #d0dfe6;
-    color: #776e65;
-    font-size: 8px;
+    background-color: var(--base-color-gray);
+    color: var(--base-color-font);
+    font-size: var(--base-size-font-size-mid);
 }
 
-#ZD-Ext-query-result p {
+/* 段落设置 */
+#Easy-ZD-query-result p {
     display: block;
     margin-block-start: 0.45em;
     margin-block-end: 0.45em;
@@ -24,6 +27,7 @@
     margin-inline-end: 0;
 }
 
+/* 英文播放按钮 */
 .icon-volume-medium {
     min-width: 15px;
     min-height: 15px;
@@ -33,65 +37,59 @@
     background-repeat: no-repeat;
 }
 
-.ZD-Ext-a {
-    color: #252525;
+/* 音频超链接 */
+.Easy-ZD-audio, .Easy-ZD-a {
+    color: var(--base-color-black);
     text-decoration: none;
 }
 
-.ZD-Ext-audio {
-    color: #252525;
+.Easy-ZD-a:visited {
     text-decoration: none;
 }
 
-.ZD-Ext-a:visited {
+.Easy-ZD-a:hover {
+    color: var(--base-color-sea-blue);
     text-decoration: none;
 }
 
-.ZD-Ext-a:hover {
-    color: #0d40e8d9;
-    text-decoration: none;
-}
-
-.ZD-Ext-a:active {
-    color: #0d40e8d9;
+.Easy-ZD-a:active {
+    color: var(--base-color-sea-blue);
 }
 
 /* 结果页-查询单词 */
-#ZD-Ext-word-query {
-    font-size: 16px;
+#Easy-ZD-word-query {
+    color: var(--base-color-black);
     font-weight: bold;
-    color: #be061a;
+    font-size: var(--base-size-font-size-big);
 }
 
 /* 错误提示 */
-#ZD-Ext-word-error {
-    color: red;
+#Easy-ZD-word-error {
+    color: var(--base-color-red);
     font-weight: bold;
+    font-size: var(--base-size-font-size-big);
 }
 
-#ZD-Ext-word-error > p:last-child {
+#Easy-ZD-word-error > p:last-child {
     text-align: right;
 }
 
 /* 单词基本 */
-/* #word-basic {} */
-
-#ZD-Ext-word-basic i {
+#Easy-ZD-word-basic i {
     display: inline-block;
     vertical-align: middle;
 }
 
-#ZD-Ext-word-basic a {
+#Easy-ZD-word-basic a {
     cursor: pointer;
 }
 
-/* 词释 */
-/* #word-explains {} */
-
-#ZD-Ext-word-explains > p > span:first-child {
-    color: black;
+/* 词性,图贴  */
+#Easy-ZD-word-explains > p > span:first-child {
+    color: var(--base-color-black);
+    font-weight: bold;
     text-align: center;
-    background-color: #5ea9df;
-    min-width: 30px;
+    background-color: var(--base-color-gray-blue);
+    min-width: 37px;
     display: inline-block;
 }

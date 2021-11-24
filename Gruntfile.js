@@ -68,6 +68,7 @@ module.exports = function (grunt) {
             }
         },
 
+
         // 任务: 文本替换..  grunt-text-replace 插件
         replace: {
             manifest_json: {
@@ -151,6 +152,6 @@ module.exports = function (grunt) {
     // check 检查任务
     grunt.registerTask("check", ["jshint"]);
     // debug 调试输出
-    grunt.registerTask("debug", ["default", "watch"]);
+    grunt.registerTask("debug", ["uglify", "cssmin", "copy", "replace", "watch"]);
 
 };
