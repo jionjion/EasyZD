@@ -72,7 +72,7 @@
 				// 删除
 				document.documentElement.removeChild(queryResultElementOld);
 			}
-		},5000);
+		},50000);
 
 
 		// 绑定发音

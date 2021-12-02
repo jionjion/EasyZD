@@ -1,15 +1,10 @@
 {
   "manifest_version": 2,
   "name": "EasyZD",
-  "version": "0.0.004",
+  "version": "2.1.2",
   "description": "简单的查询功能,将中文或者英文进行翻译,并支持划词操作哦 (*￣ω￣)!...",
   "permissions": [
-    "https://openapi.youdao.com/*",
-    "https://dict.youdao.com/*",
-    "https://fanyi.youdao.com/*",
-    "contextMenus",
-    "storage",
-    "notifications"
+    "https://openapi.youdao.com/*"
   ],
   "options_page": "html/options.html",
   "background": {
@@ -24,6 +19,7 @@
     {
       "all_frames": true,
       "css": [
+        "css/selection.css",
         "css/selection.css"
       ],
       "js": [

@@ -57,13 +57,40 @@ module.exports = function (grunt) {
             main: {
                 files: [
                     // fonts 拷贝
-                    {expand: true, cwd: "src/fonts/", src: ["**"], dest: "build/fonts"},
+                    {expand: true, cwd: "src/fonts/", src: ["**"], dest: "build/fonts/"},
                     // html 拷贝
-                    {expand: true, cwd: "src/html/", src: ["options.html", "popup.html"], dest: "build/html"},
+                    {expand: true, cwd: "src/html/", src: ["options.html", "popup.html"], dest: "build/html/"},
                     // icon 拷贝
-                    {expand: true, cwd: "src/icon/", src: ["**"], dest: "build/icon"},
+                    {expand: true, cwd: "src/icon/", src: ["**"], dest: "build/icon/"},
                     // js 工具拷贝
-                    {expand: true, cwd: "src/js/", src: ["sha256.min.js"], dest: "build/js"}
+                    {expand: true, cwd: "src/js/", src: ["sha256.min.js"], dest: "build/js/"}
+                ]
+            },
+            // 测试环境,不打包,仅拷贝
+            test: {
+                files: [
+                    // js
+                    {
+                        expand: true,
+                        cwd: "src/js/",
+                        src: ["background.js", "options.js", "popup.js", "selection.js", "utility.js"],
+                        dest: "build/js/",
+                        rename: function (dest, src) {
+                            // 修改名字 文件名.min.js
+                            return dest + src.substring(0, src.indexOf('.')) + ".min" + src.substring(src.indexOf('.'), src.length);
+                        }
+                    },
+                    // css
+                    {
+                        expand: true,
+                        cwd: "src/css/",
+                        src: ["**"],
+                        dest: "build/css/",
+                        rename: function (dest, src) {
+                            // 修改名字 文件名.min.js
+                            return dest + src.substring(0, src.indexOf('.')) + ".min" + src.substring(src.indexOf('.'), src.length);
+                        }
+                    },
                 ]
             }
         },
@@ -87,6 +114,9 @@ module.exports = function (grunt) {
                     from: "popup.js",
                     to: "popup.min.js"
                 }, {
+                    from: "base.css",
+                    to: "base.min.css"
+                },{
                     from: "selection.css",
                     to: "selection.min.css"
                 }]
@@ -118,6 +148,21 @@ module.exports = function (grunt) {
                     from: "icon.css",
                     to: "icon.min.css"
                 }]
+            },
+            selection_css: {
+                src: ["build/css/selection.min.css"],
+                overwrite: true,
+                replacements: [{from: "base.css", to: "base.min.css"}]
+            },
+            options_css: {
+                src: ["build/css/options.min.css"],
+                overwrite: true,
+                replacements: [{from: "base.css", to: "base.min.css"}]
+            },
+            popup_css: {
+                src: ["build/css/popup.min.css"],
+                overwrite: true,
+                replacements: [{from: "base.css", to: "base.min.css"}]
             }
         },
 
@@ -152,6 +197,6 @@ module.exports = function (grunt) {
     // check 检查任务
     grunt.registerTask("check", ["jshint"]);
     // debug 调试输出
-    grunt.registerTask("debug", ["uglify", "cssmin", "copy", "replace", "watch"]);
+    grunt.registerTask("debug", ["copy:main", "copy:test", "replace", "watch"]);
 
 };
