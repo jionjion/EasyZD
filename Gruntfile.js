@@ -20,6 +20,16 @@ module.exports = function (grunt) {
             }
         },
 
+        // 任务: 清理目标文件夹
+        clean: {
+            before_build: {
+                src: "build/*"
+            },
+            after_build: {
+                src: "build/less"
+            }
+        },
+
         // 任务: 压缩插件配置 grunt-contrib-uglify 插件
         uglify: {
             options: {
@@ -39,12 +49,30 @@ module.exports = function (grunt) {
             }
         },
 
+        // 任务: less文件拷贝
+        less: {
+            main: {
+                options: {
+                    // 不启用压缩
+                    compress: false,
+                    // 启用变量括号
+                    strictMath: true,
+                },
+                files: [
+                    // 输出 : 输入
+                    {'build/less/selection.css': 'src/less/selection.less'},
+                    {'build/less/options.css': 'src/less/options.less'},
+                    {'build/less/popup.css': 'src/less/popup.less'},
+                ]
+            }
+        },
+
         // 任务: css 压缩配置 grunt-contrib-cssmin 插件
         cssmin: {
             main: {
                 files: [{
                     expand: true,
-                    cwd: 'src/css',
+                    cwd: 'build/less',
                     src: ['*.css'],
                     dest: 'build/css',
                     ext: '.min.css'
@@ -83,7 +111,7 @@ module.exports = function (grunt) {
                     // css
                     {
                         expand: true,
-                        cwd: "src/css/",
+                        cwd: "build/less/",
                         src: ["**"],
                         dest: "build/css/",
                         rename: function (dest, src) {
@@ -116,7 +144,7 @@ module.exports = function (grunt) {
                 }, {
                     from: "base.css",
                     to: "base.min.css"
-                },{
+                }, {
                     from: "selection.css",
                     to: "selection.min.css"
                 }]
@@ -131,6 +159,11 @@ module.exports = function (grunt) {
                     from: "options.css",
                     to: "options.min.css"
                 }]
+            },
+            options_css: {
+                src: ["build/css/options.min.css"],
+                overwrite: true,
+                replacements: [{from: "base.css", to: "base.min.css"}]
             },
             popup_html: {
                 src: ["build/html/popup.html"],
@@ -149,18 +182,13 @@ module.exports = function (grunt) {
                     to: "icon.min.css"
                 }]
             },
-            selection_css: {
-                src: ["build/css/selection.min.css"],
-                overwrite: true,
-                replacements: [{from: "base.css", to: "base.min.css"}]
-            },
-            options_css: {
-                src: ["build/css/options.min.css"],
-                overwrite: true,
-                replacements: [{from: "base.css", to: "base.min.css"}]
-            },
             popup_css: {
                 src: ["build/css/popup.min.css"],
+                overwrite: true,
+                replacements: [{from: "base.css", to: "base.min.css"}]
+            },
+            selection_css: {
+                src: ["build/css/selection.min.css"],
                 overwrite: true,
                 replacements: [{from: "base.css", to: "base.min.css"}]
             }
@@ -179,8 +207,12 @@ module.exports = function (grunt) {
         }
     });
 
+    // 启用 grunt-contrib-clean 插件,清除文件
+    // grunt.loadNpmTasks("grunt-contrib-clean");
     // 启用 grunt-contrib-uglify 插件,压缩js文件
     // grunt.loadNpmTasks("grunt-contrib-uglify");
+    // 启用 grunt-contrib-less 插件,编译less文件为css
+    // grunt.loadNpmTasks('grunt-contrib-less');
     // 启用 grunt-contrib-cssmin 插件,压缩css文件
     // grunt.loadNpmTasks('grunt-contrib-cssmin');
     // 启用 grunt-contrib-copy 插件,拷贝资源文件
@@ -192,11 +224,11 @@ module.exports = function (grunt) {
     // 使用 load-grunt-tasks 代替自动 loadNpmTasks命令,自动加载需要的插件
     require("load-grunt-tasks")(grunt);
 
-    // 默认指定的任务...
-    grunt.registerTask("default", ["uglify", "cssmin", "copy", "replace"]);
-    // check 检查任务
+    // 默认指定的任务...生产打包编译
+    grunt.registerTask("default", ["clean:before_build", "uglify", "less", "replace", "cssmin", "copy", "clean:after_build"]);
+    // check 检查语法
     grunt.registerTask("check", ["jshint"]);
     // debug 调试输出
-    grunt.registerTask("debug", ["copy:main", "copy:test", "replace", "watch"]);
+    grunt.registerTask("debug", ["clean:before_build", "less", "replace", "copy:main", "copy:test", "clean:after_build", "watch"]);
 
 };

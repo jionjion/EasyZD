@@ -1,16 +1,7 @@
 /* 划词翻译,注意CSS的作用范围 */
-/* 基础样式定义 */
-/* 白色 */
-/* 灰色,浅灰色 */
-/* 黑色 */
-/* 字体,浅黑 */
-/* 红色 */
-/* 黄色 */
-/* 灰蓝,图标色 */
-/* 浅色,天蓝 */
-/* 深蓝,海蓝 */
-/* 棕色 */
-/* 字体大小 */
+
+@import (multiple, less) 'base.less';
+
 /* 背景大小 */
 #Easy-ZD-query-result {
   position: fixed;
@@ -22,10 +13,11 @@
   width: 220px;
   min-width: 290px;
   min-height: 60px;
-  background-color: #f2f0e7;
-  color: #797979;
-  font-size: 14px;
+  background-color: @base-color-gray;
+  color: @base-color-font;
+  font-size: @base-size-font-size-mid;
 }
+
 /* 段落设置 */
 #Easy-ZD-query-result p {
   display: block;
@@ -34,6 +26,7 @@
   margin-inline-start: 0;
   margin-inline-end: 0;
 }
+
 /* 英文播放按钮 */
 .icon-volume-medium {
   min-width: 15px;
@@ -43,51 +36,60 @@
   background-position: bottom center;
   background-repeat: no-repeat;
 }
+
 /* 音频超链接 */
-.Easy-ZD-audio,
-.Easy-ZD-a {
-  color: #2A2A36;
+.Easy-ZD-audio, .Easy-ZD-a {
+  color: @base-color-black;
   text-decoration: none;
 }
+
 .Easy-ZD-a:visited {
   text-decoration: none;
 }
+
 .Easy-ZD-a:hover {
-  color: #229c9d;
+  color: @base-color-sea-blue;
   text-decoration: none;
 }
+
 .Easy-ZD-a:active {
-  color: #229c9d;
+  color: @base-color-sea-blue;
 }
+
 /* 结果页-查询单词 */
 #Easy-ZD-word-query {
-  color: #2A2A36;
+  color: @base-color-black;
   font-weight: bold;
-  font-size: 20px;
+  font-size: @base-size-font-size-big;
 }
+
 /* 错误提示 */
 #Easy-ZD-word-error {
-  color: #fa4659;
+  color: @base-color-red;
   font-weight: bold;
-  font-size: 20px;
+  font-size: @base-size-font-size-big;
 }
+
 #Easy-ZD-word-error > p:last-child {
   text-align: right;
 }
+
 /* 单词基本 */
 #Easy-ZD-word-basic i {
   display: inline-block;
   vertical-align: middle;
 }
+
 #Easy-ZD-word-basic a {
   cursor: pointer;
 }
+
 /* 词性,图贴  */
 #Easy-ZD-word-explains > p > span:first-child {
-  color: #2A2A36;
+  color: @base-color-black;
   font-weight: bold;
   text-align: center;
-  background-color: #9BB5C2;
+  background-color: @base-color-gray-blue;
   min-width: 37px;
   display: inline-block;
 }
