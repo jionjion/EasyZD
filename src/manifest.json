@@ -1,18 +1,12 @@
 {
   "manifest_version": 2,
-  "name": "ZD_Chrome_Ext",
-  "version": "0.0.004",
+  "name": "EasyZD",
+  "version": "2.1.2",
   "description": "简单的查询功能,将中文或者英文进行翻译,并支持划词操作哦 (*￣ω￣)!...",
   "permissions": [
-    "https://openapi.youdao.com/*",
-    "https://dict.youdao.com/*",
-    "https://fanyi.youdao.com/*",
-    "contextMenus",
-    "tabs",
-    "storage",
-    "notifications"
+    "https://openapi.youdao.com/*"
   ],
-  "options_page": "html/options.html",
+  "options_page": "page/options.html",
   "background": {
     "persistent": true,
     "scripts": [
@@ -25,6 +19,7 @@
     {
       "all_frames": true,
       "css": [
+        "css/selection.css",
         "css/selection.css"
       ],
       "js": [
@@ -36,7 +31,7 @@
     }
   ],
   "browser_action": {
-    "default_popup": "html/popup.html",
+    "default_popup": "page/popup.html",
     "default_icon": {
       "16": "icon/icon16.png",
       "48": "icon/icon48.png"
@@ -55,5 +50,5 @@
       }
     }
   },
-  "homepage_url": "https://github.com/jionjion/ZD_Chrome_Ext"
+  "homepage_url": "https://github.com/jionjion/EasyZD"
 }

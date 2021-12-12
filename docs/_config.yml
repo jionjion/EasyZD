@@ -33,7 +33,7 @@ domain: jionjion.github.io
 # the base hostname and protocol for your site, e.g. http://example.com
 url: https://jionjion.github.io/
 # place folder name if the site is served in a sub folder
-baseurl: /ZD_Chrome_Ext/
+baseurl: /EasyZD/
 
 # Build settings
 theme: minima #jekyll-theme-cayman

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- 浏览器划词显示页面原型设计 -->
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>选词页面</title>
+        <link rel="stylesheet" type="text/css" href="../css/selection.css"/>
+        <!-- <link rel="stylesheet" type="text/css" href="../css/icon.css"/> -->
+    </head>
+    <body>
+
+        <!-- 查询结果 -->
+        <div id="Easy-ZD-query-result">
+            <!-- 错误信息 -->
+            <div id="Easy-ZD-word-error">
+                <p>
+                    震惊,程序执行出现错误 X﹏X
+                </p>
+                <p id="Easy-ZD-word-error-value"></p>
+            </div>
+            <!-- 单词 -->
+            <div id="Easy-ZD-word-query">good</div>
+            <!-- 音标 -->
+            <div id="Easy-ZD-word-basic">
+                <p>
+                    <span>英</span>
+                    <span id="Easy-ZD-word-uk-phonetic">[gud]</span>
+                    <span id="Easy-ZD-word-uk-speech" data-src="">
+          <a class="Easy-ZD-a">
+          <audio id="Easy-ZD-word-uk-speech-audio" class="Easy-ZD-audio"
+                 src="http://openapi.youdao.com/ttsapi?q=good&langType=en&sign=CB88D9D209BBAE4EA6CD284860F58D31&salt=1562246692759&voice=5&format=mp3&appKey=1666f504b10dfd2c"></audio>
+          <i class="icon-volume-medium"></i>
+          </a>
+          </span>
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span>美</span>
+                    <span id="Easy-ZD-word-us-phonetic">[gud]</span>
+                    <span id="Easy-ZD-word-us-speech" data-src="">
+          <a class="Easy-ZD-a">
+          <audio id="Easy-ZD-word-us-speech-audio" class="Easy-ZD-audio"
+                 src="http://openapi.youdao.com/ttsapi?q=good&langType=en&sign=CB88D9D209BBAE4EA6CD284860F58D31&salt=1562246692759&voice=6&format=mp3&appKey=1666f504b10dfd2c"></audio>
+          <i class="icon-volume-medium"></i>
+          </a>
+          </span>
+                </p>
+            </div>
+            <!-- 大段翻译,(仅在基础词释不存在时显示) -->
+            <div id="Easy-ZD-word-translation">
+                <p>好</p>
+            </div>
+            <!-- 词释 -->
+            <div id="Easy-ZD-word-explains">
+                <p><span>adj.</span>&nbsp;<span>好的；优良的；愉快的；虔诚的</span></p>
+                <p><span>n.</span>&nbsp;<span>好处；善行；慷慨的行为</span></p>
+                <p><span>adv.</span>&nbsp;<span>好</span></p>
+                <p><span>n.</span>&nbsp;<span>(Good)人名；(英)古德；(瑞典)戈德</span></p>
+            </div>
+        </div>
+    </body>
+</html>

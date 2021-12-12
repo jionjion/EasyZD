@@ -1,5 +1,6 @@
-# ZD_Chrome_Ext
-谷歌浏览器翻译插件...使用有道进行翻译
+# EasyZD
+谷歌浏览器翻译插件...使用有道进行翻译.
+支持简单的划词翻译.
 
 
 ## 功能
@@ -23,3 +24,6 @@
 
 github链接
 iss问题反馈
+
+更换配色
+https://peiseka.com/index-index-peise-id-764.html
