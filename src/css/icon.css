@@ -1,17 +1,17 @@
 /* 图标CSS样式 */
 @font-face {
     font-family: 'icon';
-    src: url('../fonts/icon.eot?6r2zh');
-    src: url('../fonts/icon.eot?6r2zh#iefix') format('embedded-opentype'),
-    url('../fonts/icon.ttf?6r2zh') format('truetype'),
-    url('../fonts/icon.woff?6r2zh') format('woff'),
-    url('../fonts/icon.svg?6r2zh#icon') format('svg');
+    src: url('../font/icon.eot?6r2zh');
+    src: url('../font/icon.eot?6r2zh#iefix') format('embedded-opentype'),
+    url('../font/icon.ttf?6r2zh') format('truetype'),
+    url('../font/icon.woff?6r2zh') format('woff'),
+    url('../font/icon.svg?6r2zh#icon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 [class^="icon-"], [class*=" icon-"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
+    /* use !important to prevent issues with browser extensions that change font */
     font-family: 'icon', serif !important;
     speak: none;
     font-style: normal;

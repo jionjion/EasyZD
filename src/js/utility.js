@@ -265,7 +265,7 @@ const Ext = {
     },
     // 只将字符串进行SHA256加密
     sha256Encode: (str) => {
-        if (typeof str == 'string' && str.constructor == String) {
+        if (typeof str == 'string' && str.constructor === String) {
             return sha256(Ext.trim(str));
         }
         return null;

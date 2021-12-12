@@ -41,20 +41,20 @@ const requestApi = (message, sendResponse) => {
     xhr.open("POST", url, true);
     xhr.onreadystatechange = () => {
         // @TODO 请求失败时响应
-        if (xhr.readyState != 4) {
+        if (xhr.readyState !== 4) {
             return;
         }
         // 解析返回结果,返回HTML
         let responseJson = (JSON.parse(xhr.responseText));
         // 返回解析结果
-        sendResponse(htmlbuilderFactory(message, responseJson));
+        sendResponse(htmlBuilderFactory(message, responseJson));
     };
     xhr.send(postDataFormat(data));
 }
 
 /** 调用API方法:截取输入文本,API要求加密时,查询内容最多输入20字符 */
 const getInput = (input) => {
-    if (input.length == 0) {
+    if (input.length === 0) {
         return null;
     }
     let result;
@@ -79,14 +79,14 @@ const postDataFormat = (obj) => {
 }
 
 /* 根据来源,选择不同的渲染函数.如果失败,返回失败情况 */
-const htmlbuilderFactory = (message, responseJson) => {
+const htmlBuilderFactory = (message, responseJson) => {
     debugger;
     console.log(responseJson);
     let source = message.source || '';
     let errorCode = responseJson.errorCode || "0";
 
     // @TODO 错误信息,返回错误信息页面
-    if (errorCode != "0") {
+    if (errorCode !== "0") {
         return errorHtmlBuilder(responseJson);
     } else if (source === "popup") {
         return popupHtmlBuilder(responseJson);

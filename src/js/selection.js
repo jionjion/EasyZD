@@ -1,3 +1,5 @@
+// noinspection JSUnresolvedVariable
+
 /**
  *  鼠标弹窗,划词后显示.
  *
@@ -29,11 +31,11 @@
 		// 选择对象
 		let selectionObj = window.getSelection();
 		// 存在被选择的对象,或者选择的区域为0.  谷歌浏览器不允许使用ctrl多选
-		if (Ext.isEmpty(selectionObj) || selectionObj.rangeCount == 0) {
+		if (Ext.isEmpty(selectionObj) || selectionObj.rangeCount === 0) {
 			return
 		}
 		// 选择的文本
-		var selectText = Ext.trim(selectionObj.toString());
+		let selectText = Ext.trim(selectionObj.toString());
 		// var selectRange = selectionObj.getRangeAt(0).getBoundingClientRect();	// 选择的词的页面位置
 
 		// 排除汉字,只翻译英语
@@ -72,7 +74,7 @@
 				// 删除
 				document.documentElement.removeChild(queryResultElementOld);
 			}
-		},50000);
+		},5000);
 
 
 		// 绑定发音

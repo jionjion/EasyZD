@@ -84,10 +84,10 @@ module.exports = function (grunt) {
         copy: {
             main: {
                 files: [
-                    // fonts 拷贝
-                    {expand: true, cwd: "src/fonts/", src: ["**"], dest: "build/fonts/"},
-                    // html 拷贝
-                    {expand: true, cwd: "src/html/", src: ["options.html", "popup.html"], dest: "build/html/"},
+                    // font 拷贝
+                    {expand: true, cwd: "src/font/", src: ["**"], dest: "build/font/"},
+                    // page 拷贝
+                    {expand: true, cwd: "src/page/", src: ["options.html", "popup.html"], dest: "build/page/"},
                     // icon 拷贝
                     {expand: true, cwd: "src/icon/", src: ["**"], dest: "build/icon/"},
                     // js 工具拷贝
@@ -150,7 +150,7 @@ module.exports = function (grunt) {
                 }]
             },
             options_html: {
-                src: ["build/html/options.html"],
+                src: ["build/page/options.html"],
                 overwrite: true,
                 replacements: [{
                     from: "options.js",
@@ -166,7 +166,7 @@ module.exports = function (grunt) {
                 replacements: [{from: "base.css", to: "base.min.css"}]
             },
             popup_html: {
-                src: ["build/html/popup.html"],
+                src: ["build/page/popup.html"],
                 overwrite: true,
                 replacements: [{
                     from: "popup.js",
