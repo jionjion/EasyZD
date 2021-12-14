@@ -129,36 +129,18 @@ module.exports = function (grunt) {
             manifest_json: {
                 src: ["src/manifest.json"],
                 dest: "build/manifest.json",
-                replacements: [{
-                    from: 'utility.js',
-                    to: 'utility.min.js'
-                }, {
-                    from: 'background.js',
-                    to: 'background.min.js'
-                }, {
-                    from: 'selection.js',
-                    to: 'selection.min.js'
-                }, {
-                    from: "popup.js",
-                    to: "popup.min.js"
-                }, {
-                    from: "base.css",
-                    to: "base.min.css"
-                }, {
-                    from: "selection.css",
-                    to: "selection.min.css"
-                }]
+                replacements: [{from: 'utility.js', to: 'utility.min.js'},
+                    {from: 'background.js', to: 'background.min.js'},
+                    {from: 'selection.js', to: 'selection.min.js'},
+                    {from: "popup.js", to: "popup.min.js"},
+                    {from: "base.css", to: "base.min.css"},
+                    {from: "selection.css", to: "selection.min.css"}]
             },
             options_html: {
                 src: ["build/page/options.html"],
                 overwrite: true,
-                replacements: [{
-                    from: "options.js",
-                    to: "options.min.js"
-                }, {
-                    from: "options.css",
-                    to: "options.min.css"
-                }]
+                replacements: [{from: "options.js", to: "options.min.js"},
+                    {from: "options.css", to: "options.min.css"}]
             },
             options_css: {
                 src: ["build/css/options.min.css"],
@@ -168,19 +150,10 @@ module.exports = function (grunt) {
             popup_html: {
                 src: ["build/page/popup.html"],
                 overwrite: true,
-                replacements: [{
-                    from: "popup.js",
-                    to: "popup.min.js"
-                }, {
-                    from: "utility.js",
-                    to: "utility.min.js"
-                }, {
-                    from: "popup.css",
-                    to: "popup.min.css"
-                }, {
-                    from: "icon.css",
-                    to: "icon.min.css"
-                }]
+                replacements: [{from: "popup.js", to: "popup.min.js"},
+                    {from: "utility.js", to: "utility.min.js"},
+                    {from: "popup.css", to: "popup.min.css"},
+                    {from: "icon.css", to: "icon.min.css"}]
             },
             popup_css: {
                 src: ["build/css/popup.min.css"],
@@ -191,6 +164,19 @@ module.exports = function (grunt) {
                 src: ["build/css/selection.min.css"],
                 overwrite: true,
                 replacements: [{from: "base.css", to: "base.min.css"}]
+            }
+        },
+
+        // 任务: 发布时,压缩为ZIP文件.
+        compress: {
+            main: {
+                options: {
+                    mode: "zip",
+                    archive: "build/EasyZD.zip"
+                },
+                files: [
+                    {expand: true, cwd: 'build/', src: ['**']}
+                ]
             }
         },
 
@@ -219,13 +205,15 @@ module.exports = function (grunt) {
     // grunt.loadNpmTasks("grunt-contrib-copy");
     // 启用 grunt-text-replace 插件,替换文本.
     // grunt.loadNpmTasks('grunt-text-replace');
+    // 启用 grunt-contrib-compress 压缩ZIP
+    // grunt.loadNpmTasks('grunt-contrib-compress');
 
 
     // 使用 load-grunt-tasks 代替自动 loadNpmTasks命令,自动加载需要的插件
     require("load-grunt-tasks")(grunt);
 
     // 默认指定的任务...生产打包编译
-    grunt.registerTask("default", ["clean:before_build", "uglify", "less", "replace", "cssmin", "copy", "clean:after_build"]);
+    grunt.registerTask("default", ["clean:before_build", "uglify", "less", "replace", "cssmin", "copy:main", "compress", "clean:after_build"]);
     // check 检查语法
     grunt.registerTask("check", ["jshint"]);
     // debug 调试输出
