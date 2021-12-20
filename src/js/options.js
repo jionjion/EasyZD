@@ -3,11 +3,8 @@
  *
  *  @author Jion
  */
-
-(() => {
-
-	const hello = (a) => {
-		alert(a + '!')
-	}
-
-})()
+(function () {
+    var hello = function (a) {
+        alert(a + '!!');
+    };
+})();

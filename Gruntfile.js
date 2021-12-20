@@ -7,12 +7,20 @@ module.exports = function (grunt) {
         // 将TypeScript 转为 JavaScript.. 同为 src 目录下
         ts: {
             options: {
-                    comments: true,
-                    sourceMap: false,
-                    rootDir: "src/ts",
-                    target: 'ES5',
-                    module: 'commonjs',
-                    declaration: false
+                // 自动删除注释
+                comments: true,
+                // 不生成 .map 地图
+                sourceMap: false,
+                // 不进行快速压缩
+                fast: 'never',
+                // 根目录
+                rootDir: "src/ts",
+                // TypeScript 版本
+                target: 'ES5',
+                // JavaScript版本
+                module: 'commonjs',
+                // 不生成 .d.ts 文件
+                declaration: false
             },
             default: {
                 src: ["src/ts/*.ts"],
@@ -227,7 +235,7 @@ module.exports = function (grunt) {
     require("load-grunt-tasks")(grunt);
 
     // 默认指定的任务...生产打包编译
-    grunt.registerTask("default", ["clean:before_build", "uglify", "less", "cssmin", "copy:main", "replace", "compress", "clean:after_build"]);
+    grunt.registerTask("default", ["clean:before_build", "uglify", "ts", "less", "cssmin", "copy:main", "replace", "compress", "clean:after_build"]);
     // check 检查语法
     grunt.registerTask("check", ["jshint"]);
     // debug 调试输出
