@@ -4,6 +4,22 @@ module.exports = function (grunt) {
         // 读取 package.json 中属性
         pkg: grunt.file.readJSON("package.json"),
 
+        // 将TypeScript 转为 JavaScript.. 同为 src 目录下
+        ts: {
+            options: {
+                    comments: true,
+                    sourceMap: false,
+                    rootDir: "src/ts",
+                    target: 'ES5',
+                    module: 'commonjs',
+                    declaration: false
+            },
+            default: {
+                src: ["src/ts/*.ts"],
+                outDir: "src/js",
+            }
+        },
+
         // 任务: js 代码质量语法检查  grunt-contrib-jshint 插件
         jshint: {
             all: {
@@ -123,7 +139,6 @@ module.exports = function (grunt) {
             }
         },
 
-
         // 任务: 文本替换..  grunt-text-replace 插件
         replace: {
             manifest_json: {
@@ -184,11 +199,11 @@ module.exports = function (grunt) {
         watch: {
             scripts: {
                 files: "src/js/*.js",
-                tasks: "uglify",
+                tasks: ["uglify"]
             },
             css: {
                 files: "src/css/*.css",
-                tasks: "cssmin"
+                tasks: ["cssmin"]
             }
         }
     });
@@ -208,8 +223,7 @@ module.exports = function (grunt) {
     // 启用 grunt-contrib-compress 压缩ZIP
     // grunt.loadNpmTasks('grunt-contrib-compress');
 
-
-    // 使用 load-grunt-tasks 代替自动 loadNpmTasks命令,自动加载需要的插件
+    // 使用 load-grunt-tasks 代替自动 loadNpmTasks 命令, 自动加载需要的插件
     require("load-grunt-tasks")(grunt);
 
     // 默认指定的任务...生产打包编译
@@ -217,6 +231,6 @@ module.exports = function (grunt) {
     // check 检查语法
     grunt.registerTask("check", ["jshint"]);
     // debug 调试输出
-    grunt.registerTask("debug", ["clean:before_build", "less", "copy:main", "copy:test", "replace", "clean:after_build", "watch"]);
+    grunt.registerTask("debug", ["clean:before_build", "ts", "less", "copy:main", "copy:test", "replace", "clean:after_build", "watch"]);
 
 };
