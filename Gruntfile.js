@@ -213,10 +213,10 @@ module.exports = function (grunt) {
     require("load-grunt-tasks")(grunt);
 
     // 默认指定的任务...生产打包编译
-    grunt.registerTask("default", ["clean:before_build", "uglify", "less", "replace", "cssmin", "copy:main", "compress", "clean:after_build"]);
+    grunt.registerTask("default", ["clean:before_build", "uglify", "less", "cssmin", "copy:main", "replace", "compress", "clean:after_build"]);
     // check 检查语法
     grunt.registerTask("check", ["jshint"]);
     // debug 调试输出
-    grunt.registerTask("debug", ["clean:before_build", "less", "replace", "copy:main", "copy:test", "clean:after_build", "watch"]);
+    grunt.registerTask("debug", ["clean:before_build", "less", "copy:main", "copy:test", "replace", "clean:after_build", "watch"]);
 
 };
