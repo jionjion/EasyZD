@@ -205,19 +205,33 @@ module.exports = function (grunt) {
 
         // 任务: 监控资源热部署 grunt-contrib-watch 插件
         watch: {
-            scripts: {
+            copy: {
+                files: ["src/font/**", "src/page/**", "src/icon/**"],
+                tasks: ["copy:main", "replace"]
+            },
+            typeScript: {
+                files: "src/ts/*.ts",
+                tasks: ["ts"]
+            },
+            javaScript: {
                 files: "src/js/*.js",
-                tasks: ["uglify"]
+                tasks: ["copy:test", "replace"]
+            },
+            less: {
+                files: "src/less/*.less",
+                tasks: ["less"]
             },
             css: {
-                files: "src/css/*.css",
-                tasks: ["cssmin"]
+                files: "build/less/*.css",
+                tasks: ["copy:test", "replace"]
             }
         }
     });
 
     // 启用 grunt-contrib-clean 插件,清除文件
     // grunt.loadNpmTasks("grunt-contrib-clean");
+    // 启用 grunt-ts 插件, 将ts转为js
+    // grunt.loadNpmTasks("grunt-ts");
     // 启用 grunt-contrib-uglify 插件,压缩js文件
     // grunt.loadNpmTasks("grunt-contrib-uglify");
     // 启用 grunt-contrib-less 插件,编译less文件为css
@@ -235,7 +249,7 @@ module.exports = function (grunt) {
     require("load-grunt-tasks")(grunt);
 
     // 默认指定的任务...生产打包编译
-    grunt.registerTask("default", ["clean:before_build", "uglify", "ts", "less", "cssmin", "copy:main", "replace", "compress", "clean:after_build"]);
+    grunt.registerTask("default", ["clean:before_build", "ts", "uglify", "less", "cssmin", "copy:main", "replace", "compress", "clean:after_build"]);
     // check 检查语法
     grunt.registerTask("check", ["jshint"]);
     // debug 调试输出
