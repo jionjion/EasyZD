@@ -123,42 +123,23 @@ module.exports = function (grunt) {
             }
         },
 
-
         // 任务: 文本替换..  grunt-text-replace 插件
         replace: {
             manifest_json: {
                 src: ["src/manifest.json"],
                 dest: "build/manifest.json",
-                replacements: [{
-                    from: 'utility.js',
-                    to: 'utility.min.js'
-                }, {
-                    from: 'background.js',
-                    to: 'background.min.js'
-                }, {
-                    from: 'selection.js',
-                    to: 'selection.min.js'
-                }, {
-                    from: "popup.js",
-                    to: "popup.min.js"
-                }, {
-                    from: "base.css",
-                    to: "base.min.css"
-                }, {
-                    from: "selection.css",
-                    to: "selection.min.css"
-                }]
+                replacements: [{from: 'utility.js', to: 'utility.min.js'},
+                    {from: 'background.js', to: 'background.min.js'},
+                    {from: 'selection.js', to: 'selection.min.js'},
+                    {from: "popup.js", to: "popup.min.js"},
+                    {from: "base.css", to: "base.min.css"},
+                    {from: "selection.css", to: "selection.min.css"}]
             },
             options_html: {
                 src: ["build/page/options.html"],
                 overwrite: true,
-                replacements: [{
-                    from: "options.js",
-                    to: "options.min.js"
-                }, {
-                    from: "options.css",
-                    to: "options.min.css"
-                }]
+                replacements: [{from: "options.js", to: "options.min.js"},
+                    {from: "options.css", to: "options.min.css"}]
             },
             options_css: {
                 src: ["build/css/options.min.css"],
@@ -168,19 +149,10 @@ module.exports = function (grunt) {
             popup_html: {
                 src: ["build/page/popup.html"],
                 overwrite: true,
-                replacements: [{
-                    from: "popup.js",
-                    to: "popup.min.js"
-                }, {
-                    from: "utility.js",
-                    to: "utility.min.js"
-                }, {
-                    from: "popup.css",
-                    to: "popup.min.css"
-                }, {
-                    from: "icon.css",
-                    to: "icon.min.css"
-                }]
+                replacements: [{from: "popup.js", to: "popup.min.js"},
+                    {from: "utility.js", to: "utility.min.js"},
+                    {from: "popup.css", to: "popup.min.css"},
+                    {from: "icon.css", to: "icon.min.css"}]
             },
             popup_css: {
                 src: ["build/css/popup.min.css"],
@@ -194,21 +166,48 @@ module.exports = function (grunt) {
             }
         },
 
+        // 任务: 发布时,压缩为ZIP文件.
+        compress: {
+            main: {
+                options: {
+                    mode: "zip",
+                    archive: "build/EasyZD.zip"
+                },
+                files: [
+                    {expand: true, cwd: 'build/', src: ['**']}
+                ]
+            }
+        },
+
         // 任务: 监控资源热部署 grunt-contrib-watch 插件
         watch: {
-            scripts: {
+            copy: {
+                files: ["src/font/**", "src/page/**", "src/icon/**"],
+                tasks: ["copy:main", "replace"]
+            },
+            typeScript: {
+                files: "src/ts/*.ts",
+                tasks: ["ts"]
+            },
+            javaScript: {
                 files: "src/js/*.js",
-                tasks: "uglify",
+                tasks: ["copy:test", "replace"]
+            },
+            less: {
+                files: "src/less/*.less",
+                tasks: ["less"]
             },
             css: {
-                files: "src/css/*.css",
-                tasks: "cssmin"
+                files: "build/less/*.css",
+                tasks: ["copy:test", "replace"]
             }
         }
     });
 
     // 启用 grunt-contrib-clean 插件,清除文件
     // grunt.loadNpmTasks("grunt-contrib-clean");
+    // 启用 grunt-ts 插件, 将ts转为js
+    // grunt.loadNpmTasks("grunt-ts");
     // 启用 grunt-contrib-uglify 插件,压缩js文件
     // grunt.loadNpmTasks("grunt-contrib-uglify");
     // 启用 grunt-contrib-less 插件,编译less文件为css
@@ -219,16 +218,17 @@ module.exports = function (grunt) {
     // grunt.loadNpmTasks("grunt-contrib-copy");
     // 启用 grunt-text-replace 插件,替换文本.
     // grunt.loadNpmTasks('grunt-text-replace');
+    // 启用 grunt-contrib-compress 压缩ZIP
+    // grunt.loadNpmTasks('grunt-contrib-compress');
 
-
-    // 使用 load-grunt-tasks 代替自动 loadNpmTasks命令,自动加载需要的插件
+    // 使用 load-grunt-tasks 代替自动 loadNpmTasks 命令, 自动加载需要的插件
     require("load-grunt-tasks")(grunt);
 
     // 默认指定的任务...生产打包编译
-    grunt.registerTask("default", ["clean:before_build", "uglify", "less", "replace", "cssmin", "copy", "clean:after_build"]);
+    grunt.registerTask("default", ["clean:before_build", "uglify", "less", "cssmin", "copy:main", "replace", "compress", "clean:after_build"]);
     // check 检查语法
     grunt.registerTask("check", ["jshint"]);
     // debug 调试输出
-    grunt.registerTask("debug", ["clean:before_build", "less", "replace", "copy:main", "copy:test", "clean:after_build", "watch"]);
+    grunt.registerTask("debug", ["clean:before_build", "less", "copy:main", "copy:test", "replace", "clean:after_build"]);
 
 };

@@ -4,7 +4,6 @@
  *  @author Jion
  */
 
-
 /* App信息 */
 const App = {
     // 应用ID
@@ -137,22 +136,23 @@ const AppTemplate = {
     },
     // 翻译,数组字符串
     getWordTranslation: (args) => {
+        debugger;
         let temp =
-			`<div id="word-translation">`;
-		for (let i in args) {
-			temp += `<p>${args[i]}</p>`;
-		}
-		temp += `</div>`;
-		return temp;
-	},
-	// 词释扩展,数组对象
-	getWordWfs: (args) => {
-		let temp =
-			`<div id="word-wfs">` +
-			`<p><span>扩展</span>&nbsp;`;
-		for (let arg of args) {
-			temp +=
-				`<span class="word-wf">
+            `<div id="word-translation">`;
+        for (let i in args) {
+            temp += `<p>${args[i]}</p>`;
+        }
+        temp += `</div>`;
+        return temp;
+    },
+    // 词释扩展,数组对象
+    getWordWfs: (args) => {
+        let temp =
+            `<div id="word-wfs">` +
+            `<p><span>扩展</span>&nbsp;`;
+        for (let arg of args) {
+            temp +=
+                `<span class="word-wf">
 				<span>${arg.wf.name}</span>
 				<span>${arg.wf.value}</span>
 				<span>;</span>
@@ -235,7 +235,7 @@ const DrawTemplate = {
     // 翻译,数组字符串
     getWordTranslation: (args) => {
         let temp =
-			`<div id="Easy-ZD-word-translation">`;
+            `<div id="Easy-ZD-word-translation">`;
         for (let i in args) {
             temp += `<p>${args[i]}</p>`;
         }

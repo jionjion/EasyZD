@@ -22,6 +22,7 @@
   "devDependencies": {
     "grunt": "^1.4.1",
     "grunt-cli": "^1.4.3",
+    "grunt-contrib-compress": "^2.0.0",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^4.0.0",
     "grunt-contrib-jshint": "^3.1.1",
@@ -33,6 +34,9 @@
     "uglify-js": "^3.14.2"
   },
   "dependencies": {
-    "grunt-contrib-clean": "^2.0.0"
+    "grunt-babel": "^8.0.0",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-ts": "^6.0.0-beta.22",
+    "js-sha256": "^0.9.0"
   }
 }

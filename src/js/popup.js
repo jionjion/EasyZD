@@ -1,3 +1,5 @@
+// noinspection JSUnresolvedVariable
+
 /**
  *  弹窗页面,点击浏览器插件图标显示
  *
@@ -16,11 +18,14 @@ let $wordQuery = document.querySelector("#word-query");
 
 /** 监听输入动作. */
 $queryTxt.addEventListener("input", (event) => {
+    // @ts-ignore
     let currentInput = $queryTxt.value;
     // 延时0.6S后查询
     setTimeout(() => {
         // 存在查询结果
+        // @ts-ignore
         if ($queryTxt.value === currentInput && Ext.isNotEmpty($queryTxt.value)) {
+            // @ts-ignore
             queryAtPopup($queryTxt.value);
         }
     }, 600);
@@ -36,23 +41,26 @@ const queryAtPopup = (queryWord) => {
     // }
 
     if (Ext.isNotEmpty(queryWord)) {
+        // @ts-ignore
         $queryTxt.value = queryWord;
 
+        debugger;
+        console.log(queryWord)
+
         // 发送消息,并执行回调
-        chrome.extension.sendMessage({
+        chrome.runtime.sendMessage({
             source: "popup",
             queryWord: queryWord
         }, buildResult);
     }
 }
 
-
 /* 查询结果的回调函数 */
 const buildResult = (response) => {
     // 绑定html
     $queryResult.innerHTML = response;
     // 绑定音频
-    $wordUkSpeech = document.querySelector("#word-uk-speech");
+    let $wordUkSpeech = document.querySelector("#word-uk-speech");
     if (Ext.isNotEmpty($wordUkSpeech)) {
 
         let src = $wordUkSpeech.getAttribute("data-src");
@@ -61,14 +69,16 @@ const buildResult = (response) => {
         audioElement.setAttribute("src", src);
         $wordUkSpeech.appendChild(audioElement);
         audioElement.addEventListener("ended", function (event) {
+            // @ts-ignore
             document.querySelector("#word-uk-speech-audio").load();
         });
         $wordUkSpeech.addEventListener("click", (e) => {
+            // @ts-ignore
             document.querySelector("#word-uk-speech-audio").play();
         });
     }
 
-    $wordUsSpeech = document.querySelector("#word-us-speech");
+    let $wordUsSpeech = document.querySelector("#word-us-speech");
     if (Ext.isNotEmpty($wordUsSpeech)) {
         let src = $wordUsSpeech.getAttribute("data-src");
         let audioElement = document.createElement("audio");
@@ -76,11 +86,12 @@ const buildResult = (response) => {
         audioElement.setAttribute("src", src);
         $wordUsSpeech.appendChild(audioElement);
         audioElement.addEventListener("ended", function (event) {
+            // @ts-ignore
             document.querySelector("#word-us-speech-audio").load();
         });
         $wordUsSpeech.addEventListener("click", (e) => {
+            // @ts-ignore
             document.querySelector("#word-us-speech-audio").play();
         })
     }
-
 }
