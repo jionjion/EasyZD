@@ -1,19 +1,21 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "EasyZD",
-  "version": "2.1.2",
+  "version": "3.1.1",
+  "author": "Jion",
   "description": "简单的查询功能,将中文或者英文进行翻译,并支持划词操作哦 (*￣ω￣)!...",
-  "permissions": [
+  "icons": {
+    "16": "icon/icon16.png",
+    "48": "icon/icon48.png",
+    "128": "icon/icon128.png"
+  },
+  "permissions": [],
+  "host_permissions": [
     "https://openapi.youdao.com/*"
   ],
   "options_page": "page/options.html",
   "background": {
-    "persistent": true,
-    "scripts": [
-      "js/sha256.min.js",
-      "js/utility.js",
-      "js/background.js"
-    ]
+    "service_worker": "js/background.js"
   },
   "content_scripts": [
     {
@@ -30,18 +32,15 @@
       ]
     }
   ],
-  "browser_action": {
+  "action": {
+    "default_title": "翻译",
     "default_popup": "page/popup.html",
     "default_icon": {
       "16": "icon/icon16.png",
       "48": "icon/icon48.png"
     }
   },
-  "icons": {
-    "16": "icon/icon16.png",
-    "48": "icon/icon48.png",
-    "128": "icon/icon128.png"
-  },
+
   "commands": {
     "_execute_browser_action": {
       "suggested_key": {

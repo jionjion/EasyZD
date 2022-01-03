@@ -4,7 +4,6 @@
  *  @author Jion
  */
 
-
 /* App信息 */
 const App = {
     // 应用ID

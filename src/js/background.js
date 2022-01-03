@@ -1,11 +1,20 @@
+// noinspection JSUnresolvedVariable
+
 /**
  *  背景板,程序驻内存运行.作为后台任务处理
  *
  *  @author Jion
  */
 
+/* Google 导入语法,添加扩展JavaScript支持 */
+try {
+    importScripts('./utility.min.js', './sha256.min.js');
+} catch (e) {
+    console.error(e);
+}
+
 /** 调用API */
-const requestApi = (message, sendResponse) => {
+const requestApi = async (message, sendResponse) => {
 
     let appKey = App.appKey;
     let appSecretKey = App.appSecretKey;
@@ -26,30 +35,22 @@ const requestApi = (message, sendResponse) => {
     // 加密-密文
     let sign = sha256(str1);
     let data = {
-        q: query,
-        from: from,
-        to: to,
-        appKey: appKey,
-        salt: salt,
-        sign: sign,
-        signType: 'v3',
-        curtime: curtime
+        q: query, from: from, to: to, appKey: appKey, salt: salt, sign: sign, signType: 'v3', curtime: curtime
     };
-    let url = "http://openapi.youdao.com/api";
-    // 异步请求
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", url, true);
-    xhr.onreadystatechange = () => {
-        // @TODO 请求失败时响应
-        if (xhr.readyState !== 4) {
-            return;
-        }
-        // 解析返回结果,返回HTML
-        let responseJson = (JSON.parse(xhr.responseText));
-        // 返回解析结果
-        sendResponse(htmlBuilderFactory(message, responseJson));
-    };
-    xhr.send(postDataFormat(data));
+    let url = "https://openapi.youdao.com/api";
+
+    await fetch(url, {
+        method: 'POST', body: postDataFormat(data)
+    })
+        .then(response => response.json())
+        .then(result => {
+            // let responseJson = JSON.parse(result);
+            sendResponse(htmlBuilderFactory(message, result));
+            console.log('Success:', result);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 }
 
 /** 调用API方法:截取输入文本,API要求加密时,查询内容最多输入20字符 */
@@ -115,14 +116,13 @@ const popupHtmlBuilder = (obj) => {
         popupHtml += AppTemplate.getWordQuery({query: obj.query});
     }
     // 音标, 在大段翻译时,不会有音标,但是有发音
-    if (Ext.isNotEmpty(obj.basic) && Ext.isNotEmpty(obj.basic['uk-phonetic']) && Ext.isNotEmpty(obj.basic['us-phonetic'])) {
-        popupHtml += AppTemplate.getWordPhonetic(
-            {
-                wordUkPhonetic: obj.basic['uk-phonetic'],
-                wordUkSpeech: obj.basic['uk-speech'],
-                wordUsPhonetic: obj.basic['us-phonetic'],
-                wordUsSpeech: obj.basic['us-speech']
-            });
+    if (Ext.isNotEmpty(obj['basic']) && Ext.isNotEmpty(obj.basic['uk-phonetic']) && Ext.isNotEmpty(obj.basic['us-phonetic'])) {
+        popupHtml += AppTemplate.getWordPhonetic({
+            wordUkPhonetic: obj.basic['uk-phonetic'],
+            wordUkSpeech: obj.basic['uk-speech'],
+            wordUsPhonetic: obj.basic['us-phonetic'],
+            wordUsSpeech: obj.basic['us-speech']
+        });
     }
     // 大段翻译,优先级低于词释
     if (Ext.isNotEmpty(obj.translation) && Ext.isEmpty(obj.basic)) {
@@ -155,13 +155,12 @@ const selectionHtmlBuilder = (obj) => {
     }
     // 音标, 在大段翻译时,不会有音标,但是有发音
     if (Ext.isNotEmpty(obj.basic) && Ext.isNotEmpty(obj.basic['uk-phonetic']) && Ext.isNotEmpty(obj.basic['us-phonetic'])) {
-        popupHtml += DrawTemplate.getWordPhonetic(
-            {
-                wordUkPhonetic: obj.basic['uk-phonetic'],
-                wordUkSpeech: obj.basic['uk-speech'],
-                wordUsPhonetic: obj.basic['us-phonetic'],
-                wordUsSpeech: obj.basic['us-speech']
-            });
+        popupHtml += DrawTemplate.getWordPhonetic({
+            wordUkPhonetic: obj.basic['uk-phonetic'],
+            wordUkSpeech: obj.basic['uk-speech'],
+            wordUsPhonetic: obj.basic['us-phonetic'],
+            wordUsSpeech: obj.basic['us-speech']
+        });
     }
     // 大段翻译,优先级低于词释
     if (Ext.isNotEmpty(obj.translation) && Ext.isEmpty(obj.basic)) {
@@ -175,12 +174,10 @@ const selectionHtmlBuilder = (obj) => {
 }
 
 /** 监听请求 */
-chrome.runtime.onMessage.addListener(
-    (message, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    debugger;
+    // 调用API
+    requestApi(message, sendResponse).then(data => console.log("这是....{}", data));
 
-        // 调用API
-        requestApi(message, sendResponse);
-
-        return true;
-    }
-);
+    return true;
+});

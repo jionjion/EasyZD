@@ -3,13 +3,20 @@
  *
  *  @author Jion
  */
-(function () {
-    var hello = function (a) {
-        alert(a + '!!');
-    };
-    var a = 1;
-    var b = 2;
-    var c = 3;
-    var d = 4;
-    var e = 5;
-})();
+
+(() => {
+
+    const hello = (a) => {
+        alert(a + '!!')
+    }
+
+    let a = 1;
+
+    let b = 2;
+
+    let c = 3;
+
+    let d = 4;
+
+    let e = 5;
+})()
