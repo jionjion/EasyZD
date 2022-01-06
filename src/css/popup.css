@@ -47,13 +47,13 @@ a:active {
   color: #229c9d;
 }
 /* 查询表单 */
-.query-form {
+.Easy-ZD-query-form {
   position: relative;
   margin: 0;
   border: none;
   border-radius: 3px;
 }
-#query-txt {
+#Easy-ZD-query-txt {
   width: 98%;
   height: 30px;
   margin: 0 0;
@@ -61,10 +61,10 @@ a:active {
   border-radius: 5px;
   border: none;
 }
-#query-txt:focus {
+#Easy-ZD-query-txt:focus {
   outline: none;
 }
-#query-btn {
+#Easy-ZD-query-btn {
   display: block;
   height: 100%;
   position: absolute;
@@ -76,40 +76,40 @@ a:active {
   background-color: transparent;
   color: #2A2A36;
 }
-#query-btn:focus {
+#Easy-ZD-query-btn:focus {
   outline-color: transparent;
 }
-#query-btn:hover {
+#Easy-ZD-query-btn:hover {
   color: #2A2A36;
 }
-#query-btn:active {
+#Easy-ZD-query-btn:active {
   color: #fa4659;
 }
-#query-result {
+#Easy-ZD-query-result {
   margin: 20px 10px;
 }
 /* 结果页-查询单词 */
-#word-query {
+#Easy-ZD-word-query {
   color: #2A2A36;
   font-weight: bold;
   font-size: 20px;
 }
 /* 错误提示 */
-#word-error {
+#Easy-ZD-word-error {
   color: #fa4659;
   font-weight: bold;
   font-size: 20px;
 }
-#word-error > p:last-child {
+#Easy-ZD-word-error > p:last-child {
   text-align: right;
 }
 /* 单词基本 */
 /* #word-basic {} */
-#word-basic i {
+#Easy-ZD-word-basic i {
   display: inline-block;
   vertical-align: middle;
 }
-#word-basic a {
+#Easy-ZD-word-basic a {
   cursor: pointer;
 }
 /* 大段翻译 */
@@ -117,8 +117,8 @@ a:active {
 /* 词释 */
 /* #word-explains {} */
 /* 词性,图贴 */
-#word-explains > p > span:first-child,
-#word-wfs > p:first-child > span:first-child {
+#Easy-ZD-word-explains > p > span:first-child,
+#Easy-ZD-word-wfs > p:first-child > span:first-child {
   color: #2A2A36;
   font-weight: bold;
   text-align: center;
@@ -127,6 +127,6 @@ a:active {
   display: inline-block;
 }
 /* 扩展 */
-#word-wfs > p:nth-child(n+2) {
+#Easy-ZD-word-wfs > p:nth-child(n+2) {
   display: inline;
 }
