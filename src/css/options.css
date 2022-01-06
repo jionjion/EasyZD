@@ -1,4 +1,3 @@
-/* 设置界面样式 */
 /* 基础样式定义 */
 /* 白色 */
 /* 灰色,浅灰色 */
@@ -14,7 +13,5 @@
 body {
   margin: 100px auto;
   width: 600px;
-}
-div {
-  background-color: #f2f0e7;
+  background-color: #FFFAFC;
 }

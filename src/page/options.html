@@ -1,54 +1,93 @@
 <!DOCTYPE html>
 <!-- 扩展插件,设置界面 -->
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>设置界面</title>
-		<link rel="stylesheet" type="text/css" href="../css/options.css"/>
-	</head>
-	<body>
+    <head>
+        <meta charset="utf-8">
+        <title>设置界面</title>
+        <link rel="stylesheet" type="text/css" href="../css/options.css"/>
+    </head>
+    <body>
+        <h2 style="">
+            <img src="../icon/icon48.png" alt=""
+                 style="width: 36px; height: 36px;     display: inline-block;vertical-align: middle;">
+            <strong>EasyZD Setting</strong>
+        </h2>
+        <hr/>
 
-		<div>
-			<div class="input-group">
-				<span class="input-group-addon">$</span>
-				<input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-				<span class="input-group-addon">.00</span>
-			</div>
+        <div>
+            <form>
+                <!-- 个人设置 -->
+                <div>
+                    <!-- appKey: "1666f504b10dfd2c", -->
+                    <span>应用ID</span>
+                    <label for="app_id">
+                        <input id="app_id" type="text" name="appKey"/>
+                    </label>
+                </div>
+                <div>
+                    <!-- appSecretKey: "gKzqWsuGtU3efU4qUlWoR2knV1Q4LST", -->
+                    <span>应用秘钥</span>
+                    <label for="app_secret_key">
+                        <input id="app_secret_key" type="text" name="appSecretKey"/>
+                    </label>
+                </div>
 
-			<!-- 个人账户 -->
-			<div>
-				<!-- appKey: "1666f504b10dfd2c", -->
-				<p>应用ID</p>
-				<!-- appSecretKey: "gKzoqWsuGtU3efU4qUlWoR2knV1Q4LST", -->
-				<p>应用秘钥</p>
-				<p>是否使用https接口</p>
-			</div>
-			<!-- 翻译设置 -->
-			<div>
-				<p></p>
-			</div>
+                <!--  划词设置  -->
+                <div>
+                    <!-- 开启后,页面可以划词翻译 -->
+                    <span>是否开启划词</span>
+                    <label for="enable_draw_translation">
+                        <input id="enable_draw_translation" type="checkbox" name="enableDrawTranslation"/>
+                    </label>
+                </div>
+                <div>
+                    <!-- 开启后,需要配合其他按键才可以翻译 -->
+                    <span>划词的配合快捷键</span>
+                    <label for="draw_translation_secondary_key_by_none">
+                        <input type="radio" id="draw_translation_secondary_key_by_none"
+                               name="drawTranslationSecondaryKey" value="None" checked><span>None</span>
+                    </label>
+                    <label for="draw_translation_secondary_key_by_alt">
+                        <input type="radio" id="draw_translation_secondary_key_by_alt"
+                               name="drawTranslationSecondaryKey" value="Alt"><span>Alt</span>
+                    </label>
+                    <label for="draw_translation_secondary_key_by_ctrl">
+                        <input type="radio" id="draw_translation_secondary_key_by_ctrl"
+                               name="drawTranslationSecondaryKey" value="Ctrl"><span>Ctrl</span>
+                    </label>
+                </div>
+                <div>
+                    <!-- 自动发音 -->
+                    <span>默认发音</span>
+                    <label for="draw_translation_default_voice_by_uk">
+                        <input type="radio" id="draw_translation_default_voice_by_uk" name="drawTranslationDefaultVoice"
+                               value="uk" checked><span>英语</span>
+                    </label>
+                    <label for="draw_translation_default_voice_by_us">
+                        <input type="radio" id="draw_translation_default_voice_by_us" name="drawTranslationDefaultVoice"
+                               value="us"><span>美语</span>
+                    </label>
+                </div>
 
-			<!--  划词设置  -->
-			<div>
-				<p>是否开启划词</p>
-				<p>划词的配合快捷键</p>
-				<p>默认发音 英语|美语</p>
-			</div>
 
-			<!-- 测试 -->
-			<div>
-				<p> good </p>
-			</div>
+                <!-- 测试划词页面 -->
+                <div>
+                    <h4 style="margin-block-start: auto;margin-block-end: auto;">好好学习，天天向上。</h4>
+                    <h4 style="margin-block-start: auto;margin-block-end: auto;">study hard and make progress every
+                        day.</h4>
+                </div>
 
-			<!-- 支持开发 -->
-			<div>
-				<ul>
-					<li><a href="https://github.com/jionjion/EasyZD">github</a></li>
-					<li><a href="https://github.com/jionjion/EasyZD/issues">issues</a></li>
-					<li><a href="mailto:jionjion@aliyun.com">email</a></li>
-				</ul>
-			</div>
-		</div>
-		<script src="../js/options.js" type="text/javascript" charset="utf-8"></script>
-	</body>
+                <!-- 支持开发 -->
+                <div>
+                    <ul style="margin: 0;padding: 0;">
+                        <li style="display: inline;"><a href="https://github.com/jionjion/EasyZD">github</a></li>
+                        <li style="display: inline;"><a href="https://github.com/jionjion/EasyZD/issues">issues</a></li>
+                        <li style="display: inline;"><a href="mailto:jionjion@aliyun.com">email</a></li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+
+        <script src="../js/options.js" type="text/javascript" charset="utf-8"></script>
+    </body>
 </html>

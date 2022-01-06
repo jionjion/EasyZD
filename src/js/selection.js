@@ -43,7 +43,6 @@
         }
         debugger;
         // 发送消息,并执行回调
-        // @ts-ignore
         chrome.runtime.sendMessage({
             source: "selection",
             queryWord: selectText
@@ -88,11 +87,9 @@
             audioElement.setAttribute("src", src);
             $wordUkSpeech.appendChild(audioElement);
             audioElement.addEventListener("ended", function (event) {
-                // @ts-ignore
                 document.querySelector("#Easy-ZD-word-uk-speech-audio").load();
             });
             $wordUkSpeech.addEventListener("click",(e)=>{
-                // @ts-ignore
                 document.querySelector("#Easy-ZD-word-uk-speech-audio").play();
             });
         }
@@ -105,11 +102,9 @@
             audioElement.setAttribute("src", src);
             $wordUsSpeech.appendChild(audioElement);
             audioElement.addEventListener("ended", function (event) {
-                // @ts-ignore
                 document.querySelector("#Easy-ZD-word-us-speech-audio").load();
             });
             $wordUsSpeech.addEventListener("click",(e)=>{
-                // @ts-ignore
                 document.querySelector("#Easy-ZD-word-us-speech-audio").play();
             })
         }

@@ -35,7 +35,14 @@ module.exports = function (grunt) {
             options: {
                 // 压缩后,js 首行 banner
                 banner: "/*! <%= pkg.name %> <%= grunt.template.today('yyyy-mm-dd') %> */\n",
-                sourceMap: false
+                sourceMap: false,
+                compress:{
+                    drop_console: true,
+                    dead_code: true,
+                    global_defs: {
+                        'DEBUG': false
+                    }
+                }
             },
             // 默认编译任务 build
             build: {
