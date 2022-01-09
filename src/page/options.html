@@ -15,34 +15,34 @@
         <hr/>
 
         <div>
-            <form>
+            <form class="Easy-ZD-setting-form">
                 <!-- 个人设置 -->
-                <div>
+                <div class="Easy-ZD-setting-row">
                     <!-- appKey: "1666f504b10dfd2c", -->
-                    <span>应用ID</span>
-                    <label for="app_id">
-                        <input id="app_id" type="text" name="appKey"/>
+                    <span class="Easy-ZD-setting-form-label">应用ID</span>
+                    <label for="app_key">
+                        <input id="app_key" class="Easy-ZD-setting-input-text" type="text" name="appKey"/>
                     </label>
                 </div>
-                <div>
+                <div class="Easy-ZD-setting-row">
                     <!-- appSecretKey: "gKzqWsuGtU3efU4qUlWoR2knV1Q4LST", -->
-                    <span>应用秘钥</span>
+                    <span class="Easy-ZD-setting-form-label">应用秘钥</span>
                     <label for="app_secret_key">
-                        <input id="app_secret_key" type="text" name="appSecretKey"/>
+                        <input id="app_secret_key" class="Easy-ZD-setting-input-text" type="text" name="appSecretKey"/>
                     </label>
                 </div>
 
                 <!--  划词设置  -->
-                <div>
+                <div class="Easy-ZD-setting-row">
                     <!-- 开启后,页面可以划词翻译 -->
-                    <span>是否开启划词</span>
+                    <span class="Easy-ZD-setting-form-label">是否开启划词</span>
                     <label for="enable_draw_translation">
-                        <input id="enable_draw_translation" type="checkbox" name="enableDrawTranslation"/>
+                        <input id="enable_draw_translation" class="Easy-ZD-setting-input-checkbox" type="checkbox" name="enableDrawTranslation"/>
                     </label>
                 </div>
-                <div>
+                <div class="Easy-ZD-setting-row">
                     <!-- 开启后,需要配合其他按键才可以翻译 -->
-                    <span>划词的配合快捷键</span>
+                    <span class="Easy-ZD-setting-form-label">划词的配合快捷键</span>
                     <label for="draw_translation_secondary_key_by_none">
                         <input type="radio" id="draw_translation_secondary_key_by_none"
                                name="drawTranslationSecondaryKey" value="None" checked><span>None</span>
@@ -56,9 +56,9 @@
                                name="drawTranslationSecondaryKey" value="Ctrl"><span>Ctrl</span>
                     </label>
                 </div>
-                <div>
+                <div class="Easy-ZD-setting-row">
                     <!-- 自动发音 -->
-                    <span>默认发音</span>
+                    <span class="Easy-ZD-setting-form-label">默认发音</span>
                     <label for="draw_translation_default_voice_by_uk">
                         <input type="radio" id="draw_translation_default_voice_by_uk" name="drawTranslationDefaultVoice"
                                value="uk" checked><span>英语</span>
@@ -71,19 +71,30 @@
 
 
                 <!-- 测试划词页面 -->
-                <div>
-                    <h4 style="margin-block-start: auto;margin-block-end: auto;">好好学习，天天向上。</h4>
-                    <h4 style="margin-block-start: auto;margin-block-end: auto;">study hard and make progress every
-                        day.</h4>
+                <div class="Easy-ZD-setting-row"></div>
+                <div class="Easy-ZD-setting-row">
+                    <h4 class="Easy-ZD-h4">好好学习，天天向上。</h4>
+                    <h4 class="Easy-ZD-h4">study hard and make progress every day.</h4>
                 </div>
 
+                <div class="Easy-ZD-setting-row"></div>
+                <div class="Easy-ZD-setting-row"></div>
+                <div class="Easy-ZD-setting-row"></div>
                 <!-- 支持开发 -->
-                <div>
-                    <ul style="margin: 0;padding: 0;">
-                        <li style="display: inline;"><a href="https://github.com/jionjion/EasyZD">github</a></li>
-                        <li style="display: inline;"><a href="https://github.com/jionjion/EasyZD/issues">issues</a></li>
-                        <li style="display: inline;"><a href="mailto:jionjion@aliyun.com">email</a></li>
-                    </ul>
+                <div class="Easy-ZD-setting-row">
+                    <fieldset>
+                        <legend>
+                            <a>支持开发</a>
+                        </legend>
+                        <div style="width: 200px; height: 200px">
+                            广告位置...
+                        </div>
+                        <ul style="margin: 0;padding: 0;">
+                            <li style="display: inline;"><a href="https://github.com/jionjion/EasyZD">github</a></li>
+                            <li style="display: inline;"><a href="https://github.com/jionjion/EasyZD/issues">issues</a></li>
+                            <li style="display: inline;"><a href="mailto:jionjion@aliyun.com">email</a></li>
+                        </ul>
+                    </fieldset>
                 </div>
             </form>
         </div>
