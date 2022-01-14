@@ -17,6 +17,13 @@ body {
   height: 70vh;
   background-color: #FFFAFC;
 }
+/* Logo 图标 */
+.Easy-ZD-logo-image {
+  width: 36px;
+  height: 36px;
+  display: inline-block;
+  vertical-align: middle;
+}
 /* 设置表单 */
 /* 设置单元行 */
 .Easy-ZD-setting-row {
@@ -46,4 +53,18 @@ body {
   padding-block-end: 0.2rem;
   margin-block-start: auto;
   margin-block-end: auto;
+}
+/* 支持页面广告 */
+.Easy-ZD-supper-ad {
+  width: 200px;
+  height: 200px;
+}
+/* 支持页面 */
+.Easy-ZD-supper-ul {
+  margin: 0;
+  padding: 0;
+}
+/* 支持页面超链接 */
+.Easy-ZD-supper-li {
+  display: inline;
 }
