@@ -52,6 +52,8 @@ body {
 
 /* 标题 */
 .Easy-ZD-h4 {
+  font-weight: initial;
+  text-align: right;
   padding-block-start: 0.2rem;
   padding-block-end: 0.2rem;
   margin-block-start: auto;
@@ -59,18 +61,31 @@ body {
 }
 
 /* 支持页面广告 */
-.Easy-ZD-supper-ad {
-  width: 200px;
-  height: 200px
+.Easy-ZD-supper-ad img {
+  width: 560px;
+  height: 240px;
 }
 
 /* 支持页面 */
 .Easy-ZD-supper-ul {
+  background-color: @base-color-gray;
   margin: 0;
   padding: 0;
 }
 
 /* 支持页面超链接 */
 .Easy-ZD-supper-li {
+  margin: 0 10%;
   display: inline;
+}
+
+.Easy-ZD-supper-li a {
+  color: #0060B6;
+  text-decoration: none;
+}
+
+.Easy-ZD-supper-li a:hover {
+  color: #00A0C6;
+  text-decoration: none;
+  cursor: pointer;
 }

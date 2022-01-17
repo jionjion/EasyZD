@@ -10,11 +10,11 @@
 /*
  *	各种Dom元素对象
  */
-let $queryForm = document.querySelector("#app_key");
-let $queryForm = document.querySelector("#app_secret_key");
-let $queryForm = document.querySelector("#enable_draw_translation");
-let $queryForm = document.querySelector("#draw_translation_secondary_key_by_none");
-let $queryForm = document.querySelector("#draw_translation_default_voice_by_uk");
+let $textInputAppKey = document.querySelector("#app_key");
+// let $queryForm = document.querySelector("#app_secret_key");
+// let $queryForm = document.querySelector("#enable_draw_translation");
+// let $queryForm = document.querySelector("#draw_translation_secondary_key_by_none");
+// let $queryForm = document.querySelector("#draw_translation_default_voice_by_uk");
 
 
 /*
@@ -29,23 +29,25 @@ const config = {
 };
 
 
-
-
 // 页面加载后执行
 (() => {
-
-    const hello = (a) => {
-        alert(a + '!!')
+    const init = (config) => {
+        console.log(config)
+        debugger;
+        $textInputAppKey.setAttribute("value", "1234567");
     }
 
-    // 存
-    chrome.storage.sync.set({key: value}, function() {
-        console.log('Value is set to ' + value);
-    });
+    // // 存
+    // chrome.storage.sync.set({key: value}, function() {
+    //     console.log('Value is set to ' + value);
+    // });
+    //
+    // // 取
+    // chrome.storage.sync.get(['key'], function(result) {
+    //     console.log('Value currently is ' + result.key);
+    // });
 
-    // 取
-    chrome.storage.sync.get(['key'], function(result) {
-        console.log('Value currently is ' + result.key);
-    });
 
+    // 初始化值
+    init();
 })()
