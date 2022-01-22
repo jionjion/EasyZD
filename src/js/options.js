@@ -6,15 +6,17 @@
  *  @author Jion
  */
 
-
 /*
  *	各种Dom元素对象
  */
 let $textInputAppKey = document.querySelector("#app_key");
-// let $queryForm = document.querySelector("#app_secret_key");
-// let $queryForm = document.querySelector("#enable_draw_translation");
-// let $queryForm = document.querySelector("#draw_translation_secondary_key_by_none");
-// let $queryForm = document.querySelector("#draw_translation_default_voice_by_uk");
+let $passwordInputAppSecretKey = document.querySelector("#app_secret_key");
+let $checkedInputEnableDrawTranslation = document.querySelector("#enable_draw_translation");
+let $radioInputDrawTranslationSecondaryKeyByNone = document.querySelector("#draw_translation_secondary_key_by_none");
+let $radioInputDrawTranslationSecondaryKeyByCtrl = document.querySelector("#draw_translation_secondary_key_by_ctrl");
+let $radioInputDrawTranslationSecondaryKeyByAlt = document.querySelector("#draw_translation_secondary_key_by_alt");
+let $radioInputDrawTranslationDefaultVoiceByUk = document.querySelector("#draw_translation_default_voice_by_uk");
+let $radioInputDrawTranslationDefaultVoiceByUs = document.querySelector("#draw_translation_default_voice_by_us");
 
 
 /*
@@ -34,7 +36,19 @@ const config = {
     const init = (config) => {
         console.log(config)
         debugger;
-        $textInputAppKey.setAttribute("value", "1234567");
+        $textInputAppKey.setAttribute("value", "1666f504b10dfd2c");
+
+        $passwordInputAppSecretKey.setAttribute("value", "gKzqWsuGtU3efU4qUlWoR2knV1Q4LST");
+
+        $checkedInputEnableDrawTranslation.setAttribute("checked", "checked");
+        $checkedInputEnableDrawTranslation.removeAttribute("checked");
+
+        $radioInputDrawTranslationSecondaryKeyByNone.removeAttribute("checked");
+        $radioInputDrawTranslationSecondaryKeyByCtrl.removeAttribute("checked");
+        $radioInputDrawTranslationSecondaryKeyByAlt.setAttribute("checked", "checked");
+
+        $radioInputDrawTranslationDefaultVoiceByUk.setAttribute("checked", "checked");
+        $radioInputDrawTranslationDefaultVoiceByUs.removeAttribute("checked")
     }
 
     // // 存

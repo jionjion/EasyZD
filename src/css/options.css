@@ -47,6 +47,12 @@ body {
   width: 16px;
   height: 16px;
 }
+/* 单选框 */
+.Easy-ZD-setting-form-radio {
+  padding: 0 10px;
+  display: inline-block;
+  min-width: 70px;
+}
 /* 标题 */
 .Easy-ZD-h4 {
   font-weight: initial;

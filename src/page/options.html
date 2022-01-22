@@ -20,14 +20,14 @@
                     <!-- appKey: "1666f504b10dfd2c", -->
                     <span class="Easy-ZD-setting-form-label">应用ID</span>
                     <label for="app_key">
-                        <input id="app_key" class="Easy-ZD-setting-input-text" type="text" name="appKey"/>
+                        <input id="app_key" class="Easy-ZD-setting-input-text" type="text" name="appKey" disabled/>
                     </label>
                 </div>
                 <div class="Easy-ZD-setting-row">
                     <!-- appSecretKey: "gKzqWsuGtU3efU4qUlWoR2knV1Q4LST", -->
                     <span class="Easy-ZD-setting-form-label">应用秘钥</span>
                     <label for="app_secret_key">
-                        <input id="app_secret_key" class="Easy-ZD-setting-input-text" type="text" name="appSecretKey"/>
+                        <input id="app_secret_key" class="Easy-ZD-setting-input-text" type="password" name="appSecretKey" disabled/>
                     </label>
                 </div>
 
@@ -36,33 +36,33 @@
                     <!-- 开启后,页面可以划词翻译 -->
                     <span class="Easy-ZD-setting-form-label">是否开启划词</span>
                     <label for="enable_draw_translation">
-                        <input id="enable_draw_translation" class="Easy-ZD-setting-input-checkbox" type="checkbox" name="enableDrawTranslation"/>
+                        <input id="enable_draw_translation" class="Easy-ZD-setting-input-checkbox" type="checkbox" name="enableDrawTranslation" checked="checked"/>
                     </label>
                 </div>
                 <div class="Easy-ZD-setting-row">
                     <!-- 开启后,需要配合其他按键才可以翻译 -->
                     <span class="Easy-ZD-setting-form-label">划词的配合快捷键</span>
-                    <label for="draw_translation_secondary_key_by_none">
+                    <label for="draw_translation_secondary_key_by_none" class="Easy-ZD-setting-form-radio">
                         <input type="radio" id="draw_translation_secondary_key_by_none"
-                               name="drawTranslationSecondaryKey" value="None" checked><span>None</span>
+                               name="drawTranslationSecondaryKey" value="None" checked="checked"><span>None</span>
                     </label>
-                    <label for="draw_translation_secondary_key_by_alt">
-                        <input type="radio" id="draw_translation_secondary_key_by_alt"
-                               name="drawTranslationSecondaryKey" value="Alt"><span>Alt</span>
-                    </label>
-                    <label for="draw_translation_secondary_key_by_ctrl">
+                    <label for="draw_translation_secondary_key_by_ctrl" class="Easy-ZD-setting-form-radio">
                         <input type="radio" id="draw_translation_secondary_key_by_ctrl"
                                name="drawTranslationSecondaryKey" value="Ctrl"><span>Ctrl</span>
+                    </label>
+                    <label for="draw_translation_secondary_key_by_alt" class="Easy-ZD-setting-form-radio">
+                        <input type="radio" id="draw_translation_secondary_key_by_alt"
+                               name="drawTranslationSecondaryKey" value="Alt"><span>Alt</span>
                     </label>
                 </div>
                 <div class="Easy-ZD-setting-row">
                     <!-- 自动发音 -->
                     <span class="Easy-ZD-setting-form-label">默认发音</span>
-                    <label for="draw_translation_default_voice_by_uk">
+                    <label for="draw_translation_default_voice_by_uk" class="Easy-ZD-setting-form-radio">
                         <input type="radio" id="draw_translation_default_voice_by_uk" name="drawTranslationDefaultVoice"
                                value="uk" checked><span>英语</span>
                     </label>
-                    <label for="draw_translation_default_voice_by_us">
+                    <label for="draw_translation_default_voice_by_us" class="Easy-ZD-setting-form-radio">
                         <input type="radio" id="draw_translation_default_voice_by_us" name="drawTranslationDefaultVoice"
                                value="us"><span>美语</span>
                     </label>
