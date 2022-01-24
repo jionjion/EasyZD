@@ -1,3 +1,5 @@
+// noinspection JSUnresolvedFunction
+
 module.exports = function (grunt) {
     // 项目自动构建任务配置
     grunt.initConfig({
@@ -98,7 +100,9 @@ module.exports = function (grunt) {
                     // icon 拷贝
                     {expand: true, cwd: "src/icon/", src: ["**"], dest: "build/icon/"},
                     // js 工具拷贝
-                    {expand: true, cwd: "src/js/", src: ["sha256.min.js"], dest: "build/js/"}
+                    {expand: true, cwd: "src/js/", src: ["sha256.min.js"], dest: "build/js/"},
+                    // image 拷贝
+                    {expand: true, cwd: "src/image/", src: ["**"], dest: "build/image/"},
                 ]
             },
             // 测试环境,不打包,仅拷贝
@@ -145,7 +149,8 @@ module.exports = function (grunt) {
             options_html: {
                 src: ["build/page/options.html"],
                 overwrite: true,
-                replacements: [{from: "options.js", to: "options.min.js"},
+                replacements: [{from: "utility.js", to: "utility.min.js"},
+                    {from: "options.js", to: "options.min.js"},
                     {from: "options.css", to: "options.min.css"}]
             },
             options_css: {

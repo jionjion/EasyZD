@@ -23,11 +23,11 @@ let $radioInputDrawTranslationDefaultVoiceByUs = document.querySelector("#draw_t
  * 配置对象
  */
 const config = {
-    'appKey':'1666f504b10dfd2c',
-    'appSecretKey':'gKzqWsuGtU3efU4qUlWoR2knV1Q4LST',
+    'appKey': '1666f504b10dfd2c',
+    'appSecretKey': 'gKzqWsuGtU3efU4qUlWoR2knV1Q4LST',
     'enableDrawTranslation': 'Y',
-    'drawTranslationSecondaryKey':'None',
-    'drawTranslationDefaultVoice':'uk',
+    'drawTranslationSecondaryKey': 'Alt',
+    'drawTranslationDefaultVoice': 'uk',
 };
 
 
@@ -36,19 +36,54 @@ const config = {
     const init = (config) => {
         console.log(config)
         debugger;
-        $textInputAppKey.setAttribute("value", "1666f504b10dfd2c");
+        // 个人定制,不显示
+        if (Ext.isEmpty(config)) {
+            return;
+        }
 
-        $passwordInputAppSecretKey.setAttribute("value", "gKzqWsuGtU3efU4qUlWoR2knV1Q4LST");
+        if (Ext.isNotEmpty(config.appKey)) {
+            $textInputAppKey.setAttribute("value", config.appKey);
+        }
 
-        $checkedInputEnableDrawTranslation.setAttribute("checked", "checked");
-        $checkedInputEnableDrawTranslation.removeAttribute("checked");
+        if (Ext.isNotEmpty(config.appSecretKey)) {
+            $passwordInputAppSecretKey.setAttribute("value", config.appSecretKey);
+        }
 
-        $radioInputDrawTranslationSecondaryKeyByNone.removeAttribute("checked");
-        $radioInputDrawTranslationSecondaryKeyByCtrl.removeAttribute("checked");
-        $radioInputDrawTranslationSecondaryKeyByAlt.setAttribute("checked", "checked");
+        if (Ext.isNotEmpty(config.enableDrawTranslation)) {
+            if (config.enableDrawTranslation === 'Y') {
+                $checkedInputEnableDrawTranslation.setAttribute("value", "checked");
+            } else {
+                $checkedInputEnableDrawTranslation.removeAttribute("checked");
+            }
+        }
 
-        $radioInputDrawTranslationDefaultVoiceByUk.setAttribute("checked", "checked");
-        $radioInputDrawTranslationDefaultVoiceByUs.removeAttribute("checked")
+        if (Ext.isNotEmpty(config.drawTranslationSecondaryKey)) {
+            if (config.drawTranslationSecondaryKey === "None") {
+                $radioInputDrawTranslationSecondaryKeyByNone.setAttribute("checked", "checked");
+                $radioInputDrawTranslationSecondaryKeyByCtrl.removeAttribute("checked");
+                $radioInputDrawTranslationSecondaryKeyByAlt.removeAttribute("checked");
+
+            } else if (config.drawTranslationSecondaryKey === "Ctrl") {
+                $radioInputDrawTranslationSecondaryKeyByCtrl.setAttribute("checked", "checked");
+                $radioInputDrawTranslationSecondaryKeyByNone.removeAttribute("checked");
+                $radioInputDrawTranslationSecondaryKeyByAlt.removeAttribute("checked");
+
+            } else if (config.drawTranslationSecondaryKey === "Alt") {
+                $radioInputDrawTranslationSecondaryKeyByAlt.setAttribute("checked", "checked");
+                $radioInputDrawTranslationSecondaryKeyByNone.removeAttribute("checked");
+                $radioInputDrawTranslationSecondaryKeyByCtrl.removeAttribute("checked");
+            }
+        }
+
+        if (Ext.isNotEmpty(config.drawTranslationDefaultVoice)) {
+            if (config.drawTranslationDefaultVoice === 'uk') {
+                $radioInputDrawTranslationDefaultVoiceByUk.setAttribute("checked", "checked");
+                $radioInputDrawTranslationDefaultVoiceByUs.removeAttribute("checked");
+            } else if (config.drawTranslationDefaultVoice === 'us') {
+                $radioInputDrawTranslationDefaultVoiceByUs.setAttribute("checked", "checked");
+                $radioInputDrawTranslationDefaultVoiceByUk.removeAttribute("checked");
+            }
+        }
     }
 
     // // 存
@@ -63,5 +98,5 @@ const config = {
 
 
     // 初始化值
-    init();
+    init(config);
 })()

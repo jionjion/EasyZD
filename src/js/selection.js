@@ -43,6 +43,7 @@
         }
         debugger;
         // 发送消息,并执行回调
+        // noinspection JSUnresolvedFunction
         chrome.runtime.sendMessage({
             source: "selection",
             queryWord: selectText
