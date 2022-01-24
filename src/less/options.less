@@ -1,5 +1,104 @@
-/* 设置界面样式 */
+// 设置界面样式
+
+@import (multiple, less) 'base.less';
+
+/* 设置页面 */
 body {
-    margin: 100px auto;
-    width: 600px;
+  margin: 100px auto;
+  width: 600px;
+  height: 70vh;
+  background-color: @base-color-white;
+}
+
+/* Logo 图标 */
+.Easy-ZD-logo-image {
+  width: 36px;
+  height: 36px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* 设置表单 */
+.Easy-ZD-setting-form {
+
+}
+
+/* 设置单元行 */
+.Easy-ZD-setting-row {
+  display: block;
+  min-height: 40px;
+  margin-block-start: 10px;
+  margin-block-end: 10px;
+}
+
+
+/* 设置标题 */
+.Easy-ZD-setting-form-label {
+  width: 140px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+/* 文本输入框 */
+.Easy-ZD-setting-input-text {
+  width: 260px;
+}
+
+/* 勾选框 */
+.Easy-ZD-setting-input-checkbox {
+  width: 16px;
+  height: 16px
+}
+
+/* 单选框 */
+.Easy-ZD-setting-form-radio {
+  padding-right: 20px;
+  display: inline-block;
+  min-width: 70px;
+}
+
+/* 标题 */
+.Easy-ZD-h4 {
+  font-weight: initial;
+  text-align: right;
+  padding-block-start: 0.2rem;
+  padding-block-end: 0.2rem;
+  margin-block-start: auto;
+  margin-block-end: auto;
+}
+
+/* 支持页面 */
+.Easy-ZD-setting-supper-fieldset{
+  border-color: blanchedalmond;
+  color: plum;
+}
+
+/* 支持页面广告 */
+.Easy-ZD-supper-ad img {
+  width: 560px;
+  height: 240px;
+}
+
+/* 支持页面 */
+.Easy-ZD-supper-ul {
+  background-color: @base-color-gray;
+  margin: 0;
+  padding: 0;
+}
+
+/* 支持页面超链接 */
+.Easy-ZD-supper-li {
+  margin: 0 10%;
+  display: inline;
+}
+
+.Easy-ZD-supper-li a {
+  color: #0060B6;
+  text-decoration: none;
+}
+
+.Easy-ZD-supper-li a:hover {
+  color: #00A0C6;
+  text-decoration: none;
+  cursor: pointer;
 }

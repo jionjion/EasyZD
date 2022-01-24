@@ -96,33 +96,33 @@ const App = {
 const AppTemplate = {
     // 错误页面提示
     getWordError: (args) => {
-        return `<div id="word-error">
+        return `<div id="Easy-ZD-word-error">
 				<p>
 					震惊,程序执行出现错误 X﹏X
 				</p>
-				<p id="word-error-value">${args.wordErrorValue}</p>
+				<p id="Easy-ZD-word-error-value">${args.wordErrorValue}</p>
 			</div>`;
     },
     // 单词
-    getWordQuery: (args) => `<div id="word-query">${args.query}</div>`,
+    getWordQuery: (args) => `<div id="Easy-ZD-word-query">${args.query}</div>`,
     // 音标
     getWordPhonetic: (args) => {
-        return `<div id="word-basic">
+        return `<div id="Easy-ZD-word-basic">
 			<p>
 				<span>英</span>
-				<span id="word-uk-phonetic">[${args.wordUkPhonetic}]</span>
-				<span id="word-uk-speech" data-src="${args.wordUkSpeech}"><a><i class="icon-volume-medium"></i></a></span>
+				<span id="Easy-ZD-word-uk-phonetic">[${args.wordUkPhonetic}]</span>
+				<span id="Easy-ZD-word-uk-speech" data-src="${args.wordUkSpeech}"><a><i class="icon-volume-medium"></i></a></span>
 				<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
 				<span>美</span>
-				<span id="word-us-phonetic">[${args.wordUsPhonetic}]</span>
-				<span id="word-us-speech" data-src="${args.wordUsSpeech}"><a><i class="icon-volume-medium"></i></a></span>
+				<span id="Easy-ZD-word-us-phonetic">[${args.wordUsPhonetic}]</span>
+				<span id="Easy-ZD-word-us-speech" data-src="${args.wordUsSpeech}"><a><i class="icon-volume-medium"></i></a></span>
 			</p>
 		</div>`;
     },
     // 词释,数组字符串
     getWordExplains: (args) => {
         let temp =
-            `<div id="word-explains">`;
+            `<div id="Easy-ZD-word-explains">`;
         for (let arg of args) {
             // 不一定会有词性前缀,如 n. adj. adv.
             if (arg.indexOf('.') >= 0) {
@@ -138,7 +138,7 @@ const AppTemplate = {
     getWordTranslation: (args) => {
         debugger;
         let temp =
-            `<div id="word-translation">`;
+            `<div id="Easy-ZD-word-translation">`;
         for (let i in args) {
             temp += `<p>${args[i]}</p>`;
         }
@@ -148,11 +148,11 @@ const AppTemplate = {
     // 词释扩展,数组对象
     getWordWfs: (args) => {
         let temp =
-            `<div id="word-wfs">` +
+            `<div id="Easy-ZD-word-wfs">` +
             `<p><span>扩展</span>&nbsp;`;
         for (let arg of args) {
             temp +=
-                `<span class="word-wf">
+                `<span class="Easy-ZD-word-wf">
 				<span>${arg.wf.name}</span>
 				<span>${arg.wf.value}</span>
 				<span>;</span>
@@ -164,7 +164,7 @@ const AppTemplate = {
     // 网络词义,对象数组
     getWordWeb: (args) => {
         let temp =
-            `<div id="word-web">
+            `<div id="Easy-ZD-word-web">
 			<hr />
 			<p>网络词义</p>`;
         for (let i in args) {

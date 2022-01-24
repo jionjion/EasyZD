@@ -26,13 +26,16 @@ const requestApi = async (message, sendResponse) => {
 
     // 查询
     let query = message.queryWord;
+
     // 查询,源语言
     let from = 'auto';
     // 查询,目标语言
     let to = 'auto'; //'zh-CHS';
     // 加密-明文
     let str1 = appKey + getInput(query) + salt + curtime + appSecretKey;
+
     // 加密-密文
+    // noinspection JSUnresolvedFunction
     let sign = sha256(str1);
     let data = {
         q: query, from: from, to: to, appKey: appKey, salt: salt, sign: sign, signType: 'v3', curtime: curtime
@@ -53,7 +56,7 @@ const requestApi = async (message, sendResponse) => {
         });
 }
 
-/** 调用API方法:截取输入文本,API要求加密时,查询内容最多输入20字符 */
+/** 调用API方法:截取输入文本,API要求加密时,查询内容最多输入 20 字符 */
 const getInput = (input) => {
     if (input.length === 0) {
         return null;

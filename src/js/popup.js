@@ -9,11 +9,11 @@
 /*
  *	各种Dom元素对象
  */
-let $queryForm = document.querySelector("#query-form");
-let $queryTxt = document.querySelector("#query-txt");
-let $queryBtn = document.querySelector("#query-btn");
-let $queryResult = document.querySelector("#query-result");
-let $wordQuery = document.querySelector("#word-query");
+let $queryForm = document.querySelector("#Easy-ZD-query-form");
+let $queryTxt = document.querySelector("#Easy-ZD-query-txt");
+let $queryBtn = document.querySelector("#Easy-ZD-query-btn");
+let $queryResult = document.querySelector("#Easy-ZD-query-result");
+let $wordQuery = document.querySelector("#Easy-ZD-word-query");
 
 
 /** 监听输入动作. */
@@ -65,7 +65,7 @@ const buildResult = (response) => {
 
         let src = $wordUkSpeech.getAttribute("data-src");
         let audioElement = document.createElement("audio");
-        audioElement.setAttribute("id", "word-uk-speech-audio");
+        audioElement.setAttribute("id", "Easy-ZD-word-uk-speech-audio");
         audioElement.setAttribute("src", src);
         $wordUkSpeech.appendChild(audioElement);
         audioElement.addEventListener("ended", function (event) {
@@ -82,7 +82,7 @@ const buildResult = (response) => {
     if (Ext.isNotEmpty($wordUsSpeech)) {
         let src = $wordUsSpeech.getAttribute("data-src");
         let audioElement = document.createElement("audio");
-        audioElement.setAttribute("id", "word-us-speech-audio");
+        audioElement.setAttribute("id", "Easy-ZD-word-us-speech-audio");
         audioElement.setAttribute("src", src);
         $wordUsSpeech.appendChild(audioElement);
         audioElement.addEventListener("ended", function (event) {
