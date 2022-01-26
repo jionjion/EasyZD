@@ -2,6 +2,7 @@
 .idea/
 build/
 node_modules/
+src/css/
 
 # docs 文档
 docs/_site

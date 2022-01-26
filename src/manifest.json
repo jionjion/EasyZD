@@ -9,9 +9,7 @@
     "48": "icon/icon48.png",
     "128": "icon/icon128.png"
   },
-  "permissions": [
-    "storage"
-  ],
+  "permissions": [],
   "host_permissions": [
     "https://openapi.youdao.com/*"
   ],
