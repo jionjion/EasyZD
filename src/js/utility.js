@@ -6,10 +6,8 @@
 
 /* App信息 */
 const App = {
-    // 应用ID
-    appKey: "1666f504b10dfd2c",
-    // 应用秘钥
-    appSecretKey: "gKzoqWsuGtU3efU4qUlWoR2knV1Q4LST",
+    // 认证 appCode
+    appCode: "086121857D0E6A94F0A95CA408DBDD9D05C493FD55566327500AE493F703DCCC",
     // 应用名称
     appName: "EasyZD",
     // 错误信息

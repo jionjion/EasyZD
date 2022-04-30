@@ -16,34 +16,23 @@ try {
 /** 调用API */
 const requestApi = async (message, sendResponse) => {
 
-    let appKey = App.appKey;
-    let appSecretKey = App.appSecretKey;
-
-    // UUID 时间戳 => sha256
-    let salt = new Date().getTime();
-    // 当前时间
-    let curtime = Math.round(new Date().getTime() / 1000);
+    let appCode = App.appCode;
 
     // 查询
-    let query = message.queryWord;
+    let queryWord = message.queryWord;
 
-    // 查询,源语言
-    let from = 'auto';
-    // 查询,目标语言
-    let to = 'auto'; //'zh-CHS';
-    // 加密-明文
-    let str1 = appKey + getInput(query) + salt + curtime + appSecretKey;
+    let url = "http://127.0.0.1:8091/api/translation";
 
-    // 加密-密文
-    // noinspection JSUnresolvedFunction
-    let sign = sha256(str1);
+    // Form 表单数据
     let data = {
-        q: query, from: from, to: to, appKey: appKey, salt: salt, sign: sign, signType: 'v3', curtime: curtime
+        word: queryWord
     };
-    let url = "https://openapi.youdao.com/api";
 
+    console.log(data);
     await fetch(url, {
-        method: 'POST', body: postDataFormat(data)
+        method: 'POST',
+        headers: {'Authorization' : 'Appcode ' + appCode},
+        body: postDataFormat(data)
     })
         .then(response => response.json())
         .then(result => {
