@@ -153,8 +153,8 @@ const AppTemplate = {
         for (let arg of args) {
             temp +=
                 `<span class="Easy-ZD-word-wf">
-				<span>${arg.wf.name}</span>
-				<span>${arg.wf.value}</span>
+				<span>${arg['wf']['name']}</span>
+				<span>${arg['wf']['value']}</span>
 				<span>;</span>
 			</span>`;
         }
@@ -184,14 +184,12 @@ const AppTemplate = {
 const DrawTemplate = {
     // 错误页面提示
     getWordError: (args) => {
-        let temp =
-            `<div id="Easy-ZD-word-error">
+        return `<div id="Easy-ZD-word-error">
 				<p>
 					震惊,程序执行出现错误 X﹏X
 				</p>
 				<p id="Easy-ZD-word-error-value">${args.wordErrorValue}</p>
 			</div>`;
-        return temp;
     },
     // 单词
     getWordQuery: (args) => `<div id="Easy-ZD-word-query">${args.query}</div>`,

@@ -32,8 +32,8 @@
 	"returnPhrase": [
 		"good"
 	],
-	"speakUrl": "http://openapi.youdao.com/ttsapi?q=good&langType=en&sign=CB88D9D209BBAE4EA6CD284860F58D31&salt=1562246692759&voice=4&format=mp3&appKey=1666f504b10dfd2c",
-	"tSpeakUrl": "http://openapi.youdao.com/ttsapi?q=%E5%A5%BD&langType=zh-CHS&sign=923F329AEFA7E2BBCFA37D01F83BEB0D&salt=1562246692759&voice=4&format=mp3&appKey=1666f504b10dfd2c",
+	"speakUrl": "https://openapi.youdao.com/ttsapi?q=good&langType=en&sign=CB88D9D209BBAE4EA6CD284860F58D31&salt=1562246692759&voice=4&format=mp3&appKey=1666f504b10dfd2c",
+	"tSpeakUrl": "https://openapi.youdao.com/ttsapi?q=%E5%A5%BD&langType=zh-CHS&sign=923F329AEFA7E2BBCFA37D01F83BEB0D&salt=1562246692759&voice=4&format=mp3&appKey=1666f504b10dfd2c",
 	"translation": [
 		"好"
 	],
@@ -48,7 +48,7 @@
 		"value": ["吉芬商品", "吉芬物品", "吉芬品"]
 	}],
 	"webdict": {
-		"url": "http://m.youdao.com/dict?le=eng&q=good"
+		"url": "https://m.youdao.com/dict?le=eng&q=good"
 	}
 }
 
