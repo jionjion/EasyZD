@@ -6,8 +6,10 @@
 
 /* App信息 */
 const App = {
+    // 请求url
+    url: "https://console.jionjion.top/api/api/translation",
     // 认证 appCode
-    appCode: "BED67B17E4FAED2F6545FEBA422B97BCD54D34EABB5993F1661EF9A2A2E8B904",
+    appCode: "ED2F6545FEBA", //"BED67B17E4FAED2F6545FEBA422B97BCD54D34EABB5993F1661EF9A2A2E8B904",
     // 应用名称
     appName: "EasyZD",
     // 错误信息

@@ -15,13 +15,13 @@ try {
 
 /** 调用API */
 const requestApi = async (message, sendResponse) => {
-
+    // 认证
     let appCode = App.appCode;
 
     // 查询
-    let queryWord = getInput(message.queryWord);
+    let queryWord = getInput(message['queryWord']);
 
-    let url = "https://console.jionjion.top/api/api/translation";
+    let url =  App.url;
 
     // Form 表单数据
     let data = {

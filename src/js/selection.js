@@ -9,7 +9,7 @@
 (() => {
 
     /* 设置 */
-    let classNameCollection = [];
+    // let classNameCollection = [];
 
     /* 划词处理 */
     const queryAtSelection = (event) => {
@@ -55,57 +55,59 @@
     const buildResult = (response) => {
         // 之前存在,则删除   @TODO  改为工具方法
         let queryResultElementOld = document.getElementById("Easy-ZD-query-result");
-        if(Ext.isNotEmpty(queryResultElementOld)){
+        if (Ext.isNotEmpty(queryResultElementOld)) {
             // 删除
             document.documentElement.removeChild(queryResultElementOld);
         }
 
         let queryResultElement = document.createElement("div");
-        queryResultElement.setAttribute("id","Easy-ZD-query-result");
+        queryResultElement.setAttribute("id", "Easy-ZD-query-result");
         queryResultElement.innerHTML = response;
 
         document.documentElement.appendChild(queryResultElement);
 
-        // 5S后消失
-        let timeoutFn = setTimeout(()=>{
+        // 8S后消失
+        setTimeout(() => {
             // 重新获取,并删除
             let queryResultElementOld = document.getElementById("Easy-ZD-query-result");
-            if(Ext.isNotEmpty(queryResultElementOld)){
+            if (Ext.isNotEmpty(queryResultElementOld)) {
                 // 删除
                 document.documentElement.removeChild(queryResultElementOld);
             }
-        },5000);
-
+        }, 8000);
 
         // 绑定发音
         let $wordUkSpeech = document.querySelector("#Easy-ZD-word-uk-speech");
-        if(Ext.isNotEmpty($wordUkSpeech)){
-
+        if (Ext.isNotEmpty($wordUkSpeech)) {
             let src = $wordUkSpeech.getAttribute("data-src");
             let audioElement = document.createElement("audio");
             audioElement.setAttribute("id", "Easy-ZD-word-uk-speech-audio");
-            audioElement.setAttribute("class","Easy-ZD-audio")
+            audioElement.setAttribute("class", "Easy-ZD-audio")
             audioElement.setAttribute("src", src);
             $wordUkSpeech.appendChild(audioElement);
             audioElement.addEventListener("ended", function (event) {
+                console.log("事件, ", event);
                 document.querySelector("#Easy-ZD-word-uk-speech-audio").load();
             });
-            $wordUkSpeech.addEventListener("click",(e)=>{
+            $wordUkSpeech.addEventListener("click", (event) => {
+                console.log("事件, ", event);
                 document.querySelector("#Easy-ZD-word-uk-speech-audio").play();
             });
         }
 
         let $wordUsSpeech = document.querySelector("#Easy-ZD-word-us-speech");
-        if(Ext.isNotEmpty($wordUsSpeech)){
+        if (Ext.isNotEmpty($wordUsSpeech)) {
             let src = $wordUsSpeech.getAttribute("data-src");
             let audioElement = document.createElement("audio");
             audioElement.setAttribute("id", "Easy-ZD-word-us-speech-audio");
             audioElement.setAttribute("src", src);
             $wordUsSpeech.appendChild(audioElement);
             audioElement.addEventListener("ended", function (event) {
+                console.log("事件, ", event);
                 document.querySelector("#Easy-ZD-word-us-speech-audio").load();
             });
-            $wordUsSpeech.addEventListener("click",(e)=>{
+            $wordUsSpeech.addEventListener("click", (event) => {
+                console.log("事件, ", event);
                 document.querySelector("#Easy-ZD-word-us-speech-audio").play();
             })
         }
@@ -117,7 +119,7 @@
 
 
     /* 工具方法部分功能,拷贝 */
-    const Ext={
+    const Ext = {
         isEmpty: (obj) => {
             for (let name in obj) {
                 return false;
