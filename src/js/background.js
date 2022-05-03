@@ -19,9 +19,9 @@ const requestApi = async (message, sendResponse) => {
     let appCode = App.appCode;
 
     // 查询
-    let queryWord = message.queryWord;
+    let queryWord = getInput(message.queryWord);
 
-    let url = "http://127.0.0.1:8091/api/translation";
+    let url = "https://console.jionjion.top/api/api/translation";
 
     // Form 表单数据
     let data = {
@@ -31,7 +31,7 @@ const requestApi = async (message, sendResponse) => {
     console.log(data);
     await fetch(url, {
         method: 'POST',
-        headers: {'Authorization' : 'Appcode ' + appCode},
+        headers: {'Authorization': 'Appcode ' + appCode},
         body: postDataFormat(data)
     })
         .then(response => response.json())
@@ -75,19 +75,25 @@ const postDataFormat = (obj) => {
 const htmlBuilderFactory = (message, responseJson) => {
     debugger;
     console.log(responseJson);
-    let source = message.source || '';
-    let errorCode = responseJson.errorCode || "0";
-
-    // @TODO 错误信息,返回错误信息页面
-    if (errorCode !== "0") {
-        return errorHtmlBuilder(responseJson);
-    } else if (source === "popup") {
-        return popupHtmlBuilder(responseJson);
-    } else if (source === "selection") {
-        return selectionHtmlBuilder(responseJson);
-    } else {
-        return '';
+    if (responseJson.status === 'success') {
+        let content = responseJson.result.content;
+        let source = message.source || '';
+        let errorCode = content.errorCode || "0";
+        // @TODO 错误信息,返回错误信息页面
+        if (errorCode !== "0") {
+            return errorHtmlBuilder(content);
+        } else if (source === "popup") {
+            return popupHtmlBuilder(content);
+        } else if (source === "selection") {
+            return selectionHtmlBuilder(content);
+        } else {
+            return '';
+        }
+    } else if (responseJson.status === 'error') {
+        console.log(responseJson);
     }
+
+    return '';
 }
 
 /* 错误页面 */
