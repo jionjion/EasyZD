@@ -6,10 +6,8 @@
 
 /* App信息 */
 const App = {
-    // 应用ID
-    appKey: "1666f504b10dfd2c",
-    // 应用秘钥
-    appSecretKey: "gKzoqWsuGtU3efU4qUlWoR2knV1Q4LST",
+    // 认证 appCode
+    appCode: "BED67B17E4FAED2F6545FEBA422B97BCD54D34EABB5993F1661EF9A2A2E8B904",
     // 应用名称
     appName: "EasyZD",
     // 错误信息
@@ -153,8 +151,8 @@ const AppTemplate = {
         for (let arg of args) {
             temp +=
                 `<span class="Easy-ZD-word-wf">
-				<span>${arg.wf.name}</span>
-				<span>${arg.wf.value}</span>
+				<span>${arg['wf']['name']}</span>
+				<span>${arg['wf']['value']}</span>
 				<span>;</span>
 			</span>`;
         }
@@ -184,14 +182,12 @@ const AppTemplate = {
 const DrawTemplate = {
     // 错误页面提示
     getWordError: (args) => {
-        let temp =
-            `<div id="Easy-ZD-word-error">
+        return `<div id="Easy-ZD-word-error">
 				<p>
 					震惊,程序执行出现错误 X﹏X
 				</p>
 				<p id="Easy-ZD-word-error-value">${args.wordErrorValue}</p>
 			</div>`;
-        return temp;
     },
     // 单词
     getWordQuery: (args) => `<div id="Easy-ZD-word-query">${args.query}</div>`,
