@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "EasyZD",
-  "version": "3.1.2",
+  "version": "3.2.2",
   "author": "Jion",
   "description": "简单的查询功能,将中文或者英文进行翻译,并支持划词操作哦 (*￣ω￣)!...",
   "icons": {
@@ -11,7 +11,7 @@
   },
   "permissions": [],
   "host_permissions": [
-    "https://openapi.youdao.com/*"
+    "https://console.jionjion.top/*"
   ],
   "options_page": "page/options.html",
   "background": {

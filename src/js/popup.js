@@ -37,7 +37,7 @@ const queryAtPopup = (queryWord) => {
 
     // 预设查询时,样式
     // if ($queryTxt.value !== "") {
-    //     $queryResult.innerHTML = "ψ(._. )>词典君正在翻译。。。";
+    //     $queryResult.innerHTML = "划词君正在翻译...";
     // }
 
     if (Ext.isNotEmpty(queryWord)) {

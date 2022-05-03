@@ -29,17 +29,21 @@ const requestApi = async (message, sendResponse) => {
     };
 
     console.log(data);
+    // 同步请求
     await fetch(url, {
         method: 'POST',
         headers: {'Authorization': 'Appcode ' + appCode},
         body: postDataFormat(data)
     })
+        // 序列化
         .then(response => response.json())
+        // 处理结果
         .then(result => {
             // let responseJson = JSON.parse(result);
             sendResponse(htmlBuilderFactory(message, result));
             console.log('Success:', result);
         })
+        // 异常处理
         .catch(error => {
             console.error('Error:', error);
         });
