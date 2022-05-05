@@ -91,17 +91,40 @@ const App = {
     }]
 }
 
+/* 通过模板 */
+const BaseTemplate = {
+    // 错误页面提示
+    getWordError: (args) => {
+        return `<div id="Easy-ZD-word-error">
+				<p>
+					震惊,程序执行出现错误 o(≧口≦)o
+				</p>
+				<p id="Easy-ZD-word-error-value">${args.wordErrorValue}</p>
+			</div>`;
+    },
+
+    // 词释,数组字符串
+    getWordExplains: (args) => {
+        let temp =
+            `<div id="Easy-ZD-word-explains">`;
+        for (let arg of args) {
+            // 不一定会有词性前缀,如 n. adj. adv.
+            if (arg.indexOf('.') >= 0) {
+                temp += `<p><span>` + arg.split('.')[0] + '.' + `</span>&nbsp;<span>` + arg.split('.')[1] + `</span></p>`
+            } else {
+                temp += `<p>` + arg + `</p>`
+            }
+        }
+        temp += `</div>`;
+        return temp;
+    }
+}
 
 /* 模板对象,提供字符串模板 */
 const AppTemplate = {
     // 错误页面提示
     getWordError: (args) => {
-        return `<div id="Easy-ZD-word-error">
-				<p>
-					震惊,程序执行出现错误 X﹏X
-				</p>
-				<p id="Easy-ZD-word-error-value">${args.wordErrorValue}</p>
-			</div>`;
+        return BaseTemplate.getWordError(args);
     },
     // 单词
     getWordQuery: (args) => `<div id="Easy-ZD-word-query">${args.query}</div>`,
@@ -121,18 +144,7 @@ const AppTemplate = {
     },
     // 词释,数组字符串
     getWordExplains: (args) => {
-        let temp =
-            `<div id="Easy-ZD-word-explains">`;
-        for (let arg of args) {
-            // 不一定会有词性前缀,如 n. adj. adv.
-            if (arg.indexOf('.') >= 0) {
-                temp += `<p><span>` + arg.split('.')[0] + '.' + `</span>&nbsp;<span>` + arg.split('.')[1] + `</span></p>`
-            } else {
-                temp += `<p>` + arg + `</p>`
-            }
-        }
-        temp += `</div>`;
-        return temp;
+        return BaseTemplate.getWordExplains(args);
     },
     // 翻译,数组字符串
     getWordTranslation: (args) => {
@@ -182,15 +194,6 @@ const AppTemplate = {
 
 /* 模板对象,划词时使用 Draw */
 const DrawTemplate = {
-    // 错误页面提示
-    getWordError: (args) => {
-        return `<div id="Easy-ZD-word-error">
-				<p>
-					震惊,程序执行出现错误 X﹏X
-				</p>
-				<p id="Easy-ZD-word-error-value">${args.wordErrorValue}</p>
-			</div>`;
-    },
     // 单词
     getWordQuery: (args) => `<div id="Easy-ZD-word-query">${args.query}</div>`,
     // 音标
@@ -217,19 +220,9 @@ const DrawTemplate = {
     },
     // 词释,数组字符串
     getWordExplains: (args) => {
-        let temp =
-            `<div id="Easy-ZD-word-explains">`;
-        for (let arg of args) {
-            // 不一定会有词性前缀,如 n. adj. adv.
-            if (arg.indexOf('.') >= 0) {
-                temp += `<p><span>` + arg.split('.')[0] + '.' + `</span>&nbsp;<span>` + arg.split('.')[1] + `</span></p>`
-            } else {
-                temp += `<p>` + arg + `</p>`
-            }
-        }
-        temp += `</div>`;
-        return temp;
+        return BaseTemplate.getWordExplains(args);
     },
+
     // 翻译,数组字符串
     getWordTranslation: (args) => {
         let temp =
@@ -259,13 +252,6 @@ const Ext = {
     // 去除两端空格
     trim: (str) => {
         return str.replace(/(^\s*)|(\s*$)/g, "");
-    },
-    // 只将字符串进行SHA256加密
-    sha256Encode: (str) => {
-        if (typeof str == 'string' && str.constructor === String) {
-            return sha256(Ext.trim(str));
-        }
-        return null;
     },
     // 获得接口的错误信息
     getAppErrorCodeValue: (code) => {

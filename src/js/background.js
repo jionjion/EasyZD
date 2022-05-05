@@ -94,7 +94,7 @@ const htmlBuilderFactory = (message, responseJson) => {
             return '';
         }
     } else if (responseJson.status === 'error') {
-        console.log(responseJson);
+        return errorMessageHtmlBuilder(responseJson['message']);
     }
 
     return '';
@@ -105,6 +105,11 @@ const errorHtmlBuilder = (obj) => {
     let errorCode = obj.errorCode;
     let errorValue = Ext.getAppErrorCodeValue(errorCode);
     return AppTemplate.getWordError({wordErrorValue: errorValue});
+}
+
+/* 错误页面 */
+const errorMessageHtmlBuilder = (message) => {
+    return AppTemplate.getWordError({wordErrorValue: message});
 }
 
 /* 在popup页面中正确的查询结果 */
