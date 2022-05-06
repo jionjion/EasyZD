@@ -21,7 +21,7 @@ const requestApi = async (message, sendResponse) => {
     // 查询
     let queryWord = getInput(message['queryWord']);
 
-    let url =  App.url;
+    let url = App.url;
 
     // Form 表单数据
     let data = {
@@ -82,11 +82,7 @@ const htmlBuilderFactory = (message, responseJson) => {
     if (responseJson.status === 'success') {
         let content = responseJson.result.content;
         let source = message.source || '';
-        let errorCode = content.errorCode || "0";
-        // @TODO 错误信息,返回错误信息页面
-        if (errorCode !== "0") {
-            return errorHtmlBuilder(content);
-        } else if (source === "popup") {
+        if (source === "popup") {
             return popupHtmlBuilder(content);
         } else if (source === "selection") {
             return selectionHtmlBuilder(content);
@@ -94,21 +90,13 @@ const htmlBuilderFactory = (message, responseJson) => {
             return '';
         }
     } else if (responseJson.status === 'error') {
-        return errorMessageHtmlBuilder(responseJson['message']);
+        return errorHtmlBuilder(responseJson['message']);
     }
 
     return '';
 }
-
 /* 错误页面 */
-const errorHtmlBuilder = (obj) => {
-    let errorCode = obj.errorCode;
-    let errorValue = Ext.getAppErrorCodeValue(errorCode);
-    return AppTemplate.getWordError({wordErrorValue: errorValue});
-}
-
-/* 错误页面 */
-const errorMessageHtmlBuilder = (message) => {
+const errorHtmlBuilder = (message) => {
     return AppTemplate.getWordError({wordErrorValue: message});
 }
 
