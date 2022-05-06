@@ -15,13 +15,13 @@ try {
 
 /** 调用API */
 const requestApi = async (message, sendResponse) => {
-
+    // 认证
     let appCode = App.appCode;
 
     // 查询
-    let queryWord = getInput(message.queryWord);
+    let queryWord = getInput(message['queryWord']);
 
-    let url = "https://console.jionjion.top/api/api/translation";
+    let url = App.url;
 
     // Form 表单数据
     let data = {
@@ -29,17 +29,21 @@ const requestApi = async (message, sendResponse) => {
     };
 
     console.log(data);
+    // 同步请求
     await fetch(url, {
         method: 'POST',
         headers: {'Authorization': 'Appcode ' + appCode},
         body: postDataFormat(data)
     })
+        // 序列化
         .then(response => response.json())
+        // 处理结果
         .then(result => {
             // let responseJson = JSON.parse(result);
             sendResponse(htmlBuilderFactory(message, result));
             console.log('Success:', result);
         })
+        // 异常处理
         .catch(error => {
             console.error('Error:', error);
         });
@@ -78,11 +82,7 @@ const htmlBuilderFactory = (message, responseJson) => {
     if (responseJson.status === 'success') {
         let content = responseJson.result.content;
         let source = message.source || '';
-        let errorCode = content.errorCode || "0";
-        // @TODO 错误信息,返回错误信息页面
-        if (errorCode !== "0") {
-            return errorHtmlBuilder(content);
-        } else if (source === "popup") {
+        if (source === "popup") {
             return popupHtmlBuilder(content);
         } else if (source === "selection") {
             return selectionHtmlBuilder(content);
@@ -90,17 +90,14 @@ const htmlBuilderFactory = (message, responseJson) => {
             return '';
         }
     } else if (responseJson.status === 'error') {
-        console.log(responseJson);
+        return errorHtmlBuilder(responseJson['message']);
     }
 
     return '';
 }
-
 /* 错误页面 */
-const errorHtmlBuilder = (obj) => {
-    let errorCode = obj.errorCode;
-    let errorValue = Ext.getAppErrorCodeValue(errorCode);
-    return AppTemplate.getWordError({wordErrorValue: errorValue});
+const errorHtmlBuilder = (message) => {
+    return AppTemplate.getWordError({wordErrorValue: message});
 }
 
 /* 在popup页面中正确的查询结果 */

@@ -2,6 +2,8 @@
 
 @import (multiple, less) 'base.less';
 
+@ad-image-width: 560px;
+
 /* 设置页面 */
 body {
   margin: 100px auto;
@@ -21,6 +23,14 @@ body {
 /* 设置表单 */
 .Easy-ZD-setting-form {
 
+}
+
+/* 设置表单 */
+.Easy-ZD-hr {
+  border-block-color: revert;
+  border: none;
+  background-color: @base-color-brown;
+  height: 2px;
 }
 
 /* 设置单元行 */
@@ -68,27 +78,31 @@ body {
 }
 
 /* 支持页面 */
-.Easy-ZD-setting-supper-fieldset{
+.Easy-ZD-setting-supper-fieldset {
   border-color: blanchedalmond;
   color: plum;
 }
 
 /* 支持页面广告 */
 .Easy-ZD-supper-ad img {
-  width: 560px;
+  display: block;
+  width: @ad-image-width;
   height: 240px;
+  margin: 0 auto;
 }
 
 /* 支持页面 */
 .Easy-ZD-supper-ul {
   background-color: @base-color-gray;
-  margin: 0;
+  width: @ad-image-width;
+  display: block;
+  margin: 0 auto;
   padding: 0;
 }
 
 /* 支持页面超链接 */
 .Easy-ZD-supper-li {
-  margin: 0 10%;
+  margin: 0 11.9%;
   display: inline;
 }
 

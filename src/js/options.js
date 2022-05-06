@@ -9,8 +9,7 @@
 /*
  *	各种Dom元素对象
  */
-let $textInputAppKey = document.querySelector("#app_key");
-let $passwordInputAppSecretKey = document.querySelector("#app_secret_key");
+let $textInputAppCodeKey = document.querySelector("#app_code_key");
 let $checkedInputEnableDrawTranslation = document.querySelector("#enable_draw_translation");
 let $radioInputDrawTranslationSecondaryKeyByNone = document.querySelector("#draw_translation_secondary_key_by_none");
 let $radioInputDrawTranslationSecondaryKeyByCtrl = document.querySelector("#draw_translation_secondary_key_by_ctrl");
@@ -23,8 +22,7 @@ let $radioInputDrawTranslationDefaultVoiceByUs = document.querySelector("#draw_t
  * 配置对象
  */
 const config = {
-    'appKey': '1666f504b10dfd2c',
-    'appSecretKey': 'gKzqWsuGtU3efU4qUlWoR2knV1Q4LST',
+    'appCodeKey': 'BED67B17E4FAED2F6545FEBA422B97BCD54D34EABB5993F1661EF9A2A2E8B904',
     'enableDrawTranslation': 'Y',
     'drawTranslationSecondaryKey': 'Alt',
     'drawTranslationDefaultVoice': 'uk',
@@ -41,12 +39,8 @@ const config = {
             return;
         }
 
-        if (Ext.isNotEmpty(config.appKey)) {
-            $textInputAppKey.setAttribute("value", config.appKey);
-        }
-
-        if (Ext.isNotEmpty(config.appSecretKey)) {
-            $passwordInputAppSecretKey.setAttribute("value", config.appSecretKey);
+        if (Ext.isNotEmpty(config.appCodeKey)) {
+            $textInputAppCodeKey.setAttribute("value", config.appCodeKey);
         }
 
         if (Ext.isNotEmpty(config.enableDrawTranslation)) {

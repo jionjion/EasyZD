@@ -25,6 +25,13 @@ body {
   vertical-align: middle;
 }
 /* 设置表单 */
+/* 设置表单 */
+.Easy-ZD-hr {
+  border-block-color: revert;
+  border: none;
+  background-color: #6e4850;
+  height: 2px;
+}
 /* 设置单元行 */
 .Easy-ZD-setting-row {
   display: block;
@@ -69,18 +76,22 @@ body {
 }
 /* 支持页面广告 */
 .Easy-ZD-supper-ad img {
+  display: block;
   width: 560px;
   height: 240px;
+  margin: 0 auto;
 }
 /* 支持页面 */
 .Easy-ZD-supper-ul {
   background-color: #f2f0e7;
-  margin: 0;
+  width: 560px;
+  display: block;
+  margin: 0 auto;
   padding: 0;
 }
 /* 支持页面超链接 */
 .Easy-ZD-supper-li {
-  margin: 0 10%;
+  margin: 0 11.9%;
   display: inline;
 }
 .Easy-ZD-supper-li a {
