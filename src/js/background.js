@@ -19,7 +19,7 @@ const requestApi = async (message, sendResponse) => {
     let appCode = App.appCode;
 
     // 查询
-    let queryWord = getInput(message['queryWord']);
+    let queryWord = message['queryWord'];
 
     let url = App.url;
 
@@ -47,23 +47,6 @@ const requestApi = async (message, sendResponse) => {
         .catch(error => {
             console.error('Error:', error);
         });
-}
-
-/** 调用API方法:截取输入文本,API要求加密时,查询内容最多输入 20 字符 */
-const getInput = (input) => {
-    if (input.length === 0) {
-        return null;
-    }
-    let result;
-    let len = input.length;
-    if (len <= 20) {
-        result = input;
-    } else {
-        let startStr = input.substring(0, 10);
-        let endStr = input.substring(len - 10, len);
-        result = startStr + len + endStr;
-    }
-    return result;
 }
 
 /* 将POST请求的数据体格式化,对象类型 */
