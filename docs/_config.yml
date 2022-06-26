@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.my variable }}.
 
-title: 简单的字典
+title: EasyZD
 email: jionjion@aliyun.com
 repository: jionjion/jionjion.github.io
 description: >- # this means to ignore newlines until "baseurl:"
