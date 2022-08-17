@@ -9,6 +9,7 @@
 /*
  *	各种Dom元素对象
  */
+let $body = document.querySelector('#Easy-ZD-body')
 let $queryForm = document.querySelector("#Easy-ZD-query-form");
 let $queryTxt = document.querySelector("#Easy-ZD-query-txt");
 let $queryBtn = document.querySelector("#Easy-ZD-query-btn");
@@ -70,6 +71,9 @@ const queryAtPopup = (queryWord) => {
  * @param response
  */
 const buildResult = (response) => {
+    // 去掉背景图片
+    $body.removeAttribute("class");
+
     // 绑定html
     $queryResult.innerHTML = response;
     // 绑定音频
