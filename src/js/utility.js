@@ -161,18 +161,41 @@ const DrawTemplate = {
 
 /* 工具方法对象 */
 const Ext = {
-    // 判断一个初始化后的对象是否为空: true 为空,false不为空
+    /**
+     * 判断一个初始化后的对象是否为空或空串: true为空, false不为空
+     *
+     * @param {any} obj 判断对象
+     * @return {boolean} 是否为空: true为空, false不为空
+     */
     isEmpty: (obj) => {
+        // 字符串类型
+        if(typeof obj === 'string'){
+           return obj.replace(/(^\s*)|(\s*$)/g, "").length === 0
+        }
+
+        // object 等其他类型判断
         for (let name in obj) {
             return false;
         }
         return true;
     },
-    //
+
+    /**
+     *  判断一个初始化后的对象是否不为空或不为空串: true不为空, false为空
+     *
+     * @param {any} obj 判断对象
+     * @return {boolean} 是否不为空: true不为空, false为空
+     */
     isNotEmpty: (obj) => {
         return !(Ext.isEmpty(obj));
     },
-    // 去除两端空格
+
+    /**
+     * 去除两端空格
+     *
+     * @param {string} str 来源字符串
+     * @return {string} 去除空格后的字符串
+     */
     trim: (str) => {
         return str.replace(/(^\s*)|(\s*$)/g, "");
     },
