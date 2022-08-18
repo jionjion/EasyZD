@@ -54,7 +54,7 @@ const requestApi = async (message, sendResponse) => {
 /**
  * 将POST请求的数据体格式化,对象类型
  *
- * @param {JSON} json 数据内容
+ * @param {object} json 数据内容
  * @return {FormData} Form表单的数据
  */
 const postDataFormat = (json) => {
