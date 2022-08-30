@@ -76,7 +76,7 @@
 
 ## 🎁 礼物 & 捐赠
 
-如果插件有帮助， 支付宝扫一扫， 一起喝杯蜜雪冰城吧 O(∩_∩)O~~
+如果插件对您有帮助， 请支付宝扫一扫， 来一起喝杯蜜雪冰城吧 O(∩_∩)O~~
 
 <div align="center">
   <img alt="支付宝扫一扫" src="https://raw.githubusercontent.com/jionjion/EasyZD/dev/src/image/red-packet.png" width="200" height="200"/>
