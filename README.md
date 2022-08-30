@@ -72,3 +72,9 @@
 
 ## 🌈 许可证
 软件在此许可下分发使用。 [GPL-3.0](https://www.gnu.org/licenses/licenses.html) **@** [JionJion](https://github.com/jionjion)
+
+## 🎁 礼物/捐赠
+支付宝红包来咯，一起去薅资本羊毛哇 O(∩_∩)O~~
+<div align="center">
+
+</div>
