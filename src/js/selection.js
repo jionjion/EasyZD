@@ -11,7 +11,11 @@
     /* 设置 */
     // let classNameCollection = [];
 
-    /* 划词处理 */
+    /**
+     * 划词处理, 鼠标弹起事件
+     *
+     * @param {Object} event 鼠标弹起事件
+     */
     const queryAtSelection = (event) => {
 
         // @TODO 根据设置的配合划词按键进行匹配
@@ -51,7 +55,11 @@
 
     }
 
-    /* 查询结果的回调函数 */
+    /**
+     * 查询结果的回调函数
+     *
+     * @param {string} response 响应 html 文本
+     */
     const buildResult = (response) => {
         // 之前存在,则删除   @TODO  改为工具方法
         let queryResultElementOld = document.getElementById("Easy-ZD-query-result");
@@ -121,6 +129,10 @@
     /* 工具方法部分功能,拷贝 */
     const Ext = {
         isEmpty: (obj) => {
+            if (typeof obj === 'string') {
+                return obj.replace(/(^\s*)|(\s*$)/g, "").length === 0
+            }
+
             for (let name in obj) {
                 return false;
             }

@@ -9,6 +9,7 @@
 /*
  *	各种Dom元素对象
  */
+let $body = document.querySelector('#Easy-ZD-body')
 let $queryForm = document.querySelector("#Easy-ZD-query-form");
 let $queryTxt = document.querySelector("#Easy-ZD-query-txt");
 let $queryBtn = document.querySelector("#Easy-ZD-query-btn");
@@ -16,7 +17,12 @@ let $queryResult = document.querySelector("#Easy-ZD-query-result");
 let $wordQuery = document.querySelector("#Easy-ZD-word-query");
 
 
-/** 监听输入动作. */
+/**
+ * 监听HTML元素中的输入动作
+ *
+ * @param {string} type 监听类型
+ * @param {function} callback 匿名回调
+ */
 $queryTxt.addEventListener("input", (event) => {
     // @ts-ignore
     let currentInput = $queryTxt.value;
@@ -32,7 +38,11 @@ $queryTxt.addEventListener("input", (event) => {
 });
 
 
-/** 向后台查询 */
+/**
+ * 向后台查询
+ *
+ * @param {string} queryWord 要查询的单词
+ */
 const queryAtPopup = (queryWord) => {
 
     // 预设查询时,样式
@@ -55,8 +65,15 @@ const queryAtPopup = (queryWord) => {
     }
 }
 
-/* 查询结果的回调函数 */
+/**
+ * 查询结果的回调函数
+ *
+ * @param response
+ */
 const buildResult = (response) => {
+    // 去掉背景图片
+    $body.removeAttribute("class");
+
     // 绑定html
     $queryResult.innerHTML = response;
     // 绑定音频
