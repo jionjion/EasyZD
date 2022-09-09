@@ -9,6 +9,7 @@
 /*
  *	各种Dom元素对象
  */
+let $buttonSettingSave = document.querySelector("#setting-save-btn");
 let $textInputAppCodeKey = document.querySelector("#app_code_key");
 let $checkedInputEnableDrawTranslation = document.querySelector("#enable_draw_translation");
 let $radioInputDrawTranslationSecondaryKeyByNone = document.querySelector("#draw_translation_secondary_key_by_none");
@@ -21,16 +22,29 @@ let $radioInputDrawTranslationDefaultVoiceByUs = document.querySelector("#draw_t
 /*
  * 配置对象
  */
-const config = {
+const DEFAULT_CONFIG = {
+    /* appCodeKey */
     'appCodeKey': 'BED67B17E4FAED2F6545FEBA422B97BCD54D34EABB5993F1661EF9A2A2E8B904',
+    /* 是否开启划词翻译 */
     'enableDrawTranslation': 'Y',
+    /* 划词的配合快捷键 */
     'drawTranslationSecondaryKey': 'Alt',
+    /* 默认发音 */
     'drawTranslationDefaultVoice': 'uk',
 };
+
+/*
+ * 配置文件本地储存的 key
+ */
+const CONFIG_LOCAL_STORE_KEY = "CUSTOMIZED_CONFIG";
 
 
 // 页面加载后执行
 (() => {
+    /**
+     * 初始化值..
+     * @param {object} config 配置
+     */
     const init = (config) => {
         console.log(config)
         debugger;
@@ -80,17 +94,30 @@ const config = {
         }
     }
 
-    // // 存
-    // chrome.storage.sync.set({key: value}, function() {
-    //     console.log('Value is set to ' + value);
-    // });
-    //
-    // // 取
-    // chrome.storage.sync.get(['key'], function(result) {
-    //     console.log('Value currently is ' + result.key);
-    // });
-
 
     // 初始化值
-    init(config);
+    init(DEFAULT_CONFIG);
+
+
+    // 绑定事件, 保存按钮事件
+    $buttonSettingSave.addEventListener("click", saveConfig);
+
+
+    function saveConfig() {
+
+        var number = Math.random() * 10000;
+
+
+        // 保存到里面
+        chrome.storage.local.set({"key": number}, function () {
+            console.log('Value is set to ' + number);
+        });
+
+        // 取
+        chrome.storage.local.get(["key"], function (result) {
+            console.log('Value currently is ' + result.key);
+        });
+    }
+
 })()
+
