@@ -31,11 +31,14 @@ body {
   display: inline-block;
   vertical-align: middle;
 }
+/* 标题按钮 */
 .Easy-ZD-setting-save-btn {
   display: inline-block;
   color: #fff;
   background-color: #2180e5;
   border-color: #2180e5;
+  border-radius: 5px;
+  font-size: 15px;
 }
 /* 设置表单 */
 /* 设置表单 */
