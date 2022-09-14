@@ -8,7 +8,7 @@
 
 /* Google 导入语法,添加扩展JavaScript支持 */
 try {
-    importScripts('./config.js', './utility.min.js', './sha256.min.js');
+    importScripts('./config.min.js', './utility.min.js', './sha256.min.js');
 } catch (e) {
     console.error("JS 导入失败, ", e);
 }
@@ -191,9 +191,17 @@ const selectionHtmlBuilder = (data) => {
  * @param {Object} sendResponse 谷歌浏览器内置对象...用来发送消息
  */
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    debugger;
-    // 调用API
-    requestApi(message, sendResponse).then(data => console.log("这是....{}", data));
+    // 回调调用
+    loadConfig().then(config => {
+        // 如果停用了程序...
+        if (config.enableDrawTranslation === 'Y') {
+            // 调用API
+            requestApi(message, sendResponse).then(data => console.log("构建请求响应内容....", data));
+        } else {
+            return sendResponse(errorHtmlBuilder("程序被禁用..."));
+        }
+    });
 
+    // 默认返回值
     return true;
 });

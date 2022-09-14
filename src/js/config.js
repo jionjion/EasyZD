@@ -4,7 +4,7 @@
  *  @author Jion
  */
 
-/*
+/**
  * 配置对象
  */
 const DEFAULT_CONFIG = {
@@ -16,4 +16,28 @@ const DEFAULT_CONFIG = {
     'drawTranslationSecondaryKey': 'Alt',
     /* 默认发音 */
     'drawTranslationDefaultVoice': 'uk',
+};
+
+/**
+ *  获取配置文件. 如果没有, 则返回默认的配置文件
+ *
+ * @return {Promise<string>} 异步执行的对象
+ */
+const loadConfig = async () => {
+    return new Promise((resolve, reject) => {
+        try {
+            // noinspection JSUnresolvedVariable
+            chrome.storage.local.get(['customizedConfig'], function (result) {
+                const config = result.customizedConfig;
+                if (Ext.isNotEmpty(config)) {
+                    console.log("加载用户自定义配置文件: " + JSON.parse(config));
+                    resolve(JSON.parse(config));
+                } else {
+                    resolve(DEFAULT_CONFIG);
+                }
+            });
+        } catch (err) {
+            reject();
+        }
+    });
 };

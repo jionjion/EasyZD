@@ -112,7 +112,7 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: "src/js/",
-                        src: ["background.js", "options.js", "popup.js", "selection.js", "utility.js"],
+                        src: ["background.js", "options.js", "popup.js", "selection.js", "utility.js", "config.js"],
                         dest: "build/js/",
                         rename: function (dest, src) {
                             // 修改名字 文件名.min.js
@@ -149,7 +149,8 @@ module.exports = function (grunt) {
             options_html: {
                 src: ["build/page/options.html"],
                 overwrite: true,
-                replacements: [{from: "utility.js", to: "utility.min.js"},
+                replacements: [{from: "config.js", to: "config.min.js"},
+                    {from: "utility.js", to: "utility.min.js"},
                     {from: "options.js", to: "options.min.js"},
                     {from: "options.css", to: "options.min.css"}]
             },
