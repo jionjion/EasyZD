@@ -10,13 +10,17 @@
  *	各种Dom元素对象
  */
 let $body = document.querySelector('#Easy-ZD-body')
+// noinspection JSUnusedGlobalSymbols
 let $queryForm = document.querySelector("#Easy-ZD-query-form");
 let $queryTxt = document.querySelector("#Easy-ZD-query-txt");
+// noinspection JSUnusedGlobalSymbols
 let $queryBtn = document.querySelector("#Easy-ZD-query-btn");
 let $queryResult = document.querySelector("#Easy-ZD-query-result");
+// noinspection JSUnusedGlobalSymbols
 let $wordQuery = document.querySelector("#Easy-ZD-word-query");
 
 
+// noinspection JSUnusedLocalSymbols
 /**
  * 监听HTML元素中的输入动作
  *
@@ -58,6 +62,7 @@ const queryAtPopup = (queryWord) => {
         console.log(queryWord)
 
         // 发送消息,并执行回调
+        // noinspection JSUnresolvedFunction
         chrome.runtime.sendMessage({
             source: "popup",
             queryWord: queryWord
@@ -85,10 +90,12 @@ const buildResult = (response) => {
         audioElement.setAttribute("id", "Easy-ZD-word-uk-speech-audio");
         audioElement.setAttribute("src", src);
         $wordUkSpeech.appendChild(audioElement);
+        // noinspection JSUnusedLocalSymbols
         audioElement.addEventListener("ended", function (event) {
             // @ts-ignore
             document.querySelector("#word-uk-speech-audio").load();
         });
+        // noinspection JSUnusedLocalSymbols
         $wordUkSpeech.addEventListener("click", (e) => {
             // @ts-ignore
             document.querySelector("#word-uk-speech-audio").play();
@@ -102,10 +109,12 @@ const buildResult = (response) => {
         audioElement.setAttribute("id", "Easy-ZD-word-us-speech-audio");
         audioElement.setAttribute("src", src);
         $wordUsSpeech.appendChild(audioElement);
+        // noinspection JSUnusedLocalSymbols
         audioElement.addEventListener("ended", function (event) {
             // @ts-ignore
             document.querySelector("#word-us-speech-audio").load();
         });
+        // noinspection JSUnusedLocalSymbols
         $wordUsSpeech.addEventListener("click", (e) => {
             // @ts-ignore
             document.querySelector("#word-us-speech-audio").play();

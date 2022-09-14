@@ -8,9 +8,9 @@
 
 /* Google 导入语法,添加扩展JavaScript支持 */
 try {
-    importScripts('./utility.min.js', './sha256.min.js');
+    importScripts('./config.js', './utility.min.js', './sha256.min.js');
 } catch (e) {
-    console.error(e);
+    console.error("JS 导入失败, ", e);
 }
 
 /**
