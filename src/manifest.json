@@ -26,7 +26,8 @@
         "css/selection.css"
       ],
       "js": [
-        "js/selection.js"
+        "js/selection.js",
+        "js/config.js"
       ],
       "matches": [
         "<all_urls>"

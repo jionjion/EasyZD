@@ -38,7 +38,7 @@ module.exports = function (grunt) {
                 // 压缩后,js 首行 banner
                 banner: "/*! <%= pkg.name %> <%= grunt.template.today('yyyy-mm-dd') %> */\n",
                 sourceMap: false,
-                compress:{
+                compress: {
                     drop_console: true,
                     dead_code: true,
                     global_defs: {
@@ -139,7 +139,8 @@ module.exports = function (grunt) {
             manifest_json: {
                 src: ["src/manifest.json"],
                 dest: "build/manifest.json",
-                replacements: [{from: 'utility.js', to: 'utility.min.js'},
+                replacements: [{from: 'config.js', to: 'config.min.js'},
+                    {from: 'utility.js', to: 'utility.min.js'},
                     {from: 'background.js', to: 'background.min.js'},
                     {from: 'selection.js', to: 'selection.min.js'},
                     {from: "popup.js", to: "popup.min.js"},
