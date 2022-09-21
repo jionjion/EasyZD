@@ -38,7 +38,7 @@ module.exports = function (grunt) {
                 // 压缩后,js 首行 banner
                 banner: "/*! <%= pkg.name %> <%= grunt.template.today('yyyy-mm-dd') %> */\n",
                 sourceMap: false,
-                compress:{
+                compress: {
                     drop_console: true,
                     dead_code: true,
                     global_defs: {
@@ -112,7 +112,7 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: "src/js/",
-                        src: ["background.js", "options.js", "popup.js", "selection.js", "utility.js"],
+                        src: ["background.js", "options.js", "popup.js", "selection.js", "utility.js", "config.js"],
                         dest: "build/js/",
                         rename: function (dest, src) {
                             // 修改名字 文件名.min.js
@@ -139,7 +139,8 @@ module.exports = function (grunt) {
             manifest_json: {
                 src: ["src/manifest.json"],
                 dest: "build/manifest.json",
-                replacements: [{from: 'utility.js', to: 'utility.min.js'},
+                replacements: [{from: 'config.js', to: 'config.min.js'},
+                    {from: 'utility.js', to: 'utility.min.js'},
                     {from: 'background.js', to: 'background.min.js'},
                     {from: 'selection.js', to: 'selection.min.js'},
                     {from: "popup.js", to: "popup.min.js"},
@@ -149,7 +150,8 @@ module.exports = function (grunt) {
             options_html: {
                 src: ["build/page/options.html"],
                 overwrite: true,
-                replacements: [{from: "utility.js", to: "utility.min.js"},
+                replacements: [{from: "config.js", to: "config.min.js"},
+                    {from: "utility.js", to: "utility.min.js"},
                     {from: "options.js", to: "options.min.js"},
                     {from: "options.css", to: "options.min.css"}]
             },

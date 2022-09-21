@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "EasyZD",
-  "version": "3.3.5",
+  "version": "3.3.8",
   "author": "Jion",
   "description": "简单的查询功能,将中文或者英文进行翻译,并支持划词操作哦 (*￣ω￣)!...",
   "icons": {
@@ -9,7 +9,8 @@
     "48": "icon/icon48.png",
     "128": "icon/icon128.png"
   },
-  "permissions": [],
+  "permissions": ["storage"],
+  "optional_permissions": [],
   "host_permissions": [
     "https://console.jionjion.top/*"
   ],
@@ -25,7 +26,8 @@
         "css/selection.css"
       ],
       "js": [
-        "js/selection.js"
+        "js/selection.js",
+        "js/config.js"
       ],
       "matches": [
         "<all_urls>"
