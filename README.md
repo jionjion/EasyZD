@@ -32,12 +32,14 @@
 </div>
 
 
+
 ## 💡 构想
 
 正如我们所知道的，互联网有很多有用的东西，受限于英文语境，我们希望在浏览时能尽可能地方便。
 传统的翻译软件并不支持划词翻译，也不够方便，尤其是在登梯子的时候。
 
 **因此我们需要一个简单的翻译软件，最好能记录下什么，锵锵，它来咯**
+
 
 
 ## 📚 使用
@@ -49,12 +51,14 @@
 在下载完成后，拖拽对应的 `.crx` 文件到浏览器中，进行安装。
 
 
+
 ## 🛠️ 功能
 
 - 划词翻译，高效快捷
 - 音标 / 发音 / 词义 / 详细词义
 - 文本查询，方便快捷
 - 响应式弹窗显示，安静优雅
+
 
 
 ## 🌱 感谢
@@ -66,14 +70,12 @@
 - [actions/cache](https://github.com/actions/cache) - 在 `GitHub Actions` 中缓存依赖并构建输出
 
 
+
 ## ✍️ 贡献
 
 您可以通过 [提交Issue](https://github.com/jionjion/EasyZD/issues/new) 描述您遇到的问题，我们会及时跟进并处理。
 感谢您的支持
 
-
-## 🌈 许可证
-软件在此许可下分发使用。 [GPL-3.0](https://www.gnu.org/licenses/licenses.html) **@** [JionJion](https://github.com/jionjion)
 
 
 ## 🎁 礼物 & 捐赠
@@ -83,3 +85,8 @@
 <div align="center">
   <img alt="支付宝扫一扫" src="https://raw.githubusercontent.com/jionjion/EasyZD/master/src/image/red-packet.png" width="200" height="200"/>
 </div>
+
+
+
+## 🌈 许可证
+软件在此许可下分发使用。 [GPL-3.0](https://www.gnu.org/licenses/licenses.html) **@** [JionJion](https://github.com/jionjion)
