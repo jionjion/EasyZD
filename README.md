@@ -1,3 +1,5 @@
+<!--suppress HtmlDeprecatedAttribute -->
+
 <div align="center">
   <br>
 
