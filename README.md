@@ -12,19 +12,19 @@
 <div align="center">
 
   <a href="https://github.com/jionjion/EasyZD/issues">
-    <img src="https://img.shields.io/github/issues/jionjion/EasyZD" alt="Issues" />
+    <img src="https://img.shields.io/github/issues/jionjion/EasyZD" alt="Issues"/>
   </a>
 
   <a href="https://github.com/jionjion/EasyZD/releases">
-    <img src="https://img.shields.io/github/v/release/jionjion/EasyZD" alt="Release Version" />
+    <img src="https://img.shields.io/github/v/release/jionjion/EasyZD" alt="Release Version"/>
   </a>
 
   <a href="https://jeffreytse.github.io/jekyll-deploy-action">
-    <img src="https://github.com/jionjion/EasyZD/actions/workflows/build-jekyll.yml/badge.svg" alt="Tests" />
+    <img src="https://github.com/jionjion/EasyZD/actions/workflows/build-jekyll.yml/badge.svg" alt="Jekyll Deploy Action"/>
   </a>
 
   <a href="https://www.gnu.org/licenses/licenses.html">
-    <img src="https://img.shields.io/github/license/jionjion/EasyZD" alt="License: GPL-3.0" />
+    <img src="https://img.shields.io/github/license/jionjion/EasyZD" alt="License: GPL-3.0"/>
   </a>
 
 </div>
@@ -49,7 +49,7 @@
 
 ## 🛠️ 功能
 
-- 划词触发，高效快捷
+- 划词翻译，高效快捷
 - 音标 / 发音 / 词义 / 详细词义
 - 文本查询，方便快捷
 - 响应式弹窗显示，安静优雅
