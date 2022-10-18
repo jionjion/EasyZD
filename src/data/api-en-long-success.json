@@ -1,0 +1,16 @@
+{
+	"dict": {
+		"url": "yddict://m.youdao.com/dict?le=eng&q=hello%2C+this+is+good%21"
+	},
+	"errorCode": "0",
+	"l": "en2zh-CHS",
+	"query": "hello, this is good!",
+	"speakUrl": "https://openapi.youdao.com/ttsapi?q=hello%2C+this+is+good%21&langType=en&sign=1B37143DA11D89075A17B48B9BA534E4&salt=1562579485638&voice=4&format=mp3&appKey=1666f504b10dfd2c",
+	"tSpeakUrl": "https://openapi.youdao.com/ttsapi?q=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E8%BF%99%E5%BE%88%E5%A5%BD%21&langType=zh-CHS&sign=F3F0BE6C209A0EB83FAAF0A8346792C6&salt=1562579485638&voice=4&format=mp3&appKey=1666f504b10dfd2c",
+	"translation": [
+		"你好，这很好!"
+	],
+	"webdict": {
+		"url": "https://m.youdao.com/dict?le=eng&q=hello%2C+this+is+good%21"
+	}
+}

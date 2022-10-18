@@ -1,0 +1,51 @@
+{
+	"basic": {
+		"explains": [
+			"well",
+			"good",
+			"fine",
+			"ok"
+		],
+		"phonetic": "hào,hǎo"
+	},
+	"dict": {
+		"url": "yddict://m.youdao.com/dict?le=eng&q=%E5%A5%BD"
+	},
+	"errorCode": "0",
+	"l": "zh-CHS2zh-CHS",
+	"query": "好",
+	"returnPhrase": [
+		"好"
+	],
+	"speakUrl": "https://openapi.youdao.com/ttsapi?q=%E5%A5%BD&langType=zh-CHS&sign=33A938E3803E6CE0A2C8DA571110EC3D&salt=1562577901043&voice=4&format=mp3&appKey=1666f504b10dfd2c",
+	"tSpeakUrl": "https://openapi.youdao.com/ttsapi?q=%E5%A5%BD&langType=zh-CHS&sign=33A938E3803E6CE0A2C8DA571110EC3D&salt=1562577901043&voice=4&format=mp3&appKey=1666f504b10dfd2c",
+	"translation": [
+		"好"
+	],
+	"web": [{
+		"key": "好",
+		"value": [
+			"Good",
+			"Well",
+			"right"
+		]
+	}, {
+		"key": "准备好",
+		"value": [
+			"READY",
+			"Be prepared",
+			"get ready",
+			"to be ready for"
+		]
+	}, {
+		"key": "很好",
+		"value": ["very good",
+			"Fine",
+			"very well",
+			"it good"
+		]
+	}],
+	"webdict": {
+		"url": "https://m.youdao.com/dict?le=eng&q=%E5%A5%BD"
+	}
+}

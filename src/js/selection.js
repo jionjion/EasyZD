@@ -1,3 +1,5 @@
+// noinspection JSUnresolvedVariable
+
 /**
  *  鼠标弹窗,划词后显示.
  *

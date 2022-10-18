@@ -1,0 +1,16 @@
+{
+	"dict": {
+		"url": "yddict://m.youdao.com/dict?le=pt&q=sdo%2C+dkoc+savgcfbada+sdsa%21"
+	},
+	"errorCode": "0",
+	"l": "pt2zh-CHS",
+	"query": "sdo, dkoc savgcfbada sdsa!",
+	"speakUrl": "https://openapi.youdao.com/ttsapi?q=sdo%2C+dkoc+savgcfbada+sdsa%21&langType=pt&sign=A7F8B48855B50AD3522ADF9B3E988237&salt=1562579685982&voice=4&format=mp3&appKey=1666f504b10dfd2c",
+	"tSpeakUrl": "https://openapi.youdao.com/ttsapi?q=sdo%2C+dkoc+savgcfbada+sdsa%21&langType=zh-CHS&sign=A7F8B48855B50AD3522ADF9B3E988237&salt=1562579685982&voice=4&format=mp3&appKey=1666f504b10dfd2c",
+	"translation": [
+		"sdo, dkoc savgcfbada sdsa!"
+	],
+	"webdict": {
+		"url": "https://m.youdao.com/dict?le=pt&q=sdo%2C+dkoc+savgcfbada+sdsa%21"
+	}
+}
