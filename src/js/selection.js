@@ -14,7 +14,7 @@ const Ext = {
         if (typeof obj === 'string') {
             return obj.replace(/(^\s*)|(\s*$)/g, "").length === 0
         }
-
+        // noinspection LoopStatementThatDoesntLoopJS
         for (let name in obj) {
             return false;
         }
@@ -149,6 +149,7 @@ const buildResult = (response) => {
         let src = $wordUsSpeech.getAttribute("data-src");
         let audioElement = document.createElement("audio");
         audioElement.setAttribute("id", "Easy-ZD-word-us-speech-audio");
+        audioElement.setAttribute("class", "Easy-ZD-audio");
         audioElement.setAttribute("src", src);
         $wordUsSpeech.appendChild(audioElement);
         audioElement.addEventListener("ended", function (event) {

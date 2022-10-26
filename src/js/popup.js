@@ -82,42 +82,44 @@ const buildResult = (response) => {
     // 绑定html
     $queryResult.innerHTML = response;
     // 绑定音频
-    let $wordUkSpeech = document.querySelector("#word-uk-speech");
+    let $wordUkSpeech = document.querySelector("#Easy-ZD-word-uk-speech");
     if (Ext.isNotEmpty($wordUkSpeech)) {
 
         let src = $wordUkSpeech.getAttribute("data-src");
         let audioElement = document.createElement("audio");
         audioElement.setAttribute("id", "Easy-ZD-word-uk-speech-audio");
+        audioElement.setAttribute("class", "Easy-ZD-audio");
         audioElement.setAttribute("src", src);
         $wordUkSpeech.appendChild(audioElement);
         // noinspection JSUnusedLocalSymbols
         audioElement.addEventListener("ended", function (event) {
             // @ts-ignore
-            document.querySelector("#word-uk-speech-audio").load();
+            document.querySelector("#Easy-ZD-word-uk-speech-audio").load();
         });
         // noinspection JSUnusedLocalSymbols
         $wordUkSpeech.addEventListener("click", (e) => {
             // @ts-ignore
-            document.querySelector("#word-uk-speech-audio").play();
+            document.querySelector("#Easy-ZD-word-uk-speech-audio").play();
         });
     }
 
-    let $wordUsSpeech = document.querySelector("#word-us-speech");
+    let $wordUsSpeech = document.querySelector("#Easy-ZD-word-us-speech");
     if (Ext.isNotEmpty($wordUsSpeech)) {
         let src = $wordUsSpeech.getAttribute("data-src");
         let audioElement = document.createElement("audio");
         audioElement.setAttribute("id", "Easy-ZD-word-us-speech-audio");
+        audioElement.setAttribute("class", "Easy-ZD-audio");
         audioElement.setAttribute("src", src);
         $wordUsSpeech.appendChild(audioElement);
         // noinspection JSUnusedLocalSymbols
         audioElement.addEventListener("ended", function (event) {
             // @ts-ignore
-            document.querySelector("#word-us-speech-audio").load();
+            document.querySelector("#Easy-ZD-word-us-speech-audio").load();
         });
         // noinspection JSUnusedLocalSymbols
         $wordUsSpeech.addEventListener("click", (e) => {
             // @ts-ignore
-            document.querySelector("#word-us-speech-audio").play();
+            document.querySelector("#Easy-ZD-word-us-speech-audio").play();
         })
     }
 }
