@@ -30,20 +30,29 @@ p {
   margin-inline-start: 0;
   margin-inline-end: 0;
 }
-/* 超链接设置 */
-a,
-audio {
+/* 英文播放按钮 */
+.icon-volume-medium {
+  min-width: 15px;
+  min-height: 15px;
+  zoom: 0.8;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcUlEQVQ4y2P4//8/AyUYQhAH3gNxA7IAIQPmo/H3g/QA8XkgFiBkwHyoYnRQABVfj88AmGZcTuuHyjlgMwBZM7IE3NlQGhQe65EN+I8Dw8MLGgYoFpFqADK/YUAMwOsFigORatFIlYRElaRMWmaiBAMAp0n+3U0kqkAAAAAASUVORK5CYII=");
+  background-position: bottom center;
+  background-repeat: no-repeat;
+}
+/* 音频超链接 */
+.Easy-ZD-audio,
+.Easy-ZD-a {
   color: #2A2A36;
   text-decoration: none;
 }
-a:visited {
+.Easy-ZD-a:visited {
   text-decoration: none;
 }
-a:hover {
+.Easy-ZD-a:hover {
   color: #229c9d;
   text-decoration: none;
 }
-a:active {
+.Easy-ZD-a:active {
   color: #229c9d;
 }
 /* 背景图片 */

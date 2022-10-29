@@ -43,7 +43,7 @@ const BaseTemplate = {
     }
 }
 
-/* 模板对象,提供字符串模板 */
+/* 模板对象,提供字符串模板,点击图标进行渲染 */
 const AppTemplate = {
     // 错误页面提示
     getWordError: (args) => {
@@ -174,6 +174,7 @@ const Ext = {
         }
 
         // object 等其他类型判断
+        // noinspection LoopStatementThatDoesntLoopJS
         for (let name in obj) {
             return false;
         }
