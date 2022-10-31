@@ -20,28 +20,55 @@ try {
  * @param {MediaQueryListEvent} sendResponse 谷歌浏览器内置对象...用来发送消息
  */
 const requestApi = async (message, sendResponse) => {
-    // 认证
-    let appCode = App.appCode;
+    // 应用ID
+    let appKey = App.appKey;
+    // 应用密钥
+    let appSecretKey = App.appSecretKey;
+
+    // UUID 时间戳 => sha256
+    const salt = (new Date).getTime();
+    // 当前时间
+    const curtime = Math.round(new Date().getTime() / 1000);
 
     // 查询
     let queryWord = message['queryWord'];
 
-    let url = App.url;
+    // 查询,源语言
+    const from = 'auto';
+    // 查询,目标语言 zh-CHS
+    const to = 'auto';
+    // var vocabId =  '您的用户词表ID';
 
-    // Form 表单数据
+    // 加密-明文
+    let str1 = appKey + truncate(queryWord) + salt + curtime + appSecretKey;
+
+    // 加密-密文
+    // noinspection JSUnresolvedFunction
+    let sign = sha256(str1);
+
     let data = {
-        word: queryWord
+        // 查询
+        q: queryWord,
+        from: from,
+        to: to,
+        appKey: appKey,
+        salt: salt,
+        sign: sign,
+        signType: 'v3',
+        curtime: curtime,
+        //vocabId: vocabId
     };
 
-    console.log(data);
-    // 同步请求
+    let url = App.url;
+
+    // 同步发送请求
     await fetch(url, {
-        method: 'POST',
-        headers: {'Authorization': 'Appcode ' + appCode},
-        body: postDataFormat(data)
+        method: 'POST',  // 方式
+        body: postDataFormat(data) // 数据
     })
         .then(response => response.json())
         .then(result => {
+            // let responseJson = JSON.parse(result);
             // noinspection JSValidateTypes
             sendResponse(htmlBuilderFactory(message, result));
             console.log('Success:', result);
@@ -49,6 +76,16 @@ const requestApi = async (message, sendResponse) => {
         .catch(error => {
             console.error('Error:', error);
         });
+
+}
+
+// 截取字符串
+const truncate = (q) => {
+    const len = q.length;
+    if (len <= 20) {
+        return q;
+    }
+    return q.substring(0, 10) + len + q.substring(len - 10, len);
 }
 
 /**
@@ -76,21 +113,19 @@ const postDataFormat = (json) => {
 const htmlBuilderFactory = (message, responseJson) => {
     debugger;
     console.log(responseJson);
-    if (responseJson.status === 'success') {
-        let content = responseJson.result.content;
-        let source = message.source || '';
-        if (source === "popup") {
-            return popupHtmlBuilder(content);
-        } else if (source === "selection") {
-            return selectionHtmlBuilder(content);
-        } else {
-            return '';
-        }
-    } else if (responseJson.status === 'error') {
-        return errorHtmlBuilder(responseJson['message']);
-    }
+    let source = message.source || '';
+    let errorCode = responseJson.errorCode || "0";
 
-    return '';
+    // @TODO 错误信息,返回错误信息页面
+    if (errorCode !== "0") {
+        return errorHtmlBuilder(responseJson);
+    } else if (source === "popup") {
+        return popupHtmlBuilder(responseJson);
+    } else if (source === "selection") {
+        return selectionHtmlBuilder(responseJson);
+    } else {
+        return '';
+    }
 }
 
 /**
