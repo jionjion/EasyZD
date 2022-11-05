@@ -20,8 +20,10 @@ try {
  * @param {MediaQueryListEvent} sendResponse 谷歌浏览器内置对象...用来发送消息
  */
 const requestApi = async (message, sendResponse) => {
+
     // 应用ID
     let appKey = App.appKey;
+
     // 应用密钥
     let appSecretKey = App.appSecretKey;
 
@@ -35,8 +37,10 @@ const requestApi = async (message, sendResponse) => {
 
     // 查询,源语言
     const from = 'auto';
+
     // 查询,目标语言 zh-CHS
     const to = 'auto';
+
     // var vocabId =  '您的用户词表ID';
 
     // 加密-明文
@@ -46,8 +50,8 @@ const requestApi = async (message, sendResponse) => {
     // noinspection JSUnresolvedFunction
     let sign = sha256(str1);
 
-    let data = {
-        // 查询
+    // 构建请求参数
+    let translationData = {
         q: queryWord,
         from: from,
         to: to,
@@ -59,12 +63,21 @@ const requestApi = async (message, sendResponse) => {
         //vocabId: vocabId
     };
 
+    // 检查参数是否满足
+    let errorMessage = assertTranslationData(translationData);
+    if(Ext.isNotEmpty(errorMessage)){
+        let result = {errorCode: -1, wordErrorValue: errorMessage}
+        // noinspection JSValidateTypes
+        sendResponse(htmlBuilderFactory(message, result));
+        return;
+    }
+
     let url = App.url;
 
     // 同步发送请求
     await fetch(url, {
         method: 'POST',  // 方式
-        body: postDataFormat(data) // 数据
+        body: postDataFormat(translationData) // 数据
     })
         .then(response => response.json())
         .then(result => {
@@ -77,6 +90,25 @@ const requestApi = async (message, sendResponse) => {
             console.error('Error:', error);
         });
 
+}
+
+/**
+ *  校验翻译对象数据是否符合要求
+ *
+ * @param {Object} translationData 翻译数据
+ * @return {string} 校验信息
+ */
+const assertTranslationData = (translationData) => {
+    if(Ext.isEmpty(translationData)){
+        return "参数错误!";
+    }else if(Ext.isEmpty(translationData['q'])){
+        return "查询单词不能为空!";
+    }else if(Ext.isEmpty(translationData['appKey'])){
+        return "应用ID不能为空!";
+    }else if(Ext.isEmpty(translationData['sign'])){
+        return "摘要不能为空!";
+    }
+    return undefined;
 }
 
 // 截取字符串

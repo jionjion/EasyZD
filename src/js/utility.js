@@ -12,7 +12,7 @@ const App = {
     // 应用ID的唯一ID
     appKey: "1666f504b10dfd2c",
     // 应用密钥
-    appSecretKey:"gKzoqWsuGtU3efU4qUlWoR2knV1Q4LST",
+    appSecretKey: "gKzoqWsuGtU3efU4qUlWoR2knV1Q4LST",
     // 应用名称
     appName: "EasyZD",
     // 请求 url
