@@ -11,6 +11,8 @@
  */
 let $buttonSettingSave = document.querySelector("#setting-save-btn");
 let $textInputAppCodeKey = document.querySelector("#app_code_key");
+let $textInputAppKey = document.querySelector("#app_key");
+let $textInputAppSecretKey = document.querySelector("#app_secret_key");
 let $checkedInputEnableDrawTranslation = document.querySelector("#enable_draw_translation");
 let $radioInputDrawTranslationSecondaryKeyByNone = document.querySelector("#draw_translation_secondary_key_by_none");
 let $radioInputDrawTranslationSecondaryKeyByCtrl = document.querySelector("#draw_translation_secondary_key_by_ctrl");
@@ -26,6 +28,8 @@ let $radioInputDrawTranslationDefaultVoiceByUs = document.querySelector("#draw_t
 const refreshDom = () => {
     $buttonSettingSave = document.querySelector("#setting-save-btn");
     $textInputAppCodeKey = document.querySelector("#app_code_key");
+    $textInputAppKey = document.querySelector("#app_key");
+    $textInputAppSecretKey = document.querySelector("#app_secret_key");
     $checkedInputEnableDrawTranslation = document.querySelector("#enable_draw_translation");
     $radioInputDrawTranslationSecondaryKeyByNone = document.querySelector("#draw_translation_secondary_key_by_none");
     $radioInputDrawTranslationSecondaryKeyByCtrl = document.querySelector("#draw_translation_secondary_key_by_ctrl");
@@ -60,10 +64,25 @@ const configExtract = () => {
 
     let config = {};
 
+    // 应用秘钥
     let appCodeKey = $textInputAppCodeKey.getAttribute("value");
-
     if (Ext.isNotEmpty(appCodeKey)) {
         config['appCodeKey'] = appCodeKey;
+    }
+
+    debugger;
+    // 应用ID
+    let appKey = $textInputAppKey.value
+    if (Ext.isNotEmpty(appKey)) {
+        console.log(appKey);
+        config['appKey'] = appKey;
+    }
+
+    // 应用密钥
+    let appSecretKey = $textInputAppSecretKey.value
+    if (Ext.isNotEmpty(appSecretKey)) {
+        console.log(appSecretKey);
+        config['appSecretKey'] = appSecretKey;
     }
 
     // 是否启用划词
@@ -116,6 +135,15 @@ const configApply = (config) => {
 
     if (Ext.isNotEmpty(config.appCodeKey)) {
         $textInputAppCodeKey.setAttribute("value", config.appCodeKey);
+    }
+    debugger;
+
+    if (Ext.isNotEmpty(config.appKey)) {
+        $textInputAppKey.setAttribute("value", config.appKey);
+    }
+
+    if (Ext.isNotEmpty(config.appSecretKey)) {
+        $textInputAppSecretKey.setAttribute("value", config.appSecretKey);
     }
 
     if (Ext.isNotEmpty(config.enableDrawTranslation)) {
