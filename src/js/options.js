@@ -10,7 +10,6 @@
  *	各种Dom元素对象
  */
 let $buttonSettingSave = document.querySelector("#setting-save-btn");
-let $textInputAppCodeKey = document.querySelector("#app_code_key");
 let $textInputAppKey = document.querySelector("#app_key");
 let $textInputAppSecretKey = document.querySelector("#app_secret_key");
 let $checkedInputEnableDrawTranslation = document.querySelector("#enable_draw_translation");
@@ -27,7 +26,6 @@ let $radioInputDrawTranslationDefaultVoiceByUs = document.querySelector("#draw_t
  */
 const refreshDom = () => {
     $buttonSettingSave = document.querySelector("#setting-save-btn");
-    $textInputAppCodeKey = document.querySelector("#app_code_key");
     $textInputAppKey = document.querySelector("#app_key");
     $textInputAppSecretKey = document.querySelector("#app_secret_key");
     $checkedInputEnableDrawTranslation = document.querySelector("#enable_draw_translation");
@@ -64,24 +62,15 @@ const configExtract = () => {
 
     let config = {};
 
-    // 应用秘钥
-    let appCodeKey = $textInputAppCodeKey.getAttribute("value");
-    if (Ext.isNotEmpty(appCodeKey)) {
-        config['appCodeKey'] = appCodeKey;
-    }
-
-    debugger;
     // 应用ID
     let appKey = $textInputAppKey.value
     if (Ext.isNotEmpty(appKey)) {
-        console.log(appKey);
         config['appKey'] = appKey;
     }
 
     // 应用密钥
     let appSecretKey = $textInputAppSecretKey.value
     if (Ext.isNotEmpty(appSecretKey)) {
-        console.log(appSecretKey);
         config['appSecretKey'] = appSecretKey;
     }
 
@@ -115,9 +104,6 @@ const configExtract = () => {
         config['drawTranslationDefaultVoice'] = 'us';
     }
 
-
-    console.log(config);
-
     return JSON.stringify(config);
 }
 
@@ -132,11 +118,6 @@ const configApply = (config) => {
     if (Ext.isEmpty(config)) {
         return;
     }
-
-    if (Ext.isNotEmpty(config.appCodeKey)) {
-        $textInputAppCodeKey.setAttribute("value", config.appCodeKey);
-    }
-    debugger;
 
     if (Ext.isNotEmpty(config.appKey)) {
         $textInputAppKey.setAttribute("value", config.appKey);
