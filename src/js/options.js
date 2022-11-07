@@ -15,6 +15,7 @@ let $checkedInputEnableDrawTranslation = document.querySelector("#enable_draw_tr
 let $radioInputDrawTranslationSecondaryKeyByNone = document.querySelector("#draw_translation_secondary_key_by_none");
 let $radioInputDrawTranslationSecondaryKeyByCtrl = document.querySelector("#draw_translation_secondary_key_by_ctrl");
 let $radioInputDrawTranslationSecondaryKeyByAlt = document.querySelector("#draw_translation_secondary_key_by_alt");
+let $checkedInputEnableDrawTranslationVoice = document.querySelector("#enable_draw_translation_voice");
 let $radioInputDrawTranslationDefaultVoiceByUk = document.querySelector("#draw_translation_default_voice_by_uk");
 let $radioInputDrawTranslationDefaultVoiceByUs = document.querySelector("#draw_translation_default_voice_by_us");
 
@@ -29,6 +30,7 @@ const refreshDom = () => {
     $radioInputDrawTranslationSecondaryKeyByNone = document.querySelector("#draw_translation_secondary_key_by_none");
     $radioInputDrawTranslationSecondaryKeyByCtrl = document.querySelector("#draw_translation_secondary_key_by_ctrl");
     $radioInputDrawTranslationSecondaryKeyByAlt = document.querySelector("#draw_translation_secondary_key_by_alt");
+    $checkedInputEnableDrawTranslationVoice = document.querySelector("#enable_draw_translation_voice");
     $radioInputDrawTranslationDefaultVoiceByUk = document.querySelector("#draw_translation_default_voice_by_uk");
     $radioInputDrawTranslationDefaultVoiceByUs = document.querySelector("#draw_translation_default_voice_by_us");
 }
@@ -79,6 +81,12 @@ const configExtract = () => {
         config['drawTranslationSecondaryKey'] = 'Alt';
     } else {
         config['drawTranslationSecondaryKey'] = 'None';
+    }
+
+    // 是否开启发音
+    let enableDrawTranslationVoice = $checkedInputEnableDrawTranslationVoice.hasAttribute("checked") || ($checkedInputEnableDrawTranslationVoice['checked'] !== false) ? 'Y' : 'N';
+    if (Ext.isNotEmpty(enableDrawTranslationVoice)) {
+        config['enableDrawTranslationVoice'] = enableDrawTranslationVoice;
     }
 
     // 发音
@@ -133,6 +141,14 @@ const configApply = (config) => {
             $radioInputDrawTranslationSecondaryKeyByAlt['checked'] = true
             $radioInputDrawTranslationSecondaryKeyByNone.removeAttribute("checked");
             $radioInputDrawTranslationSecondaryKeyByCtrl.removeAttribute("checked");
+        }
+    }
+
+    if (Ext.isNotEmpty(config.enableDrawTranslationVoice)) {
+        if (config.enableDrawTranslationVoice === 'Y') {
+            $checkedInputEnableDrawTranslationVoice['checked'] = true
+        } else {
+            $checkedInputEnableDrawTranslationVoice.removeAttribute("checked");
         }
     }
 

@@ -12,7 +12,6 @@
   "permissions": ["storage"],
   "optional_permissions": [],
   "host_permissions": [
-    "https://console.jionjion.top/*",
     "https://openapi.youdao.com/*"
   ],
   "options_page": "page/options.html",
@@ -36,7 +35,7 @@
     }
   ],
   "action": {
-    "default_title": "翻译",
+    "default_title": "EasyZD",
     "default_popup": "page/popup.html",
     "default_icon": {
       "16": "icon/icon16.png",
