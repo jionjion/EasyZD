@@ -65,7 +65,7 @@ const requestApi = async (message, sendResponse) => {
 
     // 检查参数是否满足
     let errorMessage = assertTranslationData(translationData);
-    if(Ext.isNotEmpty(errorMessage)){
+    if (Ext.isNotEmpty(errorMessage)) {
         let result = {errorCode: -1, wordErrorValue: errorMessage}
         // noinspection JSValidateTypes
         sendResponse(htmlBuilderFactory(message, result));
@@ -99,13 +99,13 @@ const requestApi = async (message, sendResponse) => {
  * @return {string} 校验信息
  */
 const assertTranslationData = (translationData) => {
-    if(Ext.isEmpty(translationData)){
+    if (Ext.isEmpty(translationData)) {
         return "参数错误!";
-    }else if(Ext.isEmpty(translationData['q'])){
+    } else if (Ext.isEmpty(translationData['q'])) {
         return "查询单词不能为空!";
-    }else if(Ext.isEmpty(translationData['appKey'])){
+    } else if (Ext.isEmpty(translationData['appKey'])) {
         return "应用ID不能为空!";
-    }else if(Ext.isEmpty(translationData['sign'])){
+    } else if (Ext.isEmpty(translationData['sign'])) {
         return "摘要不能为空!";
     }
     return undefined;
@@ -177,6 +177,7 @@ const errorHtmlBuilder = (message) => {
  * @return {string} popup功能的弹出的HTML页面
  */
 const popupHtmlBuilder = (data) => {
+
     debugger;
     // 渲染
     let popupHtml = '';
@@ -185,14 +186,18 @@ const popupHtmlBuilder = (data) => {
     if (Ext.isNotEmpty(data.query)) {
         popupHtml += AppTemplate.getWordQuery({query: data.query});
     }
-    // 音标, 在大段翻译时,不会有音标,但是有发音
-    if (Ext.isNotEmpty(data['basic']) && Ext.isNotEmpty(data.basic['uk-phonetic']) && Ext.isNotEmpty(data.basic['us-phonetic'])) {
-        popupHtml += AppTemplate.getWordPhonetic({
-            wordUkPhonetic: data.basic['uk-phonetic'],
-            wordUkSpeech: data.basic['uk-speech'],
-            wordUsPhonetic: data.basic['us-phonetic'],
-            wordUsSpeech: data.basic['us-speech']
-        });
+    // 是否显示发音
+    const enableDrawTranslationVoice = getCustomizedPropertyValue("enableDrawTranslationVoice");
+    if (enableDrawTranslationVoice === 'Y') {
+        // 音标, 在大段翻译时,不会有音标,但是有发音
+        if (Ext.isNotEmpty(data['basic']) && Ext.isNotEmpty(data.basic['uk-phonetic']) && Ext.isNotEmpty(data.basic['us-phonetic'])) {
+            popupHtml += AppTemplate.getWordPhonetic({
+                wordUkPhonetic: data.basic['uk-phonetic'],
+                wordUkSpeech: data.basic['uk-speech'],
+                wordUsPhonetic: data.basic['us-phonetic'],
+                wordUsSpeech: data.basic['us-speech']
+            });
+        }
     }
     // 大段翻译,优先级低于词释
     if (Ext.isNotEmpty(data.translation) && Ext.isEmpty(data.basic)) {
@@ -228,14 +233,18 @@ const selectionHtmlBuilder = (data) => {
     if (Ext.isNotEmpty(data.query)) {
         popupHtml += DrawTemplate.getWordQuery({query: data.query});
     }
-    // 音标, 在大段翻译时,不会有音标,但是有发音
-    if (Ext.isNotEmpty(data.basic) && Ext.isNotEmpty(data.basic['uk-phonetic']) && Ext.isNotEmpty(data.basic['us-phonetic'])) {
-        popupHtml += DrawTemplate.getWordPhonetic({
-            wordUkPhonetic: data.basic['uk-phonetic'],
-            wordUkSpeech: data.basic['uk-speech'],
-            wordUsPhonetic: data.basic['us-phonetic'],
-            wordUsSpeech: data.basic['us-speech']
-        });
+    // 是否显示发音
+    const enableDrawTranslationVoice = getCustomizedPropertyValue("enableDrawTranslationVoice");
+    if (enableDrawTranslationVoice === 'Y') {
+        // 音标, 在大段翻译时,不会有音标,但是有发音
+        if (Ext.isNotEmpty(data.basic) && Ext.isNotEmpty(data.basic['uk-phonetic']) && Ext.isNotEmpty(data.basic['us-phonetic'])) {
+            popupHtml += DrawTemplate.getWordPhonetic({
+                wordUkPhonetic: data.basic['uk-phonetic'],
+                wordUkSpeech: data.basic['uk-speech'],
+                wordUsPhonetic: data.basic['us-phonetic'],
+                wordUsSpeech: data.basic['us-speech']
+            });
+        }
     }
     // 大段翻译,优先级低于词释
     if (Ext.isNotEmpty(data.translation) && Ext.isEmpty(data.basic)) {
