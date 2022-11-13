@@ -63,6 +63,7 @@
 
 ## 🌱 感谢
 
+- [JetBrains](https://jb.gg/OpenSourceSupport) - 支持开源计划，让未来更多可能
 - [npm](https://www.npmjs.com/) - 让 `JavaScript` 开发更上一层楼
 - [grunt](https://www.gruntjs.net/) - `JavaScript` 世界的构建工具
 - [jekyll](https://github.com/jekyll/jekyll) - 运行在 `Ruby` 下的静态博客站点生成器
