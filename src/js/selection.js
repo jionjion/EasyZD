@@ -65,13 +65,6 @@ const queryAtSelection = async (event) => {
         return;
     }
 
-    // 不进行划词的部分
-    // for (var name in classNameCollection) {
-    // 	if (event.target.classList.contains(classNameCollection[name])) {
-    // 		return;
-    // 	}
-    // }
-
     // 选择对象
     let selectionObj = window.getSelection();
     // 存在被选择的对象,或者选择的区域为0.  谷歌浏览器不允许使用ctrl多选

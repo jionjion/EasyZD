@@ -24,9 +24,15 @@
 
                 <!-- 个人设置 -->
                 <div class="Easy-ZD-setting-row">
-                    <span class="Easy-ZD-setting-form-label">应用秘钥</span>
-                    <label for="app_code_key">
-                        <input id="app_code_key" class="Easy-ZD-setting-input-text" type="password" name="appCodeKey" disabled/>
+                    <span class="Easy-ZD-setting-form-label">应用ID</span>
+                    <label for="app_key">
+                        <input id="app_key" class="Easy-ZD-setting-input-text" type="text" name="appKey"/>
+                    </label>
+                </div>
+                <div class="Easy-ZD-setting-row">
+                    <span class="Easy-ZD-setting-form-label">应用密钥</span>
+                    <label for="app_secret_key">
+                        <input id="app_secret_key" class="Easy-ZD-setting-input-text" type="password" name="appSecretKey"/>
                     </label>
                 </div>
 
@@ -52,7 +58,14 @@
                     </label>
                 </div>
                 <div class="Easy-ZD-setting-row">
-                    <!-- 自动发音 -->
+                    <!-- 默认发音 -->
+                    <span class="Easy-ZD-setting-form-label">是否开启发音</span>
+                    <label for="enable_draw_translation_voice">
+                        <input id="enable_draw_translation_voice" class="Easy-ZD-setting-input-checkbox" type="checkbox" name="enableDrawTranslationVoice"/>
+                    </label>
+                </div>
+                <div class="Easy-ZD-setting-row">
+                    <!-- 默认发音 -->
                     <span class="Easy-ZD-setting-form-label">默认发音</span>
                     <label for="draw_translation_default_voice_by_uk" class="Easy-ZD-setting-form-radio">
                         <input type="radio" id="draw_translation_default_voice_by_uk" name="drawTranslationDefaultVoice" value="uk"><span>英语</span>

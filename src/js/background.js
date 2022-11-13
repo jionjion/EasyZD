@@ -20,28 +20,69 @@ try {
  * @param {MediaQueryListEvent} sendResponse 谷歌浏览器内置对象...用来发送消息
  */
 const requestApi = async (message, sendResponse) => {
-    // 认证
-    let appCode = App.appCode;
+    debugger;
+    // 应用ID
+    let appKey = getCustomizedPropertyValue('appKey');
+
+    // 应用密钥
+    let appSecretKey = getCustomizedPropertyValue('appSecretKey');
+
+    // 请求地址
+    let url = 'https://openapi.youdao.com/api';
+
+    // UUID 时间戳 => sha256
+    const salt = (new Date).getTime();
+    // 当前时间
+    const curtime = Math.round(new Date().getTime() / 1000);
 
     // 查询
     let queryWord = message['queryWord'];
 
-    let url = App.url;
+    // 查询,源语言
+    const from = 'auto';
 
-    // Form 表单数据
-    let data = {
-        word: queryWord
+    // 查询,目标语言 zh-CHS
+    const to = 'auto';
+
+    // var vocabId =  '您的用户词表ID';
+
+    // 加密-明文
+    let str1 = appKey + truncate(queryWord) + salt + curtime + appSecretKey;
+
+    // 加密-密文
+    // noinspection JSUnresolvedFunction
+    let sign = sha256(str1);
+
+    // 构建请求参数
+    let translationData = {
+        q: queryWord,
+        from: from,
+        to: to,
+        appKey: appKey,
+        salt: salt,
+        sign: sign,
+        signType: 'v3',
+        curtime: curtime,
+        //vocabId: vocabId
     };
 
-    console.log(data);
-    // 同步请求
+    // 检查参数是否满足
+    let errorMessage = assertTranslationData(translationData);
+    if (Ext.isNotEmpty(errorMessage)) {
+        let result = {errorCode: -1, wordErrorValue: errorMessage}
+        // noinspection JSValidateTypes
+        sendResponse(htmlBuilderFactory(message, result));
+        return;
+    }
+
+    // 同步发送请求
     await fetch(url, {
-        method: 'POST',
-        headers: {'Authorization': 'Appcode ' + appCode},
-        body: postDataFormat(data)
+        method: 'POST',  // 方式
+        body: postDataFormat(translationData) // 数据
     })
         .then(response => response.json())
         .then(result => {
+            // let responseJson = JSON.parse(result);
             // noinspection JSValidateTypes
             sendResponse(htmlBuilderFactory(message, result));
             console.log('Success:', result);
@@ -49,6 +90,35 @@ const requestApi = async (message, sendResponse) => {
         .catch(error => {
             console.error('Error:', error);
         });
+
+}
+
+/**
+ *  校验翻译对象数据是否符合要求
+ *
+ * @param {Object} translationData 翻译数据
+ * @return {string} 校验信息
+ */
+const assertTranslationData = (translationData) => {
+    if (Ext.isEmpty(translationData)) {
+        return "参数错误!";
+    } else if (Ext.isEmpty(translationData['q'])) {
+        return "查询单词不能为空!";
+    } else if (Ext.isEmpty(translationData['appKey'])) {
+        return "应用ID不能为空!";
+    } else if (Ext.isEmpty(translationData['sign'])) {
+        return "摘要不能为空!";
+    }
+    return undefined;
+}
+
+// 截取字符串
+const truncate = (q) => {
+    const len = q.length;
+    if (len <= 20) {
+        return q;
+    }
+    return q.substring(0, 10) + len + q.substring(len - 10, len);
 }
 
 /**
@@ -76,31 +146,29 @@ const postDataFormat = (json) => {
 const htmlBuilderFactory = (message, responseJson) => {
     debugger;
     console.log(responseJson);
-    if (responseJson.status === 'success') {
-        let content = responseJson.result.content;
-        let source = message.source || '';
-        if (source === "popup") {
-            return popupHtmlBuilder(content);
-        } else if (source === "selection") {
-            return selectionHtmlBuilder(content);
-        } else {
-            return '';
-        }
-    } else if (responseJson.status === 'error') {
-        return errorHtmlBuilder(responseJson['message']);
-    }
+    let source = message.source || '';
+    let errorCode = responseJson.errorCode || "0";
 
-    return '';
+    if (errorCode !== "0") {
+        return errorHtmlBuilder(responseJson);
+    } else if (source === "popup") {
+        return popupHtmlBuilder(responseJson);
+    } else if (source === "selection") {
+        return selectionHtmlBuilder(responseJson);
+    } else {
+        return '';
+    }
 }
 
 /**
  * 错误页面
  *
- * @param {string} message 错误消息
+ * @param {object} data 错误消息
  * @return {string} 错误的HTML页面
  */
-const errorHtmlBuilder = (message) => {
-    return AppTemplate.getWordError({wordErrorValue: message});
+const errorHtmlBuilder = (data) => {
+    debugger;
+    return AppTemplate.getYouDaoError(data);
 }
 
 /**
@@ -110,6 +178,7 @@ const errorHtmlBuilder = (message) => {
  * @return {string} popup功能的弹出的HTML页面
  */
 const popupHtmlBuilder = (data) => {
+
     debugger;
     // 渲染
     let popupHtml = '';
@@ -118,14 +187,18 @@ const popupHtmlBuilder = (data) => {
     if (Ext.isNotEmpty(data.query)) {
         popupHtml += AppTemplate.getWordQuery({query: data.query});
     }
-    // 音标, 在大段翻译时,不会有音标,但是有发音
-    if (Ext.isNotEmpty(data['basic']) && Ext.isNotEmpty(data.basic['uk-phonetic']) && Ext.isNotEmpty(data.basic['us-phonetic'])) {
-        popupHtml += AppTemplate.getWordPhonetic({
-            wordUkPhonetic: data.basic['uk-phonetic'],
-            wordUkSpeech: data.basic['uk-speech'],
-            wordUsPhonetic: data.basic['us-phonetic'],
-            wordUsSpeech: data.basic['us-speech']
-        });
+    // 是否显示发音
+    const enableDrawTranslationVoice = getCustomizedPropertyValue("enableDrawTranslationVoice");
+    if (enableDrawTranslationVoice === 'Y') {
+        // 音标, 在大段翻译时,不会有音标,但是有发音
+        if (Ext.isNotEmpty(data['basic']) && Ext.isNotEmpty(data.basic['uk-phonetic']) && Ext.isNotEmpty(data.basic['us-phonetic'])) {
+            popupHtml += AppTemplate.getWordPhonetic({
+                wordUkPhonetic: data.basic['uk-phonetic'],
+                wordUkSpeech: data.basic['uk-speech'],
+                wordUsPhonetic: data.basic['us-phonetic'],
+                wordUsSpeech: data.basic['us-speech']
+            });
+        }
     }
     // 大段翻译,优先级低于词释
     if (Ext.isNotEmpty(data.translation) && Ext.isEmpty(data.basic)) {
@@ -161,14 +234,18 @@ const selectionHtmlBuilder = (data) => {
     if (Ext.isNotEmpty(data.query)) {
         popupHtml += DrawTemplate.getWordQuery({query: data.query});
     }
-    // 音标, 在大段翻译时,不会有音标,但是有发音
-    if (Ext.isNotEmpty(data.basic) && Ext.isNotEmpty(data.basic['uk-phonetic']) && Ext.isNotEmpty(data.basic['us-phonetic'])) {
-        popupHtml += DrawTemplate.getWordPhonetic({
-            wordUkPhonetic: data.basic['uk-phonetic'],
-            wordUkSpeech: data.basic['uk-speech'],
-            wordUsPhonetic: data.basic['us-phonetic'],
-            wordUsSpeech: data.basic['us-speech']
-        });
+    // 是否显示发音
+    const enableDrawTranslationVoice = getCustomizedPropertyValue("enableDrawTranslationVoice");
+    if (enableDrawTranslationVoice === 'Y') {
+        // 音标, 在大段翻译时,不会有音标,但是有发音
+        if (Ext.isNotEmpty(data.basic) && Ext.isNotEmpty(data.basic['uk-phonetic']) && Ext.isNotEmpty(data.basic['us-phonetic'])) {
+            popupHtml += DrawTemplate.getWordPhonetic({
+                wordUkPhonetic: data.basic['uk-phonetic'],
+                wordUkSpeech: data.basic['uk-speech'],
+                wordUsPhonetic: data.basic['us-phonetic'],
+                wordUsSpeech: data.basic['us-speech']
+            });
+        }
     }
     // 大段翻译,优先级低于词释
     if (Ext.isNotEmpty(data.translation) && Ext.isEmpty(data.basic)) {

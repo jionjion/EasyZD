@@ -68,8 +68,11 @@
 /* 错误提示 */
 #Easy-ZD-word-error {
   color: #fa4659;
+  font-size: 14px;
+}
+#Easy-ZD-word-error > p:first-child {
   font-weight: bold;
-  font-size: 20px;
+  text-align: left;
 }
 #Easy-ZD-word-error > p:last-child {
   text-align: right;

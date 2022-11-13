@@ -10,11 +10,13 @@
  *	各种Dom元素对象
  */
 let $buttonSettingSave = document.querySelector("#setting-save-btn");
-let $textInputAppCodeKey = document.querySelector("#app_code_key");
+let $textInputAppKey = document.querySelector("#app_key");
+let $textInputAppSecretKey = document.querySelector("#app_secret_key");
 let $checkedInputEnableDrawTranslation = document.querySelector("#enable_draw_translation");
 let $radioInputDrawTranslationSecondaryKeyByNone = document.querySelector("#draw_translation_secondary_key_by_none");
 let $radioInputDrawTranslationSecondaryKeyByCtrl = document.querySelector("#draw_translation_secondary_key_by_ctrl");
 let $radioInputDrawTranslationSecondaryKeyByAlt = document.querySelector("#draw_translation_secondary_key_by_alt");
+let $checkedInputEnableDrawTranslationVoice = document.querySelector("#enable_draw_translation_voice");
 let $radioInputDrawTranslationDefaultVoiceByUk = document.querySelector("#draw_translation_default_voice_by_uk");
 let $radioInputDrawTranslationDefaultVoiceByUs = document.querySelector("#draw_translation_default_voice_by_us");
 
@@ -24,11 +26,13 @@ let $radioInputDrawTranslationDefaultVoiceByUs = document.querySelector("#draw_t
  */
 const refreshDom = () => {
     $buttonSettingSave = document.querySelector("#setting-save-btn");
-    $textInputAppCodeKey = document.querySelector("#app_code_key");
+    $textInputAppKey = document.querySelector("#app_key");
+    $textInputAppSecretKey = document.querySelector("#app_secret_key");
     $checkedInputEnableDrawTranslation = document.querySelector("#enable_draw_translation");
     $radioInputDrawTranslationSecondaryKeyByNone = document.querySelector("#draw_translation_secondary_key_by_none");
     $radioInputDrawTranslationSecondaryKeyByCtrl = document.querySelector("#draw_translation_secondary_key_by_ctrl");
     $radioInputDrawTranslationSecondaryKeyByAlt = document.querySelector("#draw_translation_secondary_key_by_alt");
+    $checkedInputEnableDrawTranslationVoice = document.querySelector("#enable_draw_translation_voice");
     $radioInputDrawTranslationDefaultVoiceByUk = document.querySelector("#draw_translation_default_voice_by_uk");
     $radioInputDrawTranslationDefaultVoiceByUs = document.querySelector("#draw_translation_default_voice_by_us");
 }
@@ -58,10 +62,16 @@ const configExtract = () => {
 
     let config = {};
 
-    let appCodeKey = $textInputAppCodeKey.getAttribute("value");
+    // 应用ID
+    let appKey = $textInputAppKey.value
+    if (Ext.isNotEmpty(appKey)) {
+        config['appKey'] = appKey;
+    }
 
-    if (Ext.isNotEmpty(appCodeKey)) {
-        config['appCodeKey'] = appCodeKey;
+    // 应用密钥
+    let appSecretKey = $textInputAppSecretKey.value
+    if (Ext.isNotEmpty(appSecretKey)) {
+        config['appSecretKey'] = appSecretKey;
     }
 
     // 是否启用划词
@@ -81,15 +91,18 @@ const configExtract = () => {
         config['drawTranslationSecondaryKey'] = 'None';
     }
 
+    // 是否开启发音
+    let enableDrawTranslationVoice = $checkedInputEnableDrawTranslationVoice.hasAttribute("checked") || ($checkedInputEnableDrawTranslationVoice['checked'] !== false) ? 'Y' : 'N';
+    if (Ext.isNotEmpty(enableDrawTranslationVoice)) {
+        config['enableDrawTranslationVoice'] = enableDrawTranslationVoice;
+    }
+
     // 发音
     if($radioInputDrawTranslationDefaultVoiceByUk.hasAttribute("checked") || $radioInputDrawTranslationDefaultVoiceByUk['checked']){
         config['drawTranslationDefaultVoice'] = 'uk';
     }else if($radioInputDrawTranslationDefaultVoiceByUs.hasAttribute("checked") || $radioInputDrawTranslationDefaultVoiceByUs['checked']){
         config['drawTranslationDefaultVoice'] = 'us';
     }
-
-
-    console.log(config);
 
     return JSON.stringify(config);
 }
@@ -106,8 +119,12 @@ const configApply = (config) => {
         return;
     }
 
-    if (Ext.isNotEmpty(config.appCodeKey)) {
-        $textInputAppCodeKey.setAttribute("value", config.appCodeKey);
+    if (Ext.isNotEmpty(config.appKey)) {
+        $textInputAppKey.setAttribute("value", config.appKey);
+    }
+
+    if (Ext.isNotEmpty(config.appSecretKey)) {
+        $textInputAppSecretKey.setAttribute("value", config.appSecretKey);
     }
 
     if (Ext.isNotEmpty(config.enableDrawTranslation)) {
@@ -133,6 +150,14 @@ const configApply = (config) => {
             $radioInputDrawTranslationSecondaryKeyByAlt['checked'] = true
             $radioInputDrawTranslationSecondaryKeyByNone.removeAttribute("checked");
             $radioInputDrawTranslationSecondaryKeyByCtrl.removeAttribute("checked");
+        }
+    }
+
+    if (Ext.isNotEmpty(config.enableDrawTranslationVoice)) {
+        if (config.enableDrawTranslationVoice === 'Y') {
+            $checkedInputEnableDrawTranslationVoice['checked'] = true
+        } else {
+            $checkedInputEnableDrawTranslationVoice.removeAttribute("checked");
         }
     }
 

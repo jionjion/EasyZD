@@ -144,6 +144,7 @@ module.exports = function (grunt) {
                     {from: 'background.js', to: 'background.min.js'},
                     {from: 'selection.js', to: 'selection.min.js'},
                     {from: "popup.js", to: "popup.min.js"},
+                    {from: 'config.js', to: 'config.min.js'},
                     {from: "base.css", to: "base.min.css"},
                     {from: "selection.css", to: "selection.min.css"}]
             },
