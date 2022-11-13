@@ -51,7 +51,7 @@ const queryAtPopup = (queryWord) => {
 
     // 预设查询时,样式
     // if ($queryTxt.value !== "") {
-    //     $queryResult.innerHTML = "划词君正在翻译...";
+    //     $queryResult.innerHTML = "正在翻查字典...";
     // }
 
     if (Ext.isNotEmpty(queryWord)) {
@@ -76,12 +76,14 @@ const queryAtPopup = (queryWord) => {
  * @param response
  */
 const buildResult = (response) => {
+
     // 去掉背景图片
     $body.removeAttribute("class");
 
     // 绑定html
     $queryResult.innerHTML = response;
-    // 绑定音频
+
+    // 绑定发音, 英语发音
     let $wordUkSpeech = document.querySelector("#Easy-ZD-word-uk-speech");
     if (Ext.isNotEmpty($wordUkSpeech)) {
 
@@ -103,6 +105,7 @@ const buildResult = (response) => {
         });
     }
 
+    // 绑定发音, 美语发音
     let $wordUsSpeech = document.querySelector("#Easy-ZD-word-us-speech");
     if (Ext.isNotEmpty($wordUsSpeech)) {
         let src = $wordUsSpeech.getAttribute("data-src");
