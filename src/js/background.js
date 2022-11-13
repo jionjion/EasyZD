@@ -149,7 +149,6 @@ const htmlBuilderFactory = (message, responseJson) => {
     let source = message.source || '';
     let errorCode = responseJson.errorCode || "0";
 
-    // @TODO 错误信息,返回错误信息页面
     if (errorCode !== "0") {
         return errorHtmlBuilder(responseJson);
     } else if (source === "popup") {
@@ -164,11 +163,12 @@ const htmlBuilderFactory = (message, responseJson) => {
 /**
  * 错误页面
  *
- * @param {string} message 错误消息
+ * @param {object} data 错误消息
  * @return {string} 错误的HTML页面
  */
-const errorHtmlBuilder = (message) => {
-    return AppTemplate.getWordError({wordErrorValue: message});
+const errorHtmlBuilder = (data) => {
+    debugger;
+    return AppTemplate.getYouDaoError(data);
 }
 
 /**

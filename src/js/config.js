@@ -10,9 +10,9 @@
  */
 const DEFAULT_CONFIG = {
     /* 应用ID的唯一ID */
-    appKey: "1666f504b10dfd2c",
+    appKey: "",
     /* 应用密钥 */
-    appSecretKey: "gKzoqWsuGtU3efU4qUlWoR2knV1Q4LST",
+    appSecretKey: "",
     /* 是否开启划词翻译 */
     enableDrawTranslation: 'Y',
     /* 划词的配合快捷键 */
