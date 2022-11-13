@@ -20,12 +20,15 @@ try {
  * @param {MediaQueryListEvent} sendResponse 谷歌浏览器内置对象...用来发送消息
  */
 const requestApi = async (message, sendResponse) => {
-
+    debugger;
     // 应用ID
-    let appKey = App.appKey;
+    let appKey = getCustomizedPropertyValue('appKey');
 
     // 应用密钥
-    let appSecretKey = App.appSecretKey;
+    let appSecretKey = getCustomizedPropertyValue('appSecretKey');
+
+    // 请求地址
+    let url = 'https://openapi.youdao.com/api';
 
     // UUID 时间戳 => sha256
     const salt = (new Date).getTime();
@@ -71,8 +74,6 @@ const requestApi = async (message, sendResponse) => {
         sendResponse(htmlBuilderFactory(message, result));
         return;
     }
-
-    let url = App.url;
 
     // 同步发送请求
     await fetch(url, {

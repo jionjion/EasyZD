@@ -7,16 +7,8 @@
 // noinspection SpellCheckingInspection
 /** App信息 */
 const App = {
-    // 认证 appCode
-    appCode: "BED67B17E4FAED2F6545FEBA422B97BCD54D34EABB5993F1661EF9A2A2E8B904",
-    // 应用ID的唯一ID
-    appKey: "1666f504b10dfd2c",
-    // 应用密钥
-    appSecretKey: "gKzoqWsuGtU3efU4qUlWoR2knV1Q4LST",
     // 应用名称
-    appName: "EasyZD",
-    // 请求 url
-    url: "https://openapi.youdao.com/api"
+    appName: "EasyZD"
 }
 
 /* 通过模板 */

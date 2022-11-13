@@ -9,14 +9,17 @@
  * 自定义配置对象
  */
 const DEFAULT_CONFIG = {
-    /* appCodeKey */
-    'appCodeKey': 'BED67B17E4FAED2F6545FEBA422B97BCD54D34EABB5993F1661EF9A2A2E8B904',
+    /* 应用ID的唯一ID */
+    appKey: "1666f504b10dfd2c",
+    /* 应用密钥 */
+    appSecretKey: "gKzoqWsuGtU3efU4qUlWoR2knV1Q4LST",
     /* 是否开启划词翻译 */
-    'enableDrawTranslation': 'Y',
+    enableDrawTranslation: 'Y',
     /* 划词的配合快捷键 */
-    'drawTranslationSecondaryKey': 'Alt',
+    drawTranslationSecondaryKey: 'Alt',
     /* 默认发音 */
-    'drawTranslationDefaultVoice': 'uk',
+    drawTranslationDefaultVoice: 'uk',
+
 };
 
 /**
@@ -68,11 +71,17 @@ const getCustomizedPropertyValue = (propertyName) => {
     return "";
 }
 
+/**
+ *  重新加载配置文件
+ */
+const reloadConfig = () =>{
+    loadConfig().then((config) => {
+        CUSTOMIZED_CONFIG.customized = true;
+        Object.assign(CUSTOMIZED_CONFIG, config);
+    }).catch((err) => {
+        console.error(err);
+    })
+}
+
 // 加载js后执行.. 加载用户自定义配置到变量中..
-loadConfig().then((config) => {
-    // 将当前用户自定义属性进行设置
-    CUSTOMIZED_CONFIG.customized = true;
-    Object.assign(CUSTOMIZED_CONFIG, config);
-}).catch((err) => {
-    console.error(err);
-})
+reloadConfig()
