@@ -25,7 +25,6 @@ description: >- # this means to ignore newlines until "baseurl:"
   一款简单的 Chrome 扩展插件，可以进行简单的中、英文翻译，支持屏幕划词翻译哦~(๑¯◡¯๑)
 
 github_username: jionjion
-rss: rss
 
 
 # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
