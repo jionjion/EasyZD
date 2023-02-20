@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>功能实现思路 | EasyZD</title>
+<meta name="generator" content="Jekyll v3.9.0">
+<meta property="og:title" content="功能实现思路">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="整体功能 翻译，发音。">
+<meta property="og:description" content="整体功能 翻译，发音。">
+<link rel="canonical" href="https://jionjion.github.io//EasyZD/2021/10/01/function-thinking.html">
+<meta property="og:url" content="https://jionjion.github.io//EasyZD/2021/10/01/function-thinking.html">
+<meta property="og:site_name" content="EasyZD">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2021-10-01T01:00:00+00:00">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="功能实现思路">
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://jionjion.github.io//EasyZD/2021/10/01/function-thinking.html"},"description":"整体功能 翻译，发音。","@type":"BlogPosting","headline":"功能实现思路","dateModified":"2021-10-01T01:00:00+00:00","datePublished":"2021-10-01T01:00:00+00:00","url":"https://jionjion.github.io//EasyZD/2021/10/01/function-thinking.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/EasyZD/assets/main.css">
+<link type="application/atom+xml" rel="alternate" href="https://jionjion.github.io//EasyZD/feed.xml" title="EasyZD">
+</head>
+<body>
+<header class="site-header" role="banner">
+
+  <div class="wrapper">
+<a class="site-title" rel="author" href="/EasyZD/">EasyZD</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger">
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewbox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/EasyZD/">快速开始</a></div>
+      </nav>
+</div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">功能实现思路</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2021-10-01T01:00:00+00:00" itemprop="datePublished">Oct 1, 2021
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="整体功能">整体功能</h2>
+<p>翻译，发音。</p>
+
+<h2 id="程序执行流程图">程序执行流程图</h2>
+<p>整体程序执行流程图如下..</p>
+
+<p><img class="mermaid" src="https://mermaid.ink/svg/eyJjb2RlIjoiZmxvd2NoYXJ0IFREXG4lJS1cbk9uZUFb5Lu75oSP55WM6Z2iLeWIkuivjV0gLS0tPiBPbmVCWy_mtY_op4jlmajnm5HlkKzpgInmi6nkuovku7YvXSAtLT4gT25lQ3vliKTmlq3or63np419IC0tLT4gT25lRFvlkJHlkI7lj7Dor7fmsYLnv7vor5FdXG4lJS1cblR3b0FbUE9QVVAt5YmN5Y-wXSAtLT4gVHdvQlvpobXpnaLlt6bkuIrop5JQT1Dmn6Xor6LljZXor41dIC0tPiAgVHdvQ1sv5rWP6KeI5Zmo55uR5ZCs6ZSu55uY6L6T5YWl5LqL5Lu2L10gLS0-IFR3b0R75Yik5pat6K-t56eNfSAtLSDoi7Hmlocv5Lit5paHIC0tPiBUd29FW-WQkeWQjuWPsOivt-axgue_u-ivkV0gLS0-IFR3b0Zb5Zue6LCD5pi-56S6SHRtbCzlj5Hpn7Ms5pi-56S6XSAtLT4gVHdvR1vlrozmiJDnv7vor5HmmL7npLpdXG4lJS1cblRocmVlQVvlkI7lj7BdIC0tPiBUaHJlZUJbL-WQjuWPsOebkeWQrOS6i-S7tizms6jmhI_ljLrliIbkuovku7bmnaXmupAvXSAgLS0-IFRocmVlQ1vlj5HpgIHmnInpgZPnv7vor5FBUEnor7fmsYIu5aSx6LSl5YiZ57uf5LiA6L-U5Zue6ZSZ6K-vXSAtLSDmiJDlip8gLS0-IFRocmVlRHvor7fmsYLmnaXmupAs6K-t56eN5Yy65YiGfSAtLSBQT1BVUCAtLT4gVGhyZWVFW1BPUFVQ6aG16Z2i5ZON5bqULi7kuK3oi7Hnv7vor5Hnu5PmnpxdIC0tPiBUaHJlZUZb6L-U5Zue5YmN5Y-wXVxuJSUtIiwibWVybWFpZCI6bnVsbH0"></p>
+
+<h2 id="扩展资料">扩展资料</h2>
+
+  </div>
+<a class="u-url" href="/EasyZD/2021/10/01/function-thinking.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/EasyZD/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">EasyZD</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">EasyZD</li>
+<li><a class="u-email" href="mailto:jionjion@aliyun.com">jionjion@aliyun.com</a></li>
+</ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+<ul class="social-media-list"><li><a href="https://github.com/jionjion"><svg class="svg-icon"><use xlink:href="/EasyZD/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jionjion</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>一款简单的 Chrome 扩展插件，可以进行简单的中、英文翻译，支持屏幕划词翻译哦~(๑¯◡¯๑)</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

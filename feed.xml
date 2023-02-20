@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://jionjion.github.io//EasyZD/feed.xml" rel="self" type="application/atom+xml" /><link href="https://jionjion.github.io//EasyZD/" rel="alternate" type="text/html" /><updated>2023-02-20T05:59:47+00:00</updated><id>https://jionjion.github.io//EasyZD/feed.xml</id><title type="html">EasyZD</title><subtitle>一款简单的 Chrome 扩展插件，可以进行简单的中、英文翻译，支持屏幕划词翻译哦~(๑¯◡¯๑)</subtitle><entry><title type="html">功能实现思路</title><link href="https://jionjion.github.io//EasyZD/2021/10/01/function-thinking.html" rel="alternate" type="text/html" title="功能实现思路" /><published>2021-10-01T01:00:00+00:00</published><updated>2021-10-01T01:00:00+00:00</updated><id>https://jionjion.github.io//EasyZD/2021/10/01/function-thinking</id><content type="html" xml:base="https://jionjion.github.io//EasyZD/2021/10/01/function-thinking.html">&lt;h2 id=&quot;整体功能&quot;&gt;整体功能&lt;/h2&gt;
+&lt;p&gt;翻译，发音。&lt;/p&gt;
+
+&lt;h2 id=&quot;程序执行流程图&quot;&gt;程序执行流程图&lt;/h2&gt;
+&lt;p&gt;整体程序执行流程图如下..&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;mermaid&quot; src=&quot;https://mermaid.ink/svg/eyJjb2RlIjoiZmxvd2NoYXJ0IFREXG4lJS1cbk9uZUFb5Lu75oSP55WM6Z2iLeWIkuivjV0gLS0tPiBPbmVCWy_mtY_op4jlmajnm5HlkKzpgInmi6nkuovku7YvXSAtLT4gT25lQ3vliKTmlq3or63np419IC0tLT4gT25lRFvlkJHlkI7lj7Dor7fmsYLnv7vor5FdXG4lJS1cblR3b0FbUE9QVVAt5YmN5Y-wXSAtLT4gVHdvQlvpobXpnaLlt6bkuIrop5JQT1Dmn6Xor6LljZXor41dIC0tPiAgVHdvQ1sv5rWP6KeI5Zmo55uR5ZCs6ZSu55uY6L6T5YWl5LqL5Lu2L10gLS0-IFR3b0R75Yik5pat6K-t56eNfSAtLSDoi7Hmlocv5Lit5paHIC0tPiBUd29FW-WQkeWQjuWPsOivt-axgue_u-ivkV0gLS0-IFR3b0Zb5Zue6LCD5pi-56S6SHRtbCzlj5Hpn7Ms5pi-56S6XSAtLT4gVHdvR1vlrozmiJDnv7vor5HmmL7npLpdXG4lJS1cblRocmVlQVvlkI7lj7BdIC0tPiBUaHJlZUJbL-WQjuWPsOebkeWQrOS6i-S7tizms6jmhI_ljLrliIbkuovku7bmnaXmupAvXSAgLS0-IFRocmVlQ1vlj5HpgIHmnInpgZPnv7vor5FBUEnor7fmsYIu5aSx6LSl5YiZ57uf5LiA6L-U5Zue6ZSZ6K-vXSAtLSDmiJDlip8gLS0-IFRocmVlRHvor7fmsYLmnaXmupAs6K-t56eN5Yy65YiGfSAtLSBQT1BVUCAtLT4gVGhyZWVFW1BPUFVQ6aG16Z2i5ZON5bqULi7kuK3oi7Hnv7vor5Hnu5PmnpxdIC0tPiBUaHJlZUZb6L-U5Zue5YmN5Y-wXVxuJSUtIiwibWVybWFpZCI6bnVsbH0&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;扩展资料&quot;&gt;扩展资料&lt;/h2&gt;</content><author><name></name></author><summary type="html">整体功能 翻译，发音。</summary></entry><entry><title type="html">更新日志</title><link href="https://jionjion.github.io//EasyZD/2021/10/01/update-log.html" rel="alternate" type="text/html" title="更新日志" /><published>2021-10-01T01:00:00+00:00</published><updated>2021-10-01T01:00:00+00:00</updated><id>https://jionjion.github.io//EasyZD/2021/10/01/update-log</id><content type="html" xml:base="https://jionjion.github.io//EasyZD/2021/10/01/update-log.html">&lt;h2 id=&quot;更新日志&quot;&gt;更新日志&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;3.3.2&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2022-06-25&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;✨ 【新增】 发布界面 GitHub Page&lt;/li&gt;
+  &lt;li&gt;🚀 【优化】 查询单词速度&lt;/li&gt;
+  &lt;li&gt;🐛 【解决】 单词过长时导致查询失败&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;3.3.0&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2022-06-01&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;🎉 正式发布 🥳&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;3.3.2&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2022-06-25&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;✨ 【新增】 查询页面默认背景图片&lt;/li&gt;
+  &lt;li&gt;🚀 【优化】 代码格式, 标准注释开发&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;3.3.8&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2022-06-25&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;✨ 【新增】 设置界面, 配合按键, 让翻译不再误触&lt;/li&gt;
+  &lt;li&gt;🚀 【优化】 优化代码, 文件分隔更合理&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;3.4.0&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2022-10-29&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;🐛 【解决】 页面错别字&lt;/li&gt;
+  &lt;li&gt;🐛 【解决】 图标翻译无法发音&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;3.4.2&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2022-10-29&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;✨ 【新增】 接入有道智云翻译平台&lt;/li&gt;
+  &lt;li&gt;✨ 【新增】 添加是否发音配置选项&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;3.4.4&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2022-11-21&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;✨ 【新增】 有道智云创建指导页面&lt;/li&gt;
+  &lt;li&gt;✨ 【新增】 记录单词记录&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">更新日志</summary></entry></feed>
