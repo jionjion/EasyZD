@@ -17,6 +17,24 @@ body {
   height: 70vh;
   background-color: #FFFAFC;
 }
+.easy-zd-fixed-center {
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+/* 提示内容 */
+.Easy-ZD-message {
+  display: none;
+  width: 200px;
+  padding: 5px;
+  color: #3c763d;
+  background-color: #dff0d8;
+  border: 1px solid #d6e9c6;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 15px;
+}
 /* 标题 */
 .Easy-ZD-title {
   text-align-last: justify;
@@ -34,11 +52,16 @@ body {
 /* 标题按钮 */
 .Easy-ZD-setting-save-btn {
   display: inline-block;
+  padding: 5px 13px;
+  background-color: #0088cc;
   color: #fff;
-  background-color: #2180e5;
-  border-color: #2180e5;
+  text-decoration: none;
   border-radius: 5px;
-  font-size: 15px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 /* 设置表单 */
 /* 设置表单 */

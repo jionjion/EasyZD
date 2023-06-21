@@ -167,7 +167,6 @@ const htmlBuilderFactory = (message, responseJson) => {
  * @return {string} 错误的HTML页面
  */
 const errorHtmlBuilder = (data) => {
-    debugger;
     return AppTemplate.getYouDaoError(data);
 }
 
