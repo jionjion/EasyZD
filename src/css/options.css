@@ -22,7 +22,7 @@
 }
 @keyframes Easy-ZD-rainbow {
   0% {
-    background-position: 0% 50%;
+    background-position: 0 50%;
   }
   100% {
     background-position: 100% 50%;
@@ -135,7 +135,8 @@ body {
 /* 支持页面 */
 .Easy-ZD-setting-supper-fieldset {
   border-color: blanchedalmond;
-  color: plum;
+  font-weight: bolder;
+  color: #79abe5;
 }
 /* 支持页面广告 */
 .Easy-ZD-supper-ad img {
