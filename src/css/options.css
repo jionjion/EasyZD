@@ -10,6 +10,24 @@
 /* 深蓝,海蓝 */
 /* 棕色 */
 /* 字体大小 */
+/**
+ *  定义基础动画效果
+ */
+/* 彩虹字体 */
+.Easy-ZD-rainbow-text {
+  background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: Easy-ZD-rainbow 10s infinite;
+}
+@keyframes Easy-ZD-rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
 /* 设置页面 */
 body {
   margin: 100px auto;
@@ -80,6 +98,7 @@ body {
 }
 /* 设置标题 */
 .Easy-ZD-setting-form-label {
+  font-size: 14px;
   width: 140px;
   display: inline-block;
   font-weight: bold;
@@ -101,12 +120,17 @@ body {
 }
 /* 标题 */
 .Easy-ZD-h4 {
+  font-size: 16px;
   font-weight: initial;
   text-align: right;
   padding-block-start: 0.2rem;
   padding-block-end: 0.2rem;
   margin-block-start: auto;
   margin-block-end: auto;
+}
+/* 谚语 */
+.Easy-ZD-adage {
+  font-size: 18px;
 }
 /* 支持页面 */
 .Easy-ZD-setting-supper-fieldset {

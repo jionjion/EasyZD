@@ -116,7 +116,7 @@ const buildResult = (response) => {
             // 删除
             document.documentElement.removeChild(queryResultElementOld);
         }
-    }, 800000);
+    }, 8000);
 
     // 绑定发音
     let $wordUkSpeech = document.querySelector("#Easy-ZD-word-uk-speech");
