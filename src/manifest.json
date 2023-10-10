@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
   "name": "EasyZD",
-  "version": "3.4.2",
+  "version": "3.4.4",
   "author": "Jion",
-  "description": "简单的查询功能,将中文或者英文进行翻译,并支持划词操作哦 (*￣ω￣)!...",
+  "description": "简单的翻译功能,将中文或者英文进行翻译,并支持划词操作哦 (*￣ω￣)!...",
   "icons": {
     "16": "icon/icon16.png",
     "48": "icon/icon48.png",
@@ -44,7 +44,7 @@
     }
   },
   "commands": {
-    "_execute_browser_action": {
+    "_execute_action": {
       "suggested_key": {
         "default": "Ctrl+Shift+T",
         "mac": "MacCtrl+Shift+T"

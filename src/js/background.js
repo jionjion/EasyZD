@@ -65,9 +65,11 @@ const requestApi = async (message, sendResponse) => {
         curtime: curtime,
         //vocabId: vocabId
     };
+    debugger;
+    let earlyErrorMessage = assertAppKeyAndSecretKey(appKey, appSecretKey);
 
     // 检查参数是否满足
-    let errorMessage = assertTranslationData(translationData);
+    let errorMessage = earlyErrorMessage || assertTranslationData(translationData);
     if (Ext.isNotEmpty(errorMessage)) {
         let result = {errorCode: -1, wordErrorValue: errorMessage}
         // noinspection JSValidateTypes
@@ -91,6 +93,20 @@ const requestApi = async (message, sendResponse) => {
             console.error('Error:', error);
         });
 
+}
+
+/**
+ * @param {string} appKey 应用ID
+ * @param {string} appSecretKey 应用秘钥
+ * @return {string} 校验信息
+ */
+const assertAppKeyAndSecretKey = (appKey, appSecretKey) => {
+    if (Ext.isEmpty(appKey)) {
+        return '应用ID不能为空！';
+    } else if (Ext.isEmpty(appSecretKey)) {
+        return '应用密钥不能为空！';
+    }
+    return undefined;
 }
 
 /**
@@ -167,7 +183,6 @@ const htmlBuilderFactory = (message, responseJson) => {
  * @return {string} 错误的HTML页面
  */
 const errorHtmlBuilder = (data) => {
-    debugger;
     return AppTemplate.getYouDaoError(data);
 }
 

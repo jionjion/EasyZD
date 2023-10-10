@@ -19,15 +19,15 @@ const DEFAULT_CONFIG = {
     drawTranslationSecondaryKey: 'Alt',
     /* 默认发音 */
     drawTranslationDefaultVoice: 'uk',
-
+    /** 是否被重新配置 */
+    "customized": false
 };
 
 /**
  *  用户配置对象, 可以从 local-store 中读取
  */
 let CUSTOMIZED_CONFIG = {
-    /** 是否被重新配置 */
-    "customized": false
+
 }
 
 
@@ -41,10 +41,11 @@ const loadConfig = async () => {
         try {
             // noinspection JSUnresolvedVariable
             chrome.storage.local.get(['customizedConfig'], function (result) {
-                const config = result.customizedConfig;
-                if (Ext.isNotEmpty(config)) {
-                    console.log("加载用户自定义配置文件: " + JSON.parse(config));
-                    resolve(JSON.parse(config));
+                if (Ext.isNotEmpty(result.customizedConfig)) {
+                    let config = JSON.parse(result.customizedConfig);
+                    console.log("加载用户自定义配置文件: " + config);
+                    config.customized = true;
+                    resolve(config);
                 } else {
                     resolve(DEFAULT_CONFIG);
                 }
@@ -76,7 +77,6 @@ const getCustomizedPropertyValue = (propertyName) => {
  */
 const reloadConfig = () =>{
     loadConfig().then((config) => {
-        CUSTOMIZED_CONFIG.customized = true;
         Object.assign(CUSTOMIZED_CONFIG, config);
     }).catch((err) => {
         console.error(err);

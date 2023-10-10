@@ -9,6 +9,8 @@
 /*
  *	各种Dom元素对象
  */
+let $messagePrompt = document.querySelector("#Easy-ZD-message");
+let $messagePromptText = document.querySelector("#Easy-ZD-message-text");
 let $buttonSettingSave = document.querySelector("#setting-save-btn");
 let $textInputAppKey = document.querySelector("#app_key");
 let $textInputAppSecretKey = document.querySelector("#app_secret_key");
@@ -37,6 +39,25 @@ const refreshDom = () => {
     $radioInputDrawTranslationDefaultVoiceByUs = document.querySelector("#draw_translation_default_voice_by_us");
 }
 
+
+/**
+ *
+ * @param text 提示内容
+ * @param delay 几毫秒后提示消失
+ */
+const showPrompt = (text = "", delay = 3000) => {
+    // 文本
+    if (Ext.isNotEmpty(text)) {
+        $messagePromptText.innerHTML = text;
+    }
+    $messagePrompt.style.cssText = "display:block";
+
+    // 五秒后隐藏...
+    window.setTimeout(() => {
+        $messagePrompt.style.cssText = "display:none"
+    }, delay);
+}
+
 /**
  * 保存配置
  */
@@ -49,6 +70,8 @@ const saveConfig = () => {
         console.log('储存当前配置文件: ' + config);
     });
 
+    // 显示提示...
+    showPrompt();
 }
 
 /**
@@ -98,9 +121,9 @@ const configExtract = () => {
     }
 
     // 发音
-    if($radioInputDrawTranslationDefaultVoiceByUk.hasAttribute("checked") || $radioInputDrawTranslationDefaultVoiceByUk['checked']){
+    if ($radioInputDrawTranslationDefaultVoiceByUk.hasAttribute("checked") || $radioInputDrawTranslationDefaultVoiceByUk['checked']) {
         config['drawTranslationDefaultVoice'] = 'uk';
-    }else if($radioInputDrawTranslationDefaultVoiceByUs.hasAttribute("checked") || $radioInputDrawTranslationDefaultVoiceByUs['checked']){
+    } else if ($radioInputDrawTranslationDefaultVoiceByUs.hasAttribute("checked") || $radioInputDrawTranslationDefaultVoiceByUs['checked']) {
         config['drawTranslationDefaultVoice'] = 'us';
     }
 

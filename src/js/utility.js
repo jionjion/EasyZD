@@ -162,7 +162,7 @@ function translateYouDaoMessage(args) {
                 return errorMessage;
             }
         }
-        return args;
+        return args['wordErrorValue'];
     }
     return "";
 }

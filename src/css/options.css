@@ -10,12 +10,48 @@
 /* 深蓝,海蓝 */
 /* 棕色 */
 /* 字体大小 */
+/**
+ *  定义基础动画效果
+ */
+/* 彩虹字体 */
+.Easy-ZD-rainbow-text {
+  background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: Easy-ZD-rainbow 10s infinite;
+}
+@keyframes Easy-ZD-rainbow {
+  0% {
+    background-position: 0 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
 /* 设置页面 */
 body {
   margin: 100px auto;
   width: 600px;
   height: 70vh;
   background-color: #FFFAFC;
+}
+.easy-zd-fixed-center {
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+/* 提示内容 */
+.Easy-ZD-message {
+  display: none;
+  width: 200px;
+  padding: 5px;
+  color: #3c763d;
+  background-color: #dff0d8;
+  border: 1px solid #d6e9c6;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 15px;
 }
 /* 标题 */
 .Easy-ZD-title {
@@ -34,11 +70,16 @@ body {
 /* 标题按钮 */
 .Easy-ZD-setting-save-btn {
   display: inline-block;
+  padding: 5px 13px;
+  background-color: #0088cc;
   color: #fff;
-  background-color: #2180e5;
-  border-color: #2180e5;
+  text-decoration: none;
   border-radius: 5px;
-  font-size: 15px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 /* 设置表单 */
 /* 设置表单 */
@@ -57,6 +98,7 @@ body {
 }
 /* 设置标题 */
 .Easy-ZD-setting-form-label {
+  font-size: 14px;
   width: 140px;
   display: inline-block;
   font-weight: bold;
@@ -78,6 +120,7 @@ body {
 }
 /* 标题 */
 .Easy-ZD-h4 {
+  font-size: 16px;
   font-weight: initial;
   text-align: right;
   padding-block-start: 0.2rem;
@@ -85,10 +128,15 @@ body {
   margin-block-start: auto;
   margin-block-end: auto;
 }
+/* 谚语 */
+.Easy-ZD-adage {
+  font-size: 18px;
+}
 /* 支持页面 */
 .Easy-ZD-setting-supper-fieldset {
   border-color: blanchedalmond;
-  color: plum;
+  font-weight: bolder;
+  color: #79abe5;
 }
 /* 支持页面广告 */
 .Easy-ZD-supper-ad img {
