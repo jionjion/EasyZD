@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "EasyZD",
-  "version": "3.4.4",
+  "version": "3.4.6",
   "author": "Jion",
   "description": "简单的翻译功能,将中文或者英文进行翻译,并支持划词操作哦 (*￣ω￣)!...",
   "icons": {
